@@ -1,0 +1,5 @@
+npm install express
+npm i ejs express-ejs-layouts uuid
+npm i nodemon --save-dev
+npm i morgan --save-dev
+npm install node-sass --save-dev

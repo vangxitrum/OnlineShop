@@ -1,0 +1,83 @@
+
+// Phan wrapper cua trang
+.off_canvars_overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    cursor: crosshair;
+    background: #747474;
+    top: 0;
+}
+
+.off_canvars_overlay.active {
+    opacity: 0.5;
+    visibility: visible;
+}
+
+
+// Phan breadcum cua trang
+
+.breadcrumbs_area {
+    padding: 2em 0;
+}
+
+.breadcrumb_content ul {
+    line-height: 1.2em;
+}
+.breadcrumb_content ul li {
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 1em;
+    margin-right: .2em;
+    color: $black_color;
+}
+.breadcrumb_content ul li:last-child {
+    margin-right: 0;
+}
+.breadcrumb_content ul li a {
+    color: $gray_color;
+}
+.breadcrumb_content ul li a:hover {
+    color: $base-color;
+}
+
+// pagination
+
+.pagination ul li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #f1f1f1;
+    color: #747474;
+    border-radius: 3px;
+    margin-left: 3px;
+  }
+  
+  .pagination ul li:first-child {
+    margin-left: 0;
+  }
+  
+  .pagination ul li a {
+    display: block;
+    border-radius: 3px;
+  }
+  
+  .pagination ul li a:hover {
+    background: #ff6a28;
+    color: #ffffff;
+  }
+  
+  .pagination ul li.current {
+    background: #ff6a28;
+    color: #ffffff;
+  }
+  
+  .pagination ul li.next {
+    width: 40px;
+  }
+  

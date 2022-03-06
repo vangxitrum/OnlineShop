@@ -1,0 +1,24 @@
+{
+  "name": "pj1",
+  "version": "1.0.0",
+  "description": "Online shop",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "start ",
+    "start": "nodemon src/server.js",
+    "watch": "node-sass --watch src/scss/ --output src/public/stylesheets/"
+  },
+  "author": "UIT students",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.15"
+  }
+}
