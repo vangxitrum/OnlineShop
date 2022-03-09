@@ -1027,3 +1027,28 @@
 }
 
 
+.tag_widget ul li {
+  display: inline-block;
+}
+.tag_widget ul li a {
+  margin: 0 6px 5px 0;
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  padding: 0 15px;
+  line-height: 29px;
+  color: #747474;
+  border-radius: 25px;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .tag_widget ul li a {
+    padding: 0 13px;
+  }
+}
+.tag_widget ul li a:hover {
+  background: #ff6a28;
+  color: #fff;
+  border-color: #ff6a28;
+}

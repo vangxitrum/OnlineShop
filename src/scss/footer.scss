@@ -1,0 +1,215 @@
+@import 'variable';
+@import 'global';
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .footer_widgets {
+      padding: 0 30px;
+    }
+  }
+  
+  .footer_top {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 92px;
+  }
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .footer_top {
+      padding-bottom: 72px;
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .footer_top {
+      padding-bottom: 80px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .footer_top {
+      padding-bottom: 40px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .footer_top {
+      padding-bottom: 34px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .widgets_container {
+      margin-bottom: 20px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .widgets_container {
+      margin-bottom: 25px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .widgets_container.contact_us {
+      margin-bottom: 34px;
+    }
+  }
+  .widgets_container h3 {
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #242424;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .widgets_container h3 {
+      margin-bottom: 8px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .widgets_container h3 {
+      margin-bottom: 8px;
+    }
+  }
+  
+  .footer_menu ul li a {
+    display: block;
+    font-weight: 400;
+    line-height: 30px;
+    color: #747474;
+  }
+  .footer_menu ul li a:hover {
+    color: #ff6a28;
+  }
+  
+  .footer_contact p {
+    margin-bottom: 0;
+    line-height: 30px;
+  }
+  .footer_contact p a:hover {
+    color: #ff6a28;
+  }
+  .footer_contact ul {
+    margin-top: 10px;
+  }
+  .footer_contact ul li {
+    display: inline-block;
+    margin-right: 7px;
+  }
+  .footer_contact ul li:last-child {
+    margin-right: 0;
+  }
+  .footer_contact ul li a {
+    color: #b2b2b2;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #e1e1e1;
+    background: #fff;
+    text-align: center;
+    border-radius: 50%;
+    display: block;
+  }
+  .footer_contact ul li a:hover {
+    background: #242424;
+    color: #fff;
+    border-color: #242424;
+  }
+  
+  .newleter-content p {
+    line-height: 28px;
+    margin-bottom: 10px;
+  }
+  .newleter-content form input {
+    width: 100%;
+    padding: 0 20px;
+    border: 1px solid #e1e1e1;
+    height: 45px;
+    color: #cacaca;
+    margin-bottom: 10px;
+  }
+  .newleter-content form button {
+    background: #242424;
+    line-height: 45px;
+    padding: 0 10px;
+    margin-top: 7px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 3px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .newleter-content form button:hover {
+    background: #ff6a28;
+  }
+  
+  .mailchimp-error {
+    text-align: center;
+    color: green;
+  }
+  
+  .mailchimp-success {
+    text-align: center;
+    color: green;
+  }
+  .mailchimp-success.active {
+    margin-top: 20px;
+  }
+  
+  .footer_custom_links {
+    text-align: right;
+  }
+  @media only screen and (max-width: 767px) {
+    .footer_custom_links {
+      text-align: center;
+    }
+  }
+  .footer_custom_links ul li {
+    display: inline-block;
+    padding-right: 30px;
+  }
+  @media only screen and (max-width: 767px) {
+    .footer_custom_links ul li {
+      padding-right: 20px;
+    }
+  }
+  .footer_custom_links ul li:last-child {
+    margin-right: 0;
+  }
+  .footer_custom_links ul li a {
+    color: #747474;
+    text-transform: capitalize;
+  }
+  .footer_custom_links ul li a:hover {
+    color: #ff6a28;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .copyright_area {
+      text-align: center;
+    }
+  }
+  .copyright_area p {
+    text-transform: capitalize;
+  }
+  @media only screen and (max-width: 767px) {
+    .copyright_area p {
+      margin-bottom: 5px;
+    }
+  }
+  .copyright_area p a {
+    color: #ff6a28;
+  }
+  .copyright_area p a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer_bottom {
+    padding: 30px 0;
+  }
+  @media only screen and (max-width: 767px) {
+    .footer_bottom {
+      padding: 20px 0;
+    }
+  }
