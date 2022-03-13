@@ -15,6 +15,8 @@ router.get('/shopcategory', expressLayout, ShopCategoryController.show)
 
 router.get('/home', expressLayout, HomePageController.show)
 
+router.get('/', expressLayout, HomePageController.show)
+
 router.get('/productdetail',expressLayout, productDetailController.show)
 
 router.get('/cart',expressLayout, cartController.show)

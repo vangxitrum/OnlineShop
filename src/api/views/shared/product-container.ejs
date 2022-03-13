@@ -1,0 +1,39 @@
+   <!-- render container chứa sản phẩm , cần 2 tham số -->
+   <!-- tham số là product( object lấy từ db của sản phẩn cần hiển thị) và photos(những đối tượng hình ảnh từ database) -->
+   <% if(product&&photos){ -%>
+    <!-- tim` hinh dau` tien -->
+    <% var photo1='empty' -%>
+    <%  photos.forEach(function(photoItem){  -%>
+            <% if(photoItem.productDetailID.equals(product._id) &&photo1=='empty'){ -%>
+                <% photo1=photoItem.path -%>
+            <% } -%>
+        <% }); -%>
+    <!-- tim` hinh dau` tien -->
+s
+    <div class="col-lg-3">
+        <div class="single_product">
+            <div class="product_thumb">
+                <a class="primary_img" href="product-details.html"><img src="<%= photo1 %>"    alt=""></a>
+                <a class="secondary_img" href="product-details.html"><img src="<%= photo1 %>"  alt=""></a>
+                <div class="quick_button">
+                    <a href="#" title="quick_view">Xem sản phẩm</a>
+                </div>
+                <%  if(product.discount) {-%>
+                    <div class="product_sale">
+                        <span>-<%= product.discount %>%</span>
+                    </div>   
+                    <% } -%>
+                
+            </div>
+            <div class="product_content">
+                <h3><a href="product-details.html"><%= product.name%></a></h3>
+                <%  if(product.discount) {-%>
+                <span class="current_price"><%= (product.price*(100-product.discount))/100 %>VND</span>
+                <span class="old_price"><%= product.price %>VND</span>
+                    <% } else { -%>
+                <span class="current_price"><%= product.price %>VND</span>
+                     <% } -%>
+            </div>
+        </div>
+    </div> 
+    <% } -%>
