@@ -1,0 +1,550 @@
+@import 'variable';
+@import 'animation';
+
+.header_about {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .about_section {
+    padding-bottom: 60px;
+  }
+  .about_section.section_two {
+    padding: 0 194px;
+  }
+  .about_section.section_two .about_thumb {
+    text-align: center;
+  }
+  .about_section.section_two .about_content {
+    margin-bottom: 25px;
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .about_content {
+      margin-bottom: 30px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .about_content {
+      margin-bottom: 30px;
+    }
+  }
+  .about_content h1 {
+    font-weight: 500;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #242424 ;
+    font-size: 30px;
+    margin-bottom: 19px;
+  }
+  @media only screen and (max-width: 767px) {
+    .about_content h1 {
+      font-size: 20px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+  }
+  .about_content p {
+    color: #747474;
+    font-size: 15px;
+    line-height: 30px;
+    margin-bottom: 22px;
+  }
+  @media only screen and (max-width: 767px) {
+    .about_content p {
+      font-size: 13px;
+      line-height: 24px;
+      margin-bottom: 11px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .view__work {
+      margin-top: 18px;
+    }
+  }
+  .view__work a {
+    color: #242424;
+    border: 1px solid #242424;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 10px 15px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  .view__work a:hover {
+    background: #ff6a28;
+    color: #fff;
+    border-color: #ff6a28;
+  }
+  @media only screen and (max-width: 767px) {
+    .view__work a {
+      padding: 7px 9px;
+      height: 33px;
+      font-size: 12px;
+    }
+  }
+  
+  .counterup_section {
+    padding-bottom: 30px;
+  }
+  
+  .counter_img {
+    margin-right: 20px;
+  }
+  @media only screen and (max-width: 767px) {
+    .counter_img {
+      margin-right: 10px;
+    }
+  }
+  
+  .single_counterup {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: #f3f3f3;
+    padding: 88px 0 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 30px;
+  }
+  
+  .about_section.section_two {
+    padding: 25px 20px 18px;
+  }
+  
+  .counter_info h2 {
+    font-size: 30px;
+    font-weight: 500;
+    color: #242424;
+    margin-bottom: 5px;
+    line-height: 33px;
+    margin-bottom: 0;
+  }
+  @media only screen and (max-width: 767px) {
+    .counter_info h2 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+  .counter_info p {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #747474;
+    margin-bottom: 0;
+    line-height: 24px;
+  }
+  @media only screen and (max-width: 767px) {
+    .counter_info p {
+      font-size: 11px;
+    }
+  }
+  
+  .about_progressbar {
+    padding-bottom: 60px;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .about_progressbar {
+      padding-bottom: 70px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .about_progressbar {
+      padding-bottom: 70px;
+    }
+  }
+  .about_progressbar.about_prog {
+    background-color: #ff6a28;
+    border-radius: 3px;
+  }
+  .about_progressbar.about_prog span.progress_persent {
+    position: absolute;
+    left: 50px;
+    text-transform: uppercase;
+  }
+  .about_progressbar.porgress_two {
+    padding: 5px 20px 35px;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .progressbar_inner {
+      margin-bottom: 40px;
+    }
+  }
+  .progressbar_inner h2 {
+    font-size: 25px;
+    color: #242424;
+    margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .progressbar_inner h2 {
+      font-size: 21px;
+      margin-bottom: 27px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .progressbar_inner h2 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+  
+  .progress_skill {
+    position: relative;
+    margin-bottom: 40px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .progress_skill {
+      margin-bottom: 33px;
+    }
+  }
+  .progress_skill:last-child {
+    margin-bottom: 0;
+  }
+  .progress_skill span.progress_discount {
+    position: absolute;
+    left: -2px;
+    background: #242424;
+    border-radius: 100%;
+    border: 3px solid #ff6a28;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    -webkit-transform: translatey(-50%);
+    transform: translatey(-50%);
+    text-align: center;
+    line-height: 35px;
+    z-index: 9;
+  }
+  .progress_skill .progress-bar {
+    background: #ff6a28;
+  }
+  
+  .progress_skill.one .progress-bar {
+    width: 60%;
+  }
+  
+  .progress_skill.two .progress-bar {
+    width: 90%;
+  }
+  
+  .progress_skill.three .progress-bar {
+    width: 70%;
+  }
+  
+  .progress_skill.four .progress-bar {
+    width: 80%;
+  }
+  
+  /*about page css end*/
+  /* 22. services page css here */
+  .srrvices_gallery {
+    padding-bottom: 30px;
+  }
+  
+  .services_content h3 {
+    font-size: 15px;
+    color: #242424;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 11px;
+    line-height: 14px;
+  }
+  .services_content p {
+    color: #747474;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 0;
+  }
+  
+  .services_thumb {
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 767px) {
+    .services_thumb img {
+      width: 100%;
+    }
+  }
+  
+  .single_services {
+    margin-bottom: 25px;
+  }
+  
+  .our_services {
+    padding: 53px 0 24px;
+    background: #ECECEC;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .our_services {
+      padding: 53px 0 28px;
+      margin-bottom: 60px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .our_services {
+      padding: 52px 0 26px;
+      margin-bottom: 60px;
+    }
+  }
+  
+  .services_item {
+    margin-bottom: 27px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .services_title {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  .services_title h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 11px;
+    color: #242424;
+  }
+  
+  .services_icone {
+    margin-right: 15px;
+  }
+  .services_icone i {
+    font-size: 35px;
+    line-height: 46px;
+    color: #ff6a28;
+  }
+  
+  .services_desc h3 {
+    font-size: 13px;
+    color: #242424;
+    font-weight: 500;
+  }
+  .services_desc p {
+    color: #747474;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 0;
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .services_section_thumb {
+      margin-bottom: 28px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .services_section_thumb {
+      margin-bottom: 28px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .unlimited_services {
+      margin-bottom: 59px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .unlimited_services {
+      margin-bottom: 59px;
+    }
+  }
+  
+  .unlimited_services_content {
+    text-align: center;
+  }
+  .unlimited_services_content h1 {
+    font-weight: 600;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #242424;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .unlimited_services_content h1 {
+      line-height: 25px;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .unlimited_services_content h1 {
+      line-height: 21px;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .unlimited_services_content h1 {
+      line-height: 20px;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+  }
+  .unlimited_services_content p {
+    color: #747474;
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 25px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .unlimited_services_content p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .unlimited_services_content p {
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+  }
+  
+  .priceing_table {
+    background: #ECECEC;
+    padding: 60px 0 30px;
+  }
+  
+  .single_priceing {
+    background: #fff;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .priceing_title {
+    padding: 20px;
+    background: #ff6a28;
+  }
+  .priceing_title h1 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  
+  .priceing_list {
+    padding: 0 20px 30px;
+  }
+  .priceing_list h1 {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 36px 0 24px;
+    margin: 0;
+    line-height: 20px;
+    color: #747474;
+  }
+  .priceing_list h1 span {
+    color: #242424;
+    font-size: 40px;
+  }
+  .priceing_list ul li {
+    color: #747474;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    line-height: 24px;
+  }
+  .priceing_list ul li:first-child {
+    border-top: 1px solid #ddd;
+  }
+  .priceing_list a {
+    margin: 30px 0 0;
+    line-height: 40px;
+    padding: 0 20px;
+    border: 1px solid #242424;
+    color: #242424;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .priceing_list a.list_button, .priceing_list a:hover {
+    background: #ff6a28;
+    border-color: #ff6a28;
+    color: #fff;
+  }
+  
+  .advantages_ecommerce {
+    padding: 56px 0 54px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .advantages_ecommerce {
+      padding: 58px 0 57px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .advantages_ecommerce {
+      padding: 58px 0 60px;
+    }
+  }
+  .advantages_ecommerce h3 {
+    font-size: 25px;
+    color: #242424;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .advantages_ecommerce h3 {
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .advantages_ecommerce h3 {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  .advantages_ecommerce p {
+    font-size: 14px;
+    color: #242424;
+    font-style: italic;
+    font-weight: 400;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .advantages_ecommerce p {
+      font-size: 13px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .advantages_ecommerce p {
+      font-size: 13px;
+    }
+  }
+  
+  .advantages_button {
+    text-align: center;
+  }
+  .advantages_button a {
+    font-size: 14px;
+    color: #242424;
+    padding: 10px 20px;
+    display: inline-block;
+    border: 2px solid #242424;
+  }
+  .advantages_button a:hover {
+    background: #ff6a28;
+    color: #fff;
+    border-color: #ff6a28;
+  }
+  @media only screen and (max-width: 767px) {
+    .advantages_button a {
+      padding: 5px 11px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+  }
+  

@@ -10,6 +10,9 @@ const HomePageController = require('../controllers/home-page-controller')
 const loginController = require('../controllers/login-controller')
 const productDetailController = require('../controllers/product-detail-controller')
 const ShopCategoryController = require('../controllers/shop-page-controller')
+const userProfileController = require('../controllers/user-profile-controller')
+
+
 //index router
 router.get('/shopcategory', expressLayout, ShopCategoryController.show)
 
@@ -28,5 +31,7 @@ router.get('/about',expressLayout, aboutController.show)
 router.get('/contact',expressLayout, contactController.show)
 
 router.get('/login',expressLayout, loginController.show)
+
+router.get('/userprofile',expressLayout, userProfileController.show)
 
 module.exports = router

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "start ",
     "start": "nodemon src/server.js",
-    "watch": "node-sass --watch src/scss/ --output src/public/stylesheets/"
+    "watch": "node-sass --watch src/scss/user --output src/public/stylesheets/"
   },
   "author": "UIT students",
   "license": "ISC",

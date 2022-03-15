@@ -25,6 +25,7 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link rel="stylesheet" href="/public/stylesheets/global.css">
   <link rel="stylesheet" href="/public/stylesheets/header.css">
   <link rel="stylesheet" href="/public/stylesheets/footer.css">
  
@@ -36,13 +37,16 @@
   <div class="off_canvars_overlay">
                 
   </div>
+    
     <% if(PageIndex == "0" && !auth){ %>
-      <%- include('../shared/header.ejs'); %> 
+      <%- include('../shared/header-0.ejs'); %> 
     <% }else if(PageIndex == "1" && !auth){ %>
-      <%- include('../shared/product-detail-header.ejs'); %> 
+      <%- include('../shared/header-1.ejs'); %> 
     <% } %> 
     <%- body %> 
+    <% if(PageIndex != "-1"){ %>
     <%- include('../shared/footer.ejs'); %>
+    <% } %> 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -51,9 +55,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha512-NqYds8su6jivy1/WLoW8x1tZMRD7/1ZfhWG/jcRQLOzV1k1rIODCpMgoBnar5QXshKJGV7vi0LXLNXPoFsM5Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <!-- Plugins JS -->
-<script src="public/javascripts/plugins.js"></script>
+<script src="public/javascripts/user/plugins.js"></script>
 
 <!-- Main JS -->
-<script src="public/javascripts/main.js"></script>
+<script src="public/javascripts/user/main.js"></script>
 </html>
+
