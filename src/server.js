@@ -12,7 +12,7 @@ const allRoute = require('./api/routes/all.js')
 const authRoute = require('./api/routes/auth.js')
 //const Users = require('./api/data').users
 const port = 3000
-
+const DB=require('./api/models/connnectDb')
 /*passportConfig.init(
   passport, 
   email => Users.find(user=> user.email == email),
@@ -31,6 +31,9 @@ app.use(methodOverride('_method'))
 app.use(passport.initialize())
 app.use(passport.session())*/
 
+//connect to database
+
+ DB.connectDB()
 // setting
 app.set('view engine', 'ejs')
 app.set('views', __dirname+ '/api/views')
