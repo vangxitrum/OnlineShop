@@ -15,7 +15,7 @@ class ProductDetailController{
             ProductQuantity.find({ productDetailID: productID })
             .then((quantity)=>{
               console.log(`solong la :${quantity.length}`)
-              res.render('pages/ShopPage/product-detail.ejs',{auth:false,PageIndex: 1,product,photos,quantity});
+              res.render('pages/user/ShopPage/product-detail.ejs',{auth:false,PageIndex: 1,product,photos,quantity});
             })   
          });
        })

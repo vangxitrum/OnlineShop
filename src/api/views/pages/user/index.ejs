@@ -118,7 +118,7 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(item.status.includes("Women")) {-%>
-                                                <%- include('../shared/product-container',{product: item,photos:photos}); %>
+                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
                                             <% } -%>
                                     <% }); %> 
                                 </div>
@@ -129,7 +129,7 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(!item.status.includes("Women")) {-%>
-                                                <%- include('../shared/product-container',{product: item,photos:photos}); %>
+                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
                                             <% } -%>
                                     <% }); %> 
                                 </div>
@@ -141,7 +141,7 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(!item.status.includes("Women")) {-%>
-                                                <%- include('../shared/product-container',{product: item,photos:photos}); %>
+                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
                                             <% } -%>
                                     <% }); %> 
                                 </div>
@@ -152,7 +152,7 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(item.status.includes("Women")) {-%>
-                                                <%- include('../shared/product-container',{product: item,photos:photos}); %>
+                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
                                             <% } -%>
                                     <% }); %> 
                                 </div>
@@ -213,7 +213,7 @@
                         <!-- Liệt kê danh sách các sản phẩm hot -->
                         <% products.forEach(function(item){ -%>  
                                     <% if(item.status.includes("Hot")) {-%>
-                                     <%- include('../shared/product-container',{product: item,photos:photos}); %>
+                                     <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
                                     <% } -%>
                         <% }); %>
                     </div>

@@ -10,7 +10,7 @@ class HomePageController {
       .then((products) => {
         Photo.find({})
           .then((photos) => {
-            res.render('pages/index.ejs', {
+            res.render('pages/user/index.ejs', {
               products, photos, auth: false, PageIndex: 0
             })
           });
