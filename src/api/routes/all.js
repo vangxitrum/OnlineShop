@@ -14,7 +14,10 @@ const userProfileController = require('../controllers/user-profile-controller')
 
 
 //index router
+router.get('/shopcategory/:page', expressLayout, ShopCategoryController.show)
 router.get('/shopcategory', expressLayout, ShopCategoryController.show)
+
+
 
 router.get('/home', expressLayout, HomePageController.show)
 

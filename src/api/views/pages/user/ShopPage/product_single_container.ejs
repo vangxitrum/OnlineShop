@@ -23,13 +23,13 @@
     <%  var ref= `productdetail?id=${product._id}`-%>
 
     <!-- render product container -->
-    <div class="col-lg-3">
+    <div class="col-lg-4 col-md-4 col-12 ">
         <div class="single_product">
             <div class="product_thumb">
                 <a class="primary_img" href="<%= ref %>"><img src="<%= photo1 %>"    alt=""></a>
                 <a class="secondary_img" href="<%= ref %>"><img src="<%= photo2 %>"  alt=""></a>
                 <div class="quick_button">
-                    <a href="#" title="quick_view">Xem sản phẩm</a>
+                    <a href="<%= ref %>" title="quick_view">Xem sản phẩm</a>
                 </div>
                 <!-- Gắn tag cho sản phẩm -->
                 <div class="double_base">
@@ -48,16 +48,35 @@
                  <!-- Gắn tag cho sản phẩm -->
                 
             </div>
-            <div class="product_content">
-                <h3><a href="<%= ref %>"><%= product.name%></a></h3>
-                <%  if(product.discount) {-%>
+            
+            <div class="product_content grid_content">
+                <h3><a href="<%= ref %>"></a></h3>
                 <span class="current_price"><%= (product.price*(100-product.discount))/100 %>VND</span>
                 <span class="old_price"><%= product.price %>VND</span>
-                    <% } else { -%>
-                <span class="current_price"><%= product.price %>VND</span>
-                     <% } -%>
             </div>
+            
+            
+            <div class="product_content list_content">
+                <h3><a href="<%= ref %>"><%= product.name %></a></h3>
+                <div class="product_ratting">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product_price">
+                    <span class="current_price"><%= (product.price*(100-product.discount))/100 %>VND</span>
+                <span class="old_price"><%= product.price %>VND</span>
+                </div>
+                <div class="product_desc">
+                    <p><%= product.discripe %></p>
+                </div>
+
+            </div>
+            
         </div>
-    </div> 
-     <!-- render product container -->
+    </div>
     <% } -%>

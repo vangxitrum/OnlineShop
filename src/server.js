@@ -47,6 +47,5 @@ app.use('/public', express.static(__dirname+ '/public'))
 app.use('/', allRoute)
 //app.use('/auth', authRoute(passport))
 // routes
-
 // listen
 app.listen(port)
