@@ -275,8 +275,8 @@
 }
   
 .product_d_right .product_price span.current_price {
-    color: #242424;
-    font-size: 13px;
+    color: $price-color;
+    font-size: 15px;
     font-weight: 500;
 }
   
@@ -330,7 +330,7 @@
     color: #747474;
     text-transform: capitalize;
     line-height: 20px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     margin-bottom: 15px;
 }
@@ -664,6 +664,3 @@
   .action_button ul li:last-child a::before {
     display: none;
   }
-
-  
-

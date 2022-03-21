@@ -724,10 +724,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   text-transform: capitalize;
   width: 100%;
   text-align: center;
+  border: 1px solid #999;
+  border-radius: .3rem;
   display: block; }
 
 .quick_button a:hover {
-  color: #ff6a28; }
+  color: #ff6a28;
+  border: 1px solid #ff6a28; }
 
 @media only screen and (max-width: 767px) {
   .quick_button {
@@ -763,7 +766,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .product_content h3 {
   line-height: 22px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   text-transform: capitalize;
   margin-bottom: 0; }
@@ -1170,6 +1173,16 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   .shop_toolbar.t_bottom .pagination {
     margin-top: 0; } }
 
+.product_thumb a {
+  width: inherit;
+  height: inherit; }
+
+.product_thumb a img {
+  width: 255px; }
+
+.product_content .current_price {
+  color: rgba(209, 101, 101, 0.884); }
+
 @media only screen and (max-width: 767px) {
   .product_details {
     margin-bottom: 42px; } }
@@ -1368,8 +1381,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   margin-bottom: 11px; }
 
 .product_d_right .product_price span.current_price {
-  color: #242424;
-  font-size: 13px;
+  color: rgba(209, 101, 101, 0.884);
+  font-size: 15px;
   font-weight: 500; }
 
 .product_d_right .product_desc {
@@ -1413,7 +1426,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   color: #747474;
   text-transform: capitalize;
   line-height: 20px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   margin-bottom: 15px; }
 

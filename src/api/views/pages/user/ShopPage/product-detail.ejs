@@ -1,3 +1,4 @@
+<% include ('../../../shared/function.ejs') %> 
 <%- contentFor("head") %> 
 
 <link rel="stylesheet" href="/public/stylesheets/product-detail-page.css">
@@ -28,12 +29,12 @@
             <div class="col-lg-5 col-md-5">
                <div class="product-details-tab">
 
+                   
                     <div id="img-1" class="zoomWrapper single-zoom">
                         <a href="#">
-                            <img id="zoom1" src="<%= photos[0].path %>" data-zoom-image="<%= photos[0].path %>" alt="big-1">
+                            <img id="zoom1" src="https://drive.google.com/uc?export=view&id=1UpaZAWATd6QnxZeldkNJz8zfRYC2aOUC" data-zoom-image="https://drive.google.com/uc?export=view&id=1UpaZAWATd6QnxZeldkNJz8zfRYC2aOUC" alt="big-1">
                         </a>
                     </div>
-
                     <div class="single-zoom-thumb">
                         <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
                             <!-- <li>
@@ -41,7 +42,6 @@
                                     <img src="assets/img/s-product/product3.jpg" alt="zo-th-1"/>
                                 </a>
                             </li> -->
-                            <% console.log(photos[0]) -%>
                             <% photos.forEach(  (photoItem) => { -%>
                                 <li>
                                     <a href="#" class="elevatezoom-gallery active" data-update="" data-image="<%= photoItem.path %>" data-zoom-image="<%= photoItem.path %>">
@@ -70,7 +70,7 @@
                             </ul>
                         </div>
                         <div class="product_price">
-                            <span class="current_price"><%= product[0].price %></span>
+                            <span class="current_price"><%= formatPrice(product[0].price)%> </span>
                         </div>
                         <div class="product_desc">
                             <p> <%= product[0].descript %> </p>
