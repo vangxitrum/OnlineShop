@@ -14,6 +14,7 @@ const ProductDetail = new Schema(
         status:Array,
         moreinfo:String,
         image:String,
+        tag:String
     }
 )
 module.exports=mongoose.model('productdetail',ProductDetail,'productdetail')

@@ -72,16 +72,8 @@
                                 <div class="widget_list tag-cloud">
                                     <h2>Popular Tags</h2>
                                     <div class="tag_widget">
-                                        <ul>
-                                            <li><a href="#">Creams</a></li>
-                                            <li><a href="#">Eyebrow Pencil</a></li>
-                                            <li><a href="#">Eyeliner</a></li>
-                                            <li><a href="#">Eye Shadow</a></li>
-                                            <li><a href="#">Lotions</a></li>
-                                            <li><a href="#">Mascara</a></li>
-                                            <li><a href="#">Oils</a></li>
-                                            <li><a href="#">Powders</a></li>
-                                            <li><a href="#">Shampoos</a></li>
+                                        <ul id="tag_list">
+                                           
                                         </ul>
                                     </div>
                                 </div>
@@ -278,7 +270,7 @@
     
     <!-- JS
     ============================================ -->
-    
+    <% console.log(products)%>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../../../../public/javascripts/user/pagination.js"></script>
     <script src="../../../../../public/javascripts/user/list.js" ></script>
@@ -291,6 +283,9 @@
     <%for (const [key, value] of Object.entries(manufacture)) { -%>
      <script>  createList('manufacturerList','brand','<%= key%>','<%= value%>' )   </script>
      <% }-%>
+     <%for (const [key, value] of Object.entries(tag)) { -%>
+        <script>  createList('tag_list','tag','<%= key%>','<%= value%>' )   </script>
+        <% }-%>
     
     
 </div>

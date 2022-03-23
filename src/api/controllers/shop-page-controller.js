@@ -15,11 +15,18 @@ class ShopCategoryController {
             {
                 queryObject["brand"] = req.query.brand;
             }
+            if( req.query.tag)
+            {
+                queryObject["tag"] = req.query.tag;
+            }
+            console.log("my query object" )
             console.log(queryObject )
         let categoryObject = {}
         let manufacture = {}
+        let tag={}
         ProductDetail.find()
             .exec((err, allProducts) => {
+
                 allProducts.forEach(element => {
                     if (categoryObject.hasOwnProperty(element.type)) {
                         categoryObject[element.type] += 1
@@ -34,27 +41,36 @@ class ShopCategoryController {
                         manufacture[element.brand] = 1
                     }
                 })
+                allProducts.forEach(element => {
+                    if (tag.hasOwnProperty(element.tag)) {
+                        tag[element.tag] += 1
+                    } else {
+                        tag[element.tag] = 1
+                    }
+                })
                 loadPage(queryObject)
             })
-        function loadPage(queryObject) {
+        function loadPage(queryObject ) {
             ProductDetail.find(queryObject)
                 .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
                 .limit(perPage)
                 .exec((err, products) => {
-                    ProductDetail.countDocuments((err, count) => { // đếm để tính xem có bao nhiêu trang
+                   console.log(products.length)
+                    ProductDetail.find(queryObject).exec((err,count) => { // đếm để tính xem có bao nhiêu trang
                         if (err) return next(err);
                         Photo.find()
                             .exec((err, photos) => {
                                 res.render('pages/user/ShopPage/shop-category.ejs', {
                                     products, // sản phẩm trên một page
                                     current: page, // page hiện tại
-                                    pages: Math.ceil(count / perPage),// tổng số các page
+                                    pages: Math.ceil(   count.length / perPage),// tổng số các page
                                     auth: false,
                                     photos,
                                     PageIndex: 0,
-                                    count,
+                                    count:count.length,
                                     categoryObject,
-                                    manufacture
+                                    manufacture,
+                                    tag
                                 });
                             })
 
