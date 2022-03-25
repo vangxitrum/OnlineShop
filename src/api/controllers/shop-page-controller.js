@@ -6,7 +6,9 @@ class ShopCategoryController {
     show(req, res, next) {
         let page =  req.params.page || 1;
         let perPage = 3;
-       
+        let categoryObject = {}
+        let manufacture = {}
+        let tag={}
            let queryObject={} ;
             if(  req.query.type){
                 queryObject["type"] = req.query.type;
@@ -19,14 +21,9 @@ class ShopCategoryController {
             {
                 queryObject["tag"] = req.query.tag;
             }
-            console.log("my query object" )
-            console.log(queryObject )
-        let categoryObject = {}
-        let manufacture = {}
-        let tag={}
+        //Load manufacturer ,product category, color ,tag
         ProductDetail.find()
             .exec((err, allProducts) => {
-
                 allProducts.forEach(element => {
                     if (categoryObject.hasOwnProperty(element.type)) {
                         categoryObject[element.type] += 1
@@ -50,12 +47,13 @@ class ShopCategoryController {
                 })
                 loadPage(queryObject)
             })
+
+            // Load pagination
         function loadPage(queryObject ) {
             ProductDetail.find(queryObject)
                 .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
                 .limit(perPage)
                 .exec((err, products) => {
-                   console.log(products.length)
                     ProductDetail.find(queryObject).exec((err,count) => { // đếm để tính xem có bao nhiêu trang
                         if (err) return next(err);
                         Photo.find()

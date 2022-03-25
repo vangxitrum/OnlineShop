@@ -121,7 +121,7 @@
                             
                              <div class="row shop_wrapper">
                                 <% products.forEach(function(item){ -%>  
-                                       <%- include('product_single_container.ejs',{product: item,photos:photos}); %>
+                                       <%- include('../../../shared/product-container.ejs',{product: item,photos:photos}); %>
                                  <% }); -%> 
                             </div>
                           
@@ -270,11 +270,12 @@
     
     <!-- JS
     ============================================ -->
-    <% console.log(products)%>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../../../../public/javascripts/user/pagination.js"></script>
     <script src="../../../../../public/javascripts/user/list.js" ></script>
     <!-- Plugins JS -->
+   
+
    <script>pagination('<%= current%>','<%= pages%>')</script>
    <%for (const [key, value] of Object.entries(categoryObject)) { -%>
     <script>  createList('categoriesList','type','<%= key%>','<%= value%>' )   </script>
