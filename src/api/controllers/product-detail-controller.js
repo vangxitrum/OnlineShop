@@ -21,8 +21,6 @@ class ProductDetailController{
        })
      
     }
-
-
 }
 
 module.exports = new ProductDetailController;

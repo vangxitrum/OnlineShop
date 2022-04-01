@@ -129,7 +129,8 @@ form.sign-in-form {
   transition: 0.5s; }
 
 .btn:hover {
-  background-color: #f7976b; }
+  background-color: #ff9666;
+  color: #fff; }
 
 .panels-container {
   position: absolute;

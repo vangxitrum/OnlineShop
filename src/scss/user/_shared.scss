@@ -1405,3 +1405,66 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .product_content .current_price{
   color: $price-color;
 }
+
+
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 10px;
+  background: #3498DB;
+  border-radius: 5px;
+  animation: load $animation-duration ease-in-out infinite; 
+  &:before, &:after {
+    position: absolute; 
+    display: block;
+    content: "";
+    animation: load $animation-duration ease-in-out infinite;
+    height: 10px;
+    border-radius: 5px;
+  }
+    &:before {
+    top: -20px;
+    left: 10px;
+    width: 40px;
+    background: #EF4836;
+  }
+  &:after {
+    bottom: -20px;
+    width: 35px;
+    background: #F5AB35; 
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(40px);
+  }
+  
+  50% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+.loader-wrapper{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position:fixed;
+  top:0px;
+  left:0px;
+  z-index:1000;
+}
+
+.loader-wrapper p{
+  text-align: center;
+  margin-top: 15rem;
+  font-size: 25px;
+}
+

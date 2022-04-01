@@ -561,7 +561,7 @@
     });   
     
     /*------addClass/removeClass -------*/
-    $(".currency > a,.language > a,.top_links > a").on("click", function() {
+    $(".currency > a,.language > a,.top_links > .my_account").on("click", function() {
         $(this).removeAttr('href');
         $(this).toggleClass('open').next('.dropdown_currency,.dropdown_language,.dropdown_links').toggleClass('open');
         $(this).parents().siblings().find('.dropdown_currency,.dropdown_language,.dropdown_links').removeClass('open');
@@ -856,3 +856,7 @@
     
     
 })(jQuery);	
+
+$(window).on("load",function(){
+    $(".loader-wrapper").fadeOut("slow");
+})

@@ -1183,6 +1183,55 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .product_content .current_price {
   color: rgba(209, 101, 101, 0.884); }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 10px;
+  background: #3498DB;
+  border-radius: 5px;
+  animation: load 3s ease-in-out infinite; }
+  .loader:before, .loader:after {
+    position: absolute;
+    display: block;
+    content: "";
+    animation: load 3s ease-in-out infinite;
+    height: 10px;
+    border-radius: 5px; }
+  .loader:before {
+    top: -20px;
+    left: 10px;
+    width: 40px;
+    background: #EF4836; }
+  .loader:after {
+    bottom: -20px;
+    width: 35px;
+    background: #F5AB35; }
+
+@keyframes load {
+  0% {
+    transform: translateX(40px); }
+  50% {
+    transform: translateX(-30px); }
+  100% {
+    transform: translateX(40px); } }
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000; }
+
+.loader-wrapper p {
+  text-align: center;
+  margin-top: 15rem;
+  font-size: 25px; }
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .shop_area .list_view.active {
     margin-bottom: 54px; } }

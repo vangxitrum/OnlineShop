@@ -65,8 +65,100 @@
         </div>
         <div class="col-8 content-area">
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Profile</div>
-            <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">History</div>
+            <div class="tab-pane fade " id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+              <h2 class = "tag_title">General</h2>
+              <ul class = "inform-list">
+                <li class = "inform-item">
+                  <p class = "tag">Email</p>
+                  <p class = "content">tuantq666@gmail.com</p>
+                </li>
+                <li class = "inform-item">
+                  <p class = "tag" class = "tag">Username</p>
+                  <p class = "content">vangxitrum</p>
+                </li>
+                <li class = "inform-item">
+                  <p class = "tag">Name</p>
+                  <p class = "content">Trần Quang Tuấn</p>
+                </li>
+                <li class = "inform-item">
+                  <p>Custumer Tie</p>
+                  <p class = "content">Gold</p>
+                </li>
+                <li class = "inform-item">
+                  <p class = "tag">Đã tích lũy</p>
+                  <p class = "content">10.000.000VND</p>
+                </li>
+                <li class = "inform-item">
+                  <p class = "tag">Joint Date</p>
+                  <p class = "content">19/10/2020</p>
+                </li>
+              </ul>
+              <hr class="solid">
+              <div class="container avatar-container">
+                <div class="avatar-upload">
+                    <div class="avatar-edit">
+                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                        <label for="imageUpload"><i class="fa-solid fa-pen"></i></label>
+                    </div>
+                    <div class="avatar-preview">
+                        <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                        </div>
+                    </div>
+                </div>
+                <p class = "avatar-note">Choose your avatar</p>
+              </div>
+              <hr class="solid">
+              <h2 class = "tag_title">Personal</h2>
+              <div class = "modified-inform-container">
+                <form>
+                  <div class = "input-container">
+                    <input type="text" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "form-label">Name</label>
+                  </div>
+                  <div class = "input-container">
+                    <input type="text" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "form-label">Phone number</label>
+                  </div>
+                  <div class = "input-container">
+                    <input type="text" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "form-label">CMND</label>
+                  </div>
+                  <div class = "input-container">
+                    <select name="sex" id="cars" class = "form-input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="female">Other</option>
+                    </select>
+                    <label for = "name" class = "select-label">Sex</label>
+                  </div>
+                  <button class ="btn btn-primary" >Save</button>
+                </form>
+              </div>
+
+            </div>
+            <div class="tab-pane fade show active" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
+              <div class = "history-container">
+                <h2 class="tag_title">History</h2>
+                <p class = "tag_explaint">Show your previous order's informations</p>
+                <hr class="solid">
+                <div class = "input-container">
+                  <input type="text" class = "form-input" placeholder=" ">
+                  <label for = "name" class = "form-label">Name</label>
+                </div>
+                <div class = "input-container">
+                  <input type="text" class = "form-input" placeholder=" ">
+                  <label for = "name" class = "form-label">Name</label>
+                </div>
+                <div class = "input-container">
+                  <input type="text" class = "form-input" placeholder=" ">
+                  <label for = "name" class = "form-label">Name</label>
+                </div>
+                <div class = "input-container">
+                  <input type="text" class = "form-input" placeholder=" ">
+                  <label for = "name" class = "form-label">Name</label>
+                </div>
+              </div>
+            </div>
             <div class="tab-pane fade" id="list-wishlist" role="tabpanel" aria-labelledby="list-wishlist-list">Wishlish</div>
             <div class="tab-pane fade" id="list-repassword" role="tabpanel" aria-labelledby="list-repassword-list">Re-password</div>
             <div class="tab-pane fade" id="list-address" role="tabpanel" aria-labelledby="list-address-list">Profile</div>
@@ -75,3 +167,5 @@
       </div>
   </div>  
 </div>
+
+

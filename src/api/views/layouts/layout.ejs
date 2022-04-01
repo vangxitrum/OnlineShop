@@ -34,12 +34,17 @@
 
 </head>
 <body>
+  
+  <div class="loader-wrapper">
+    <p>loading...</p>
+    <span class = "loader"></span>
+  </div>
   <div class="off_canvars_overlay">           
   </div>
     
-    <% if(PageIndex == "0" && !auth){ %>
+    <% if(PageIndex == "0"){ %>
       <%- include('../shared/header-0.ejs'); %> 
-    <% }else if(PageIndex == "1" && !auth){ %>
+    <% }else if(PageIndex == "1"){ %>
       <%- include('../shared/header-1.ejs'); %> 
     <% } %> 
     <%- body %> 
@@ -60,5 +65,7 @@
 
 <!-- Main JS -->
 <script src="public/javascripts/user/main.js"></script>
+
+<script src="public/javascripts/user/userprofile.js"></script>
 </html>
 

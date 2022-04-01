@@ -11,7 +11,8 @@ const loginController = require('../controllers/login-controller')
 const productDetailController = require('../controllers/product-detail-controller')
 const ShopCategoryController = require('../controllers/shop-page-controller')
 const userProfileController = require('../controllers/user-profile-controller')
-
+const passport = require('passport')
+require('../middleware/passport')
 
 //index router
 router.get('/shopcategory', expressLayout, ShopCategoryController.show)
@@ -20,7 +21,7 @@ router.get('/home', expressLayout, HomePageController.show)
 
 router.get('/', expressLayout, HomePageController.show)
 
-router.get('/productdetail',expressLayout, productDetailController.show)
+router.get('/productdetail/',expressLayout, productDetailController.show)
 
 router.get('/cart',expressLayout, cartController.show)
 
@@ -32,8 +33,13 @@ router.get('/about',expressLayout, aboutController.show)
 
 router.get('/contact',expressLayout, contactController.show)
 
-router.get('/login',expressLayout, loginController.show)
-
 router.get('/userprofile',expressLayout, userProfileController.show)
 
+router.get('/login',expressLayout, loginController.show)
+
+router.post('/login',expressLayout,passport.authenticate('local',{session: false}), loginController.signIn)
+
+router.post('/register',expressLayout, loginController.signUp)
+
+router.get('/secret',expressLayout,passport.authenticate('jwt',{session: false}),loginController.secret)
 module.exports = router

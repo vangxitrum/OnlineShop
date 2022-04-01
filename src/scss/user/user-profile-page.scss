@@ -8,7 +8,7 @@
 }
 
 .list-group-item{
-    height: 3.2rem;
+    height: 2.8rem;
     width: 20rem;
     padding-top: .7rem;
     color: #7e7e7e
@@ -32,6 +32,195 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .4rem;
 }
+
+.inform-list .inform-item{
+    float: left;
+    margin: 1rem;
+    width: 10rem;
+    
+}
+
+.inform-item .content{
+  font-weight: 600;
+  color:black;
+  margin-top: -10px;
+}
+.inform-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding-left: 2rem;
+}
+
+hr.solid {
+    border-top: 1px solid black;
+    margin: 0 2rem;
+  }
+
+.tag_title{
+    color: black;
+    font-size: 17px;
+    margin-left: 1rem;
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 2rem auto;
+    .avatar-edit {
+        position: absolute;
+        right: 2.5rem;
+        z-index: 1;
+        top: 10px;
+        input {
+            display: none;
+            + label {
+                display: inline-block;
+                width: 34px;
+                height: 34px;
+                margin-bottom: 0;
+                border-radius: 100%;
+                background: #FFFFFF;
+                border: 1px solid transparent;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+                font-weight: normal;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    background: #f1f1f1;
+                    border-color: #d6d6d6;
+                }
+
+                i{
+                    margin-left: .6rem;
+                    margin-top: .7rem;
+                }
+                
+            }
+        }
+    }
+    .avatar-preview {
+        width: 10rem;
+        height: 10rem;
+        position: relative;
+        border-radius: 100%;
+        border: 6px solid #F8F8F8;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        > div {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+
+.avatar-note{
+    margin-left: 38%;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    color: black;
+}
+  
+.modified-inform-container{
+    
+}
+
+.input-container{
+  position: relative;
+  margin-bottom: 1.2rem;
+  margin-left: 2rem;
+}
+.form-input{
+  border: 1px solid rgb(117, 109, 109);
+  color:rgb(117, 109, 109);
+  border-radius: 4px;
+  width: 60%;
+  height: 40px;
+  padding: 0 12px;
+  transition: 0.25 ease;
+}
+
+.form-input:focus{
+  border-color: $base-color;
+}
+
+.form-label{
+  position: absolute;
+  top:20px;
+  transform: translateY(-50%);
+  left:13px;
+  user-select: none;
+  pointer-events: none;
+  transition: .25s ease-out;
+  font-size: 11px;
+}
+.form-input:not(:placeholder-shown) + .form-label,
+.form-input:focus + .form-label{
+  top:0;
+  padding: 0px 3px 1px 3px;
+  display: inline-block;
+  background-color: white;
+  color: $base-color;
+}
+
+.form-input:hover{
+  border-color: $base-color;    
+}
+
+.btn{
+  margin-left: 2rem;
+  font-size: 12px;
+  width: 16%;
+  margin-bottom: 1rem;
+}
+
+.select-label{
+  position: absolute;
+  transform: translateY(-50%);
+  left:13px;
+  user-select: none;
+  pointer-events: none;
+  font-size: 11px;
+  top:0;
+  padding: 0px 3px 1px 3px;
+  display: inline-block;
+  background-color: white;
+}
+
+.form-input:focus + .select-label{
+  color: $base-color;
+}
+
+.tag_title{
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 1rem;
+}
+
+.tag_explaint{
+  margin-left: 1rem;
+  margin-top: -.6rem;
+}
+
+.history-container{
+  .form-input{
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .form-label{
+    top:35px;
+  }
+
+}
+
+
+
+
 
 
   

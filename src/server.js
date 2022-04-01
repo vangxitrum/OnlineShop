@@ -1,38 +1,22 @@
 // includes packages
 const express = require('express')
-//const passport = require('passport')
-//const passportConfig = require('./api/passport-config.js')
-//const methodOverride = require('method-override')
-//const flash = require('express-flash')
-//const session = require('express-session')
+const logger = require('morgan')
+require('dotenv').config()
 const app = express()
 const path = require('path')
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 // includes routes /shop
 const allRoute = require('./api/routes/all.js')
-const authRoute = require('./api/routes/auth.js')
 //const Users = require('./api/data').users
-const port = 3000
-const DB=require('./api/models/connnectDb')
-/*passportConfig.init(
-  passport, 
-  email => Users.find(user=> user.email == email),
-  id => Users.find(user => user.id = id)
-)
-app.use(flash())
-app.use(session({
-  secret: "REtVxemV2Q25",
-  resave: false,
-  saveUninitialized: false
-}))
-app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-app.use(methodOverride('_method'))
-
-app.use(passport.initialize())
-app.use(passport.session())*/
-
-//connect to database
-
+const DB=require('./api/models/connnectDb')
+//middleware
+app.use(logger('dev'))
+//database conect
  DB.connectDB()
 // setting
 app.set('view engine', 'ejs')
@@ -40,13 +24,34 @@ app.set('views', __dirname+ '/api/views')
 app.set('layout', 'layouts/layout')
 
 // utilities
-// app.use(expressLayout)
+
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/public', express.static(__dirname+ '/public'))
 
 app.use('/', allRoute)
-//app.use('/auth', authRoute(passport))
+app.use(express.urlencoded());
 // routes
+//Catch 404
+app.use((req,res,next) => {
+ const err = new Error('Not Found')
+ err.status = 404
+ next(err)
+})
+
+// error handler
+
+app.use((err,req,res,next) =>{
+  const error =  app.get('env') === 'development' ? err : {}
+  const status = err.status || 500
+  return res.status(status).json({
+    message: error.message
+  })
+})
+
+
 
 // listen
-app.listen(port)
+const port = app.get('port') || 3000
+app.listen(port, () => {
+  console.log(`Server is lisntening on port ${port}`)
+})
