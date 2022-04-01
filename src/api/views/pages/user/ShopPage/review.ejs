@@ -1,0 +1,21 @@
+
+
+
+  <% reviews.forEach(function(item){ -%>
+<div class="product_info_inner">
+    <div class="product_ratting mb-10">
+        <ul>
+            <% let i=0 %>
+            <% while( i < item.rate){ %>
+                <% i++ -%>
+            <li><a href="#"><i class="fa fa-star"></i></a></li>
+            <% }  %>
+        </ul>
+        <strong><%= item.name %></strong>
+        <p><%= moment(item.date).format('DD-MMM-YYYY') %></p>
+    </div>
+    <div class="product_demo">
+        <p><%= item.review %></p>
+    </div>
+</div>
+<% }) -%>

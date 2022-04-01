@@ -4,7 +4,7 @@ const ObjectId = Schema.ObjectId;
 
 const ProductQuantity = new Schema(
     {
-        _id:ObjectId,
+        _id:{type:ObjectId,required: true},
         productDetailID:ObjectId,
         size:String,
         color:String,

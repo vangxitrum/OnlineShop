@@ -4,7 +4,7 @@ const ObjectId = Schema.ObjectId;
 
 const ProductDetail = new Schema(
     {
-        _id:ObjectId,
+        _id:{type:ObjectId,required: true},
         name:String,
         price: Number,
         descript: String,
@@ -13,7 +13,8 @@ const ProductDetail = new Schema(
         discount:Number,
         status:Array,
         moreinfo:String,
-        image:String,
+        tag:String,
+        color:Array
     }
 )
 module.exports=mongoose.model('productdetail',ProductDetail,'productdetail')

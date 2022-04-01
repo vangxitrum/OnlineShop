@@ -118,8 +118,10 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(item.status.includes("Women")) {-%>
-                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
-                                            <% } -%>
+                                                <div class="col-lg-3">
+                                                    <%- include('ShopPage/product_single_container.ejs',{product: item,photos:photos,isHomePage:true}); %>
+                                                    </div> 
+                                              <% } -%>
                                     <% }); %> 
                                 </div>
                             </div>
@@ -129,8 +131,10 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(!item.status.includes("Women")) {-%>
-                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
-                                            <% } -%>
+                                                <div class="col-lg-3">
+                                                    <%- include('ShopPage/product_single_container.ejs',{product: item,photos:photos,isHomePage:true}); %>
+                                                    </div>                                          
+                                             <% } -%>
                                     <% }); %> 
                                 </div>
                             </div> 
@@ -141,7 +145,9 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(!item.status.includes("Women")) {-%>
-                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
+                                                <div class="col-lg-3">
+                                                    <%- include('ShopPage/product_single_container.ejs',{product: item,photos:photos,isHomePage:true}); %>
+                                                    </div> 
                                             <% } -%>
                                     <% }); %> 
                                 </div>
@@ -152,8 +158,10 @@
                                 <div class="row product_column4">
                                     <% products.forEach(function(item){ -%>  
                                              <% if(item.status.includes("Women")) {-%>
-                                                <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
-                                            <% } -%>
+                                                <div class="col-lg-3">
+                                                    <%- include('ShopPage/product_single_container.ejs',{product: item,photos:photos,isHomePage:true}); %>
+                                                    </div>                                          
+                                             <% } -%>
                                     <% }); %> 
                                 </div>
                             </div>
@@ -211,11 +219,16 @@
                  <div class="row">
                     <div class="product_carousel product_three_column4 owl-carousel">
                         <!-- Liệt kê danh sách các sản phẩm hot -->
-                        <% products.forEach(function(item){ -%>  
-                                    <% if(item.status.includes("Hot")) {-%>
-                                     <%- include('../../shared/product-container.ejs',{product: item,photos:photos}); %>
-                                    <% } -%>
-                        <% }); %>
+                       
+                            <% products.forEach(function(item){ -%>  
+                                <% if(item.status.includes("Hot")) {-%>
+                                    <div class="col-lg-3">
+                                 <%- include('ShopPage/product_single_container.ejs',{product: item,photos:photos,isHomePage:true}); %>
+                                 </div>
+                                <% } -%>
+                           <% }); %>
+                      
+                      
                     </div>
                 </div>
             </div>

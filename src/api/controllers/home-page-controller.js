@@ -14,7 +14,10 @@ class HomePageController {
               products, photos, auth: false, PageIndex: 0
             })
           });
-      });
+      })
+      .catch((error)=>{
+          console.log(error)
+      })
 
   }
 }
