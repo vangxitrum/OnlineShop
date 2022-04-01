@@ -18,45 +18,53 @@
         <% } -%>
     <% }); -%>
     <!-- Tìm hình thứ 2 -->       
-    <%  var ref= `productdetail?id=${product._id}`-%>
-<div class="col-lg-3">
+    <%  var ref= `/productdetail?id=${product._id}`-%>
+
     <div class="single_product">
         <div class="product_thumb">
             <a class="primary_img" href="<%= ref %>"><img src="<%= photo1 %>"    alt=""></a>
-                <a class="secondary_img" href="<%= ref %>"><img src="<%= photo2 %>"  alt=""></a>
-            <div class="product_action">
+             <a class="secondary_img" href="<%= ref %>"><img src="<%= photo2 %>"  alt=""></a>
+
+             <div class="product_action">
                 <div class="hover_action">
                    <a  href="<%= ref %>"><i class="fa fa-plus"></i></a>
                     <div class="action_button">
                         <ul>
-
                             <li><a title="add to cart" href="cart.html"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a></li>
                             <li><a href="wishlist.html" title="Add to Wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-
-                            <li><a href="compare.html" title="Add to Compare"><i class="fa fa-sliders" aria-hidden="true"></i></a></li>
-
+                            <!-- <li><a href="compare.html" title="Add to Compare"><i class="fa fa-sliders" aria-hidden="true"></i></a></li> -->
                         </ul>
                     </div>
                </div>
 
             </div>
             <div class="quick_button">
-                <a href="#" data-id="<%= product._id %>" data-toggle="modal" data-target="#modal_box" title="quick_view">+ quick view</a>
+                <a href="#modal_box" data-id="<%= product._id %>" data-toggle="modal" data-target="#modal_box" title="quick_view">+ quick view</a>
             </div>
 
+           
             <div class="double_base">
                 <%  if(product.discount) {-%>
                     <div class="product_sale">
                         <span>-<%= product.discount %>%</span>
                     </div>   
-                    <% }  %>
+                    <% } else if(product.status.includes("New")) {%>
+                        <div class="label_product">
+                            <span>New</span>
+                        </div>
+                        <% } %>
                     <% if (product.status.includes("New")){ -%>
                         <div class="label_product">
                             <span>New</span>
                         </div>
-                    <% } -%>
+                    <% }else if (product.status.includes("Hot")){ -%>
+                        <div class="label_product">
+                            <span>Hot</span>
+                        </div>
+                        <% } %>
             </div>
         </div>
+
         <div class="product_content">
             <h3><a href="<%= ref %>"><%= product.name%></a></h3>
             <%  if(product.discount) {-%>
@@ -67,5 +75,4 @@
                  <% } -%>
         </div>
     </div>
-</div>
 <% } -%>

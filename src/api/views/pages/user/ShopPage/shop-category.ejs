@@ -1,292 +1,195 @@
-<%- contentFor("head") %> 
+<%- contentFor("head") %>
 
-<link rel="stylesheet" href="/public/stylesheets/shop-page.css">
-<%- contentFor("body") %> 
+    <link rel="stylesheet" href="/public/stylesheets/shop-page.css">
+    <%- contentFor("body") %>
 
-<div>
-    <body>
+        <div>
 
-        <!-- Main Wrapper Start -->
-        <!--Offcanvas menu area start-->
-        <!--header area end-->
-        <!--breadcrumbs area start-->
-        <div class="breadcrumbs_area">
-            <div class="container">   
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumb_content">
-                            <ul>
-                                <li><a href="index.html">home</a></li>
-                                <li>/</li>
-                                <li>shop</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>         
-        </div>
-        <!--breadcrumbs area end-->
- 
-        <!--shop  area start-->
-        <div class="shop_area shop_reverse">
-            <div class="container">
-                <div class="shop_inner_area">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-12">
-                           <!--sidebar widget start-->
-                            <div class="sidebar_widget">
-                                <div class="widget_list widget_filter">
-                                    <h2>Filter by price</h2>
-                                    <form action="#"> 
-                                        <div id="slider-range"></div>   
-                                        <button type="submit">Filter</button>
-                                        <input type="text" name="text" id="amount" />   
-    
-                                    </form> 
-                                </div>
-                                <div class="widget_list widget_categories">
-                                    <h2>Product categories</h2>
-                                    <ul id="categoriesList">
-                                    
-                                    </ul>
-                                </div>
-    
-                                <div class="widget_list widget_categories">
-                                    <h2>Manufacturer</h2>
-                                    <ul id="manufacturerList">
-                                     </ul>
-                                </div>
-                                <div class="widget_list widget_categories">
-                                    <h2>Select By Color</h2>
+            <body>
+
+                <!-- Main Wrapper Start -->
+                <!--Offcanvas menu area start-->
+                <!--header area end-->
+                <!--breadcrumbs area start-->
+                <div class="breadcrumbs_area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="breadcrumb_content">
                                     <ul>
-                                        <li><a href="#">Black <span>6</span></a> </li>
-                                        <li><a href="#"> Blue <span>10</span></a> </li>
-                                        <li><a href="#">Brown <span>4</span></a> </li>
-                                        <li><a href="#"> Green <span>4</span></a> </li>
-                                        <li><a href="#">Pink <span>7</span></a> </li>
-                                        <li><a href="#">White<span>8</span></a> </li>
-                                        <li><a href="#">Yellow <span>5</span></a> </li>
-    
+                                        <li><a href="index.html">home</a></li>
+                                        <li>/</li>
+                                        <li>shop</li>
                                     </ul>
                                 </div>
-                                <div class="widget_list tag-cloud">
-                                    <h2>Popular Tags</h2>
-                                    <div class="tag_widget">
-                                        <ul id="tag_list">
-                                           
-                                        </ul>
-                                    </div>
-                                </div>
-    
                             </div>
-                            <!--sidebar widget end-->
-                        </div>
-                        <div class="col-lg-9 col-md-12">
-                            <!--shop wrapper start-->
-                            <!--shop toolbar start-->
-                            <div class="shop_title">
-                                <h1>shop</h1>
-                            </div>
-                            <div class="shop_toolbar_wrapper">
-                                <div class="shop_toolbar_btn">
-    
-                                    <button data-role="grid_3" type="button" class="active btn-grid-3" data-toggle="tooltip" title="3"></button>
-    
-                                    <button data-role="grid_4" type="button"  class=" btn-grid-4" data-toggle="tooltip" title="4"></button>
-    
-                                    <button data-role="grid_5" type="button"  class="btn-grid-5" data-toggle="tooltip" title="5"></button>
-    
-                                    <button data-role="grid_list" type="button"  class="btn-list" data-toggle="tooltip" title="List"></button>
-                                </div>
-                                <div class=" niceselect_option">
-    
-                                    <form class="select_option" action="#">
-                                        <select name="orderby" id="short">
-                                            <option selected value="1">Sort by average rating</option>
-                                            <option  value="2">Sort by popularity</option>
-                                            <option value="3">Sort by newness</option>
-                                            <option value="4">Sort by price: low to high</option>
-                                            <option value="5">Sort by price: high to low</option>
-                                            <option value="6">Product Name: Z</option>
-                                        </select>
-                                    </form>
-    
-    
-                                </div>
-                                <div class="page_amount"> 
-                                    <p>Showing 1–9 of <%= count%> results</p>
-                                </div>
-                            </div>
-                             <!--shop toolbar end-->
-                            
-                             <div class="row shop_wrapper">
-                                <% products.forEach(function(item){ -%>  
-                                       <%- include('../../../shared/product-container.ejs',{product: item,photos:photos}); %>
-                                 <% }); -%> 
-                            </div>
-                          
-                            <div class="shop_toolbar t_bottom">
-                                <div class="pagination">
-                                    <ul id="myPagination">  
-                                    </ul>
-                                </div>
-                                
-                            </div>
-                            <!--shop toolbar end-->
-                            <!--shop wrapper end-->
                         </div>
                     </div>
-                </div>   
-                    
-            </div>
-        </div>
-        <!--shop  area end-->
-        
-        <!--footer area start-->
-        
-        <!--footer area end-->
-        
-        <!-- modal area start-->
-        <div class="modal fade" id="modal_box" tabindex="-1" role="dialog"  aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="modal_body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-5 col-sm-12">
-                                    <div class="modal_tab">  
-                                        <div class="tab-content product-details-large">
-                                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
-                                                <div class="modal_tab_img">
-                                                    <a href="#"><img src="public/assets/img/product/product4.jpg" alt=""></a>    
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="tab2" role="tabpanel">
-                                                <div class="modal_tab_img">
-                                                    <a href="#"><img src="public/assets/img/product/product6.jpg" alt=""></a>    
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="tab3" role="tabpanel">
-                                                <div class="modal_tab_img">
-                                                    <a href="#"><img src="public/assets/img/product/product8.jpg" alt=""></a>    
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="tab4" role="tabpanel">
-                                                <div class="modal_tab_img">
-                                                    <a href="#"><img src="public/assets/img/product/product2.jpg" alt=""></a>    
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="tab5" role="tabpanel">
-                                                <div class="modal_tab_img">
-                                                    <a href="#"><img src="public/assets/img/product/product12.jpg" alt=""></a>    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal_tab_button">    
-                                            <ul class="nav product_navactive owl-carousel" role="tablist">
-                                                <li >
-                                                    <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="public/assets/img/s-product/product3.jpg" alt=""></a>
-                                                </li>
-                                                <li>
-                                                     <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="public/assets/img/s-product/product.jpg" alt=""></a>
-                                                </li>
-                                                <li>
-                                                   <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="public/assets/img/s-product/product2.jpg" alt=""></a>
-                                                </li>
-                                                <li>
-                                                   <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="public/assets/img/s-product/product4.jpg" alt=""></a>
-                                                </li>
-                                                <li>
-                                                   <a class="nav-link" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5" aria-selected="false"><img src="public/assets/img/s-product/product5.jpg" alt=""></a>
-                                                </li>
-    
-                                            </ul>
-                                        </div>    
-                                    </div>  
-                                </div> 
-                                <div class="col-lg-7 col-md-7 col-sm-12">
-                                    <div class="modal_right">
-                                        <div class="modal_title mb-10">
-                                            <h2>Handbag feugiat</h2> 
-                                        </div>
-                                        <div class="modal_price mb-10">
-                                            <span class="new_price">$64.99</span>    
-                                            <span class="old_price" >$78.99</span>    
-                                        </div>
-                                        <div class="modal_description mb-15">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>    
-                                        </div> 
-                                        <div class="variants_selects">
-                                            <div class="variants_size">
-                                               <h2>size</h2>
-                                               <select class="select_option">
-                                                   <option selected value="1">s</option>
-                                                   <option value="1">m</option>
-                                                   <option value="1">l</option>
-                                                   <option value="1">xl</option>
-                                                   <option value="1">xxl</option>
-                                               </select>
-                                            </div>
-                                            <div class="variants_color">
-                                               <h2>color</h2>
-                                               <select class="select_option">
-                                                   <option selected value="1">purple</option>
-                                                   <option value="1">violet</option>
-                                                   <option value="1">black</option>
-                                                   <option value="1">pink</option>
-                                                   <option value="1">orange</option>
-                                               </select>
-                                            </div>
-                                            <div class="modal_add_to_cart">
-                                                <form action="#">
-                                                    <input min="0" max="100" step="2" value="1" type="number">
-                                                    <button type="submit">add to cart</button>
-                                                </form>
-                                            </div>   
-                                        </div>
-                                        <div class="modal_social">
-                                            <h2>Share this product</h2>
-                                            <ul>
-                                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                                <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                            </ul>    
-                                        </div>      
-                                    </div>    
-                                </div>    
-                            </div>     
-                        </div>
-                    </div>    
                 </div>
-            </div>
-        </div> 
-        <!-- modal area start-->
-        
-    
-    <!-- JS
-    ============================================ -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../../../../public/javascripts/user/pagination.js"></script>
-    <script src="../../../../../public/javascripts/user/list.js" ></script>
-    <!-- Plugins JS -->
-   
+                <!--breadcrumbs area end-->
 
-   <script>pagination('<%= current%>','<%= pages%>')</script>
-   <%for (const [key, value] of Object.entries(categoryObject)) { -%>
-    <script>  createList('categoriesList','type','<%= key%>','<%= value%>' )   </script>
-    <% }-%>
-    <script>pagination('<%= current%>','<%= pages%>')</script>
-    <%for (const [key, value] of Object.entries(manufacture)) { -%>
-     <script>  createList('manufacturerList','brand','<%= key%>','<%= value%>' )   </script>
-     <% }-%>
-     <%for (const [key, value] of Object.entries(tag)) { -%>
-        <script>  createList('tag_list','tag','<%= key%>','<%= value%>' )   </script>
+                <!--shop  area start-->
+                <div class="shop_area shop_reverse">
+                    <div class="container">
+                        <div class="shop_inner_area">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12">
+                                    <!--sidebar widget start-->
+                                    <div class="sidebar_widget">
+                                        <div class="widget_list widget_filter">
+                                            <h2>Filter by price</h2>
+                                            <form action="#">
+                                                <div id="slider-range"></div>
+                                                <button type="submit">Filter</button>
+                                                <input type="text" name="text" id="amount" />
+
+                                            </form>
+                                        </div>
+                                        <div class="widget_list widget_categories">
+                                            <h2>Product categories</h2>
+                                            <ul id="categoriesList">
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="widget_list widget_categories">
+                                            <h2>Manufacturer</h2>
+                                            <ul id="manufacturerList">
+                                            </ul>
+                                        </div>
+                                        <div class="widget_list widget_categories">
+                                            <h2>Select By Color</h2>
+                                            <ul id="color_list">
+                                            </ul>
+                                        </div>
+                                        <div class="widget_list tag-cloud">
+                                            <h2>Popular Tags</h2>
+                                            <div class="tag_widget">
+                                                <ul id="tag_list">
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!--sidebar widget end-->
+                                </div>
+                                <div class="col-lg-9 col-md-12">
+                                    <!--shop wrapper start-->
+                                    <!--shop toolbar start-->
+                                    <div class="shop_title">
+                                        <h1>shop</h1>
+                                    </div>
+                                    <div class="shop_toolbar_wrapper">
+                                        <div class="shop_toolbar_btn">
+
+                                            <button data-role="grid_3" type="button" class="active btn-grid-3"
+                                                data-toggle="tooltip" title="3"></button>
+
+                                            <button data-role="grid_4" type="button" class=" btn-grid-4"
+                                                data-toggle="tooltip" title="4"></button>
+
+                                            <button data-role="grid_5" type="button" class="btn-grid-5"
+                                                data-toggle="tooltip" title="5"></button>
+
+                                            <button data-role="grid_list" type="button" class="btn-list"
+                                                data-toggle="tooltip" title="List"></button>
+                                        </div>
+                                        
+                                        <select  id="sort_select">
+                                            <option value="0">All</option>      
+                                            <option value="1">Sort by price: low to high</option>
+                                            <option value="2">Sort by price: high to low</option>
+                                            <option value="3">Sort by name: A->Z</option>
+                                            <option value="4">Sort by name: Z->A</option>
+                                        </select>
+                                    
+                                              
+
+
+
+                                     
+                                        <div class="page_amount">
+                                            <p>Showing <%= (current-1)*perPage+1 %> – <%= (current-1)*perPage+count
+                                                        -(perPage*(current-1)) %> of <%= count%> results</p>
+                                        </div>
+                                    </div>
+                                    <!--shop toolbar end-->
+
+                                    <div class="row shop_wrapper">
+                                        <% products.forEach(function(item){ -%>
+                                            <div class="col-lg-4  ">
+                                                <%- include('product_single_container.ejs',{product:
+                                                    item,photos:photos,isHomePage:false}); %>
+                                            </div>
+                                            <% }); -%>
+                                    </div>
+
+                                    <div class="shop_toolbar t_bottom">
+                                        <div class="pagination">
+                                            <ul id="myPagination">
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <!--shop toolbar end-->
+                                    <!--shop wrapper end-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--shop  area end-->
+
+                <!--footer area start-->
+
+                <!--footer area end-->
+        </div>
+        <!-- HIDE form -->
+        <form id="sort_form" method="POST"></form>
+
+
+        <!-- JS
+    ============================================ -->
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../../../../../public/javascripts/user/pagination.js"></script>
+        <script src="../../../../../public/javascripts/user/list.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Plugins JS -->
+
+
+        <script>pagination('<%= current%>', '<%= pages%>')</script>
+        
+        <%for (const [key, value] of Object.entries(categoryObject)) { -%>
+        <script>  createList('categoriesList', 'type', '<%= key%>', '<%= value%>')   </script>
         <% }-%>
-    
-    
-</div>
+
+        <script>pagination('<%= current%>', '<%= pages%>')</script>
+        <%for (const [key, value] of Object.entries(manufacture)) { -%>
+        <script>  createList('manufacturerList', 'brand', '<%= key%>', '<%= value%>')   </script>
+        <% }-%>
+
+        <%for (const [key, value] of Object.entries(tag)) { -%>
+        <script>  createList('tag_list', 'tag', '<%= key%>', '')   </script>
+        <% }-%>
+
+        <%for (const [key, value] of Object.entries(color)) { -%>
+        <script>  createList('color_list', 'color', '<%= key%>', '<%= value%>')   </script>
+        <% }-%>
+        
+        <script>
+        $('#sort_select').val('<%= sort%>')
+        $( "#sort_select" ).change(function() {
+            let sortUrl='/shopcategory/?color=red'
+            $('#sort_form').attr('action',`/shopcategory/?${addParam('sort', $( "#sort_select" ).val())}`)
+            $('#sort_form').submit()
+        
+        });
+        </script>
+
+
+
+                                        

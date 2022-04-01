@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const expressLayout = require('express-ejs-layouts')
+var flash      = require('req-flash');
 const aboutController = require('../controllers/about-controller')
 const blogCategory = require('../controllers/blog-category-controller')
 const blogDetail = require('../controllers/blog-detail-controller')
@@ -16,6 +17,7 @@ const userProfileController = require('../controllers/user-profile-controller')
 //index router
 router.get('/shopcategory/:page', expressLayout, ShopCategoryController.show)
 router.get('/shopcategory', expressLayout, ShopCategoryController.show)
+router.post('/shopcategory', expressLayout, ShopCategoryController.show)
 
 
 
@@ -24,7 +26,8 @@ router.get('/home', expressLayout, HomePageController.show)
 router.get('/', expressLayout, HomePageController.show)
 
 router.get('/productdetail',expressLayout, productDetailController.show)
-
+router.post('/productdetail',expressLayout, productDetailController.addReview)
+router.post('/cart',expressLayout,cartController.add)
 router.get('/cart',expressLayout, cartController.show)
 
 router.get('/blogdetail',expressLayout, blogDetail.show)

@@ -3,8 +3,8 @@ const express = require('express')
 //const passport = require('passport')
 //const passportConfig = require('./api/passport-config.js')
 //const methodOverride = require('method-override')
-//const flash = require('express-flash')
-//const session = require('express-session')
+
+const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
 // includes routes /shop
@@ -41,11 +41,18 @@ app.set('layout', 'layouts/layout')
 
 // utilities
 // app.use(expressLayout)
+
+
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/public', express.static(__dirname+ '/public'))
 
 app.use('/', allRoute)
+
+
 //app.use('/auth', authRoute(passport))
 // routes
-// listen
+// listennpm i flash
 app.listen(port)

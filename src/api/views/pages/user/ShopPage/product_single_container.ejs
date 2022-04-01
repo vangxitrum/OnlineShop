@@ -19,11 +19,14 @@
             <% photo2=photoItem.path -%>
         <% } -%>
     <% }); -%>
-    <!-- Tìm hình thứ 2 -->       
-    <%  var ref= `productdetail?id=${product._id}`-%>
+    <!-- Tìm hình thứ 2 -->  
+    <%  var ref= `/productdetail?id=${product._id}`-%>  
+      <% if(isHomePage){%> 
+        <%  ref= `productdetail?id=${product._id}`%>
+   <% }%>
 
     <!-- render product container -->
-    <div class="col-lg-4 col-md-4 col-12 ">
+    
         <div class="single_product">
             <div class="product_thumb">
                 <a class="primary_img" href="<%= ref %>"><img src="<%= photo1 %>"    alt=""></a>
@@ -37,25 +40,36 @@
                         <div class="product_sale">
                             <span>-<%= product.discount %>%</span>
                         </div>   
-                        <% }  %>
+                        <% } else if(product.status.includes("Hot")) {%>
+                        <div class="product_sale">
+                            <span>Hot</span>
+                        </div> 
+                        <% }%>
                         <% if (product.status.includes("New")){ -%>
                             <div class="label_product">
                                 <span>New</span>
                             </div>
-                        <% } -%>
+                        <% } else if(product.status.includes("Hot")){ -%>
+                            <div class="label_product">
+                                <span>Hot</span>
+                            </div>
+                            <% }%>
+                        
+                        
                 </div>
                 
                  <!-- Gắn tag cho sản phẩm -->
                 
-            </div>
-            
+            </div>      
             <div class="product_content grid_content">
-                <h3><a href="<%= ref %>"></a></h3>
-                <span class="current_price"><%= (product.price*(100-product.discount))/100 %>VND</span>
-                <span class="old_price"><%= product.price %>VND</span>
+                <h3><a href="<%= ref %>"></a> <%= product.name %></h3>
+                <%  if(product.discount) {-%>
+                    <span class="current_price"><%= (product.price*(100-product.discount))/100 %>VND</span>
+                    <span class="old_price"><%= product.price %>VND</span>
+                        <% } else { -%>
+                    <span class="current_price"><%= product.price %>VND</span>
+                         <% } -%>
             </div>
-            
-            
             <div class="product_content list_content">
                 <h3><a href="<%= ref %>"><%= product.name %></a></h3>
                 <div class="product_ratting">
@@ -68,8 +82,12 @@
                     </ul>
                 </div>
                 <div class="product_price">
-                    <span class="current_price"><%= (product.price*(100-product.discount))/100 %>VND</span>
-                <span class="old_price"><%= product.price %>VND</span>
+                    <%  if(product.discount) {-%>
+                        <span class="current_price"><%= (product.price*(100-product.discount))/100 %>VND</span>
+                        <span class="old_price"><%= product.price %>VND</span>
+                            <% } else { -%>
+                        <span class="current_price"><%= product.price %>VND</span>
+                             <% } -%>
                 </div>
                 <div class="product_desc">
                     <p><%= product.discripe %></p>
@@ -78,5 +96,4 @@
             </div>
             
         </div>
-    </div>
     <% } -%>

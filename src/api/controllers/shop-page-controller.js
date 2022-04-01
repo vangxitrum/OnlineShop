@@ -5,10 +5,15 @@ class ShopCategoryController {
     
     show(req, res, next) {
         let page =  req.params.page || 1;
-        let perPage = 3;
+        let perPage = 9;
         let categoryObject = {}
         let manufacture = {}
         let tag={}
+        let color={}
+        let sortQuery={}
+       
+            console.log(req.query.sort)
+       
            let queryObject={} ;
             if(  req.query.type){
                 queryObject["type"] = req.query.type;
@@ -21,6 +26,23 @@ class ShopCategoryController {
             {
                 queryObject["tag"] = req.query.tag;
             }
+            if( req.query.color)
+            {
+                queryObject["color"] = req.query.color;
+            }
+            switch(req.query.sort) {
+                
+                case '1': sortQuery={price : 1  }
+                  break;
+                case '2': sortQuery={ price : -1  }
+                 break;
+                case '3':sortQuery={ name : 1}
+                  break;  
+                case '4':sortQuery={ name : -1 }
+                  break; 
+                
+              }
+              console.log(sortQuery)
         //Load manufacturer ,product category, color ,tag
         ProductDetail.find()
             .exec((err, allProducts) => {
@@ -30,27 +52,38 @@ class ShopCategoryController {
                     } else {
                         categoryObject[element.type] = 1
                     }
-                })
-                allProducts.forEach(element => {
+
                     if (manufacture.hasOwnProperty(element.brand)) {
                         manufacture[element.brand] += 1
                     } else {
                         manufacture[element.brand] = 1
                     }
-                })
-                allProducts.forEach(element => {
+
                     if (tag.hasOwnProperty(element.tag)) {
                         tag[element.tag] += 1
                     } else {
                         tag[element.tag] = 1
                     }
+
+                    if(Array.isArray(element.color)){
+                        element.color.forEach( item =>{
+                            if(color.hasOwnProperty(item)){
+                                color[item] += 1
+                            } else {
+                                color[item] = 1
+                            }
+                        })
+                    }
                 })
-                loadPage(queryObject)
+               
+                let sort=req.query.sort||"0"
+                loadPage(queryObject,sortQuery,sort)
             })
 
             // Load pagination
-        function loadPage(queryObject ) {
+        function loadPage(queryObject, sortQuery,sort ) {
             ProductDetail.find(queryObject)
+                .sort(sortQuery)
                 .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
                 .limit(perPage)
                 .exec((err, products) => {
@@ -60,7 +93,8 @@ class ShopCategoryController {
                             .exec((err, photos) => {
                                 res.render('pages/user/ShopPage/shop-category.ejs', {
                                     products, // sản phẩm trên một page
-                                    current: page, // page hiện tại
+                                    current: page,// page hiện tại
+                                    perPage, 
                                     pages: Math.ceil(   count.length / perPage),// tổng số các page
                                     auth: false,
                                     photos,
@@ -68,7 +102,9 @@ class ShopCategoryController {
                                     count:count.length,
                                     categoryObject,
                                     manufacture,
-                                    tag
+                                    tag,
+                                    color,
+                                    sort
                                 });
                             })
 

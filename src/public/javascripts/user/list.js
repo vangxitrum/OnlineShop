@@ -1,10 +1,12 @@
 
 function createList( id,param,key ,value ){
+
     let itemp
+    let conntain= key.charAt(0).toUpperCase() + key.slice(1);
     if(key===getValue(param)) {
-         itemp=  `<li><a class='text-warning' href="/shopcategory/?${deleteParam(param)}">${key}<span>${value}</span></a> </li>`
+         itemp=  `<li><a class='text-warning' href="/shopcategory/?${deleteParam(param)}">${conntain}<span>${value}</span></a> </li>`
     } else{
-        itemp=  `<li><a href="/shopcategory/?${addParam(param,key)}">${key}<span>${value}</span></a> </li>`
+        itemp=  `<li><a href="/shopcategory/?${addParam(param,key)}">${conntain}<span>${value}</span></a> </li>`
     }
     $(`#${id}`).append(itemp)
 }
