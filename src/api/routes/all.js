@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const expressLayout = require('express-ejs-layouts')
-var flash      = require('req-flash');
 const aboutController = require('../controllers/about-controller')
 const blogCategory = require('../controllers/blog-category-controller')
 const blogDetail = require('../controllers/blog-detail-controller')

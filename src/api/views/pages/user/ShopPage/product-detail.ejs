@@ -23,113 +23,7 @@
 <!--breadcrumbs area end-->
 
 <!--product details start-->
-<div class="product_details">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-md-5">
-               <div class="product-details-tab">
 
-                   
-                    <div id="img-1" class="zoomWrapper single-zoom">
-                        <a href="#">
-                            <img id="zoom1" src="https://drive.google.com/uc?export=view&id=1UpaZAWATd6QnxZeldkNJz8zfRYC2aOUC" data-zoom-image="https://drive.google.com/uc?export=view&id=1UpaZAWATd6QnxZeldkNJz8zfRYC2aOUC" alt="big-1">
-                        </a>
-                    </div>
-                    <div class="single-zoom-thumb">
-                        <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
-                            <!-- <li>
-                                <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/img/product/product4.jpg" data-zoom-image="assets/img/product/product4.jpg">
-                                    <img src="assets/img/s-product/product3.jpg" alt="zo-th-1"/>
-                                </a>
-                            </li> -->
-                            <% photos.forEach(  (photoItem) => { -%>
-                                <li>
-                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="<%= photoItem.path %>" data-zoom-image="<%= photoItem.path %>">
-                                        <img src="<%= photoItem.path %>" alt="zo-th-1"/>
-                                    </a>
-                                </li>
-                                <% });-%>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-7">
-                <div class="product_d_right">
-                   <form action="#">
-                       <% console.log(product.name) -%>
-                        <h1> <%= product[0].name %> </h1>
-                        <div class=" product_ratting">
-                            <ul>
-                                <li><a href="/home">home</a></li>
-                                <li>/</li>
-                                <li>product details</li>
-                            </ul>
-                        </div>
-                        <div class="product_price">
-                            <span class="current_price"><%= formatPrice(product[0].price)%> </span>
-                        </div>
-                        <div class="product_desc">
-                            <p> <%= product[0].descript %> </p>
-                        </div>
-
-                        <div class="product_variant color">
-                            <h3>color</h3>
-                            <select class="niceselect_option" id="color" name="produc_color">
-                                <option selected value="1">choose in option</option>
-                                <% var quatityColor= 1 -%>
-                                <% var tempColor= [] -%>
-                                <% photos.forEach((item)=>{ -%>
-                                    <% if(!tempColor.includes(item.color)){-%>
-                                    <%  tempColor.push(item.color) -%>
-                                    <% quatityColor++ -%>
-                                    <option value="<%= quatityColor %>"><%= item.color %></option>  
-                                    <% } -%>
-                                <% }) -%>        
-                                        
-                            </select>   
-                        </div>
-                        <div class="product_variant size">
-                            <h3>size</h3>
-                            <select class="niceselect_option" id="color1" name="produc_color">
-                                <option selected value="1">size</option> 
-                                <% var sizeTemp= [] -%>
-                                <% var countSize= 1 -%>       
-                              <% quantity.forEach((element)=>{ -%>
-                                <% if(!sizeTemp.includes(element.size)){-%>
-                                    <% sizeTemp.push(element.size) -%>
-                                    <%   countSize++ -%>
-                                    <option value="<%= countSize%>"><%= element.size%></option> 
-                                    <%} -%>
-                             <% }) %>              
-                                            
-                            </select> 
-                        </div>
-                        <div class="product_variant quantity">
-                            <label>quantity</label>
-                            <input min="1" max="100" value="1" type="number">
-                            <button class="button" type="submit">add to cart</button>  
-                        </div>
-                        <div class=" product_d_action">
-                           <ul>
-                               <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to Wish List</a></li>
-                               <li><a href="#" title="Add to Compare"><i class="fa fa-sliders" aria-hidden="true"></i> Compare this Product</a></li>
-                           </ul>
-                        </div>
-                        
-                    </form>
-                    <div class="product_social">
-                        <h3>Share on:</h3>
-                        <ul>
-                            <li><a href="#"><i class="fa-solid fa-rss"></i></a></li>           
-                            <li><a href="#"><i class="fa-brands fa-vimeo-v"></i></a></li>           
-                            <li><a href="#"><i class="fa-brands fa-tumblr"></i></a></li>           
-                            <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>        
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>        
-                        </ul>      
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--breadcrumbs area end-->
 
         <!--product details start-->
@@ -186,7 +80,7 @@
                                 </div>
                                 <div class="product_price">
                                     <span class="current_price">
-                                        <%= product[0].price %>
+                                        <%=  formatPrice(calPrice(product[0].price,product[0].discount)) %>
                                     </span>
                                 </div>
                                 <div class="product_desc">
