@@ -1,0 +1,267 @@
+@import 'variable';
+@import 'animation';
+
+
+.header_cart_page {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .other_bread {
+    padding-top: 41px;
+    padding-bottom: 41px;
+  }
+  
+  .table_desc {
+    border: 1px solid #ddd;
+    margin-bottom: 59px;
+    margin-top: 2px;
+  }
+  .table_desc .cart_page table {
+    width: 100%;
+  }
+  .table_desc .cart_page table thead tr th {
+    border-bottom: 3px solid $base-color;
+    border-right: 1px solid #ddd;
+    color: #747474;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: center;
+  }
+  .table_desc .cart_page table tbody tr td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+  }
+  .table_desc .cart_page table tbody tr td.product_thumb {
+    min-width: 159px;
+  }
+  .table_desc .cart_page table tbody tr td.product_thumb img {
+    width: inherit;
+  }
+  .table_desc .cart_page table tbody tr td.product_name {
+    min-width: 260px;
+  }
+  .table_desc .cart_page table tbody tr td.product_name a {
+    color: #747474;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .table_desc .cart_page table tbody tr td.product_name a:hover {
+    color: $base-color;
+  }
+  .table_desc .cart_page table tbody tr td.product_remove {
+    min-width: 125px;
+  }
+  .table_desc .cart_page table tbody tr td.product_remove a {
+    font-size: 20px;
+    color: $base-color;
+  }
+  .table_desc .cart_page table tbody tr td.product_remove a:hover {
+    color: $base-color;
+  }
+  .table_desc .cart_page table tbody tr td.product-price {
+    min-width: 159px;
+    color: $base-color;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .table_desc .cart_page table tbody tr td.product_total {
+    min-width: 159px;
+  }
+  .table_desc .cart_page table tbody tr td.product_quantity {
+    min-width: 175px;
+  }
+  .table_desc .cart_page table tbody tr td.product_quantity input {
+    width: 60px;
+    height: 40px;
+    padding: 0 5px 0 10px;
+    background: none;
+    border: 1px solid #ddd;
+  }
+  
+  .cart_page table thead tr:last-child th, .table_desc table tbody tr td:last-child {
+    border-right: 0;
+  }
+  
+  .cart_submit {
+    text-align: right;
+    padding: 12px;
+  }
+  .cart_submit button {
+    background: #242424;
+    border: 0;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    height: 38px;
+    line-height: 18px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .cart_submit button:hover {
+    background: $base-color;
+  }
+  
+  .coupon_inner {
+    padding: 10px 20px 25px;
+  }
+  .coupon_inner p {
+    color: #747474;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .coupon_inner button {
+    background: #242424;
+    border: 0;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    height: 38px;
+    line-height: 18px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .coupon_inner button:hover {
+    background: $base-color;
+  }
+  .coupon_inner input {
+    border: 1px solid #ddd;
+    height: 42px;
+    background: none;
+    padding: 0 20px;
+    margin-right: 20px;
+    color: #747474;
+  }
+  @media only screen and (max-width: 767px) {
+    .coupon_inner input {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .coupon_inner input {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+  }
+  .coupon_inner a {
+    display: block;
+    text-align: right;
+    color: $base-color;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .coupon_code {
+    border: 1px solid #ddd;
+  }
+  @media only screen and (max-width: 767px) {
+    .coupon_code.left {
+      margin-bottom: 59px;
+    }
+  }
+  .coupon_code h3 {
+    color: #ffffff;
+    line-height: 37px;
+    padding: 5px 15px;
+    background: #242424;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  @media only screen and (max-width: 767px) {
+    .coupon_code h3 {
+      line-height: 28px;
+      padding: 5px 15px;
+      font-size: 15px;
+    }
+  }
+  
+  .cart_subtotal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .cart_subtotal p {
+    color: #242424;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .cart_subtotal p.cart_amount {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  @media only screen and (max-width: 767px) {
+    .cart_subtotal p.cart_amount {
+      font-size: 14px;
+    }
+  }
+  .cart_subtotal p span {
+    margin-right: 30px;
+  }
+  
+  .checkout_btn {
+    text-align: right;
+  }
+  .checkout_btn a {
+    background: $base-color;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 3px 14px;
+    line-height: 30px;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  .checkout_btn a:hover {
+    background: #242424;
+  }
+  
+  .coupon_area {
+    margin-bottom: 60px;
+  }
+  
+  .footer_widgets.other_widgets .footer_top {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  .footer_widgets.other_widgets .footer_top_inner {
+    padding: 55px 0 53px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .footer_widgets.other_widgets .footer_top_inner {
+      padding: 55px 0 59px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .footer_widgets.other_widgets .footer_top_inner {
+      padding: 55px 0 40px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .footer_widgets.other_widgets .footer_top_inner {
+      padding: 55px 0 35px;
+    }
+  }
+  

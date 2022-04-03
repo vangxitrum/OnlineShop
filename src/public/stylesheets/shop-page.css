@@ -1841,3 +1841,98 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   .col-cust-5 {
     flex: 0 0 100%;
     max-width: 100%; } }
+
+.ui-slider-horizontal .ui-slider-range {
+  background: #ff6a28;
+  height: 5px; }
+
+.ui-slider-horizontal {
+  height: 3px;
+  background: #dbdbdb;
+  border: none;
+  width: 92%;
+  margin: 0 auto;
+  margin-bottom: 22px; }
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  width: 13px;
+  height: 13px;
+  top: -5px;
+  cursor: e-resize;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2); }
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-around; }
+
+.price-input {
+  width: 45%; }
+  .price-input span {
+    font-size: 13px; }
+  .price-input input {
+    width: 70%;
+    text-align: center;
+    border-radius: 4px;
+    margin-left: 2px;
+    border: 1px solid #999;
+    -moz-appearance: none; }
+  .price-input input[type="number"]::-webkit-inner-spin-button,
+  .price-input input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; }
+
+.separator {
+  width: 10%;
+  text-align: center; }
+
+.range-wrapper {
+  height: 5px;
+  border: 5px;
+  background-color: #ddd;
+  margin-top: 1rem; }
+  .range-wrapper .progress {
+    height: 5px;
+    margin: 0  25%;
+    border-radius: 5px;
+    background: #797979; }
+
+.range-input {
+  position: relative; }
+  .range-input input {
+    position: absolute;
+    top: -5px;
+    height: 5px;
+    width: 100%;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none; }
+  .range-input input[type="range"]::-webkit-slider-thumb {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    background: #797979; }
+  .range-input input[type="range"]::-moz-slider-thumb {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    pointer-events: auto;
+    -moz-appearance: none;
+    background: #ff6a28; }
+
+.filter-btn {
+  border: none;
+  background-color: #797979;
+  color: white;
+  margin-top: 1rem;
+  font-size: 13px;
+  padding: .3rem .5rem;
+  border-radius: 5px;
+  width: 30%; }
+
+.filter-btn:hover {
+  font-weight: bold; }

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-4">
           <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile-list">
+            <a class="list-group-item list-group-item-action " id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile-list">
               <div class="row">
                 <div class="col-1">
                   <i class="fa-solid fa-user fa-lg"></i>
@@ -47,11 +47,11 @@
                   <i class="fa-solid fa-key fa-lg"></i>
                 </div>
                 <div class="col-11">
-                  <p>Re-Password</p>
+                  <p>Password</p>
                 </div>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action" id="list-address-list" data-bs-toggle="list" href="#list-address" role="tab" aria-controls="list-address">
+            <a class="list-group-item list-group-item-action active" id="list-address-list" data-bs-toggle="list" href="#list-address" role="tab" aria-controls="list-address">
               <div class="row">
                 <div class="col-1">
                   <i class="fa-solid fa-location-dot fa-lg"></i>
@@ -66,7 +66,8 @@
         <div class="col-8 content-area">
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade " id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-              <h2 class = "tag_title">General</h2>
+              <div class="account-info-container">
+                <h2 class = "tag_title">General</h2>
               <ul class = "inform-list">
                 <li class = "inform-item">
                   <p class = "tag">Email</p>
@@ -134,38 +135,237 @@
                   <button class ="btn btn-primary" >Save</button>
                 </form>
               </div>
+              </div>
 
             </div>
-            <div class="tab-pane fade show active" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
+            <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
               <div class = "history-container">
                 <h2 class="tag_title">History</h2>
                 <p class = "tag_explaint">Show your previous order's informations</p>
                 <hr class="solid">
-                <div class = "input-container">
-                  <input type="text" class = "form-input" placeholder=" ">
-                  <label for = "name" class = "form-label">Name</label>
+                <div class="filter-wrapper">
+                  <div class = "input-container">
+                    <input type="text" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "form-label">Search</label>
+                  </div>
+                  <div class = "input-container">
+                    <input type="date" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "date-label">From</label>
+                  </div>
+                  <div class = "input-container">
+                    <input type="date" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "date-label">To</label>
+                  </div>
+                  <button class = "btn btn-primary">Filter</button>
                 </div>
-                <div class = "input-container">
-                  <input type="text" class = "form-input" placeholder=" ">
-                  <label for = "name" class = "form-label">Name</label>
-                </div>
-                <div class = "input-container">
-                  <input type="text" class = "form-input" placeholder=" ">
-                  <label for = "name" class = "form-label">Name</label>
-                </div>
-                <div class = "input-container">
-                  <input type="text" class = "form-input" placeholder=" ">
-                  <label for = "name" class = "form-label">Name</label>
+                <hr class="solid">
+                <div class="table-container">
+                  <table class = "data-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">Sum</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td id = "orderDate">19/4/2001</td>
+                        <td id = "orderID">12acxs12xv</td>
+                        <td id = "orderSum">100.000</td>
+                        <td id = "orderStatus">Shipping</td>
+                        <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
+                      </tr>
+                      <tr>
+                        <td id = "orderDate">19/4/2001</td>
+                        <td id = "orderID">12acxs12xv</td>
+                        <td id = "orderSum">100.000</td>
+                        <td id = "orderStatus">Shipping</td>
+                        <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button class = "more-btn">Load more</button>
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade" id="list-wishlist" role="tabpanel" aria-labelledby="list-wishlist-list">Wishlish</div>
-            <div class="tab-pane fade" id="list-repassword" role="tabpanel" aria-labelledby="list-repassword-list">Re-password</div>
-            <div class="tab-pane fade" id="list-address" role="tabpanel" aria-labelledby="list-address-list">Profile</div>
+            <div class="tab-pane fade" id="list-wishlist" role="tabpanel" aria-labelledby="list-wishlist-list">
+              <div class="wishlist-container">
+                <h2 class="tag_title">Wishlist</h2>
+                <p class = "tag_explaint">Your favorite items</p>
+                <hr class="solid">
+                <div class="table-container">
+                  <table class = "data-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">Sum</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td id = "orderDate">19/4/2001</td>
+                        <td id = "orderID">12acxs12xv</td>
+                        <td id = "orderSum">100.000</td>
+                        <td id = "orderStatus">Shipping</td>
+                        <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
+                      </tr>
+                      <tr>
+                        <td id = "orderDate">19/4/2001</td>
+                        <td id = "orderID">12acxs12xv</td>
+                        <td id = "orderSum">100.000</td>
+                        <td id = "orderStatus">Shipping</td>
+                        <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button class = "more-btn">Load more</button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="list-repassword" role="tabpanel" aria-labelledby="list-repassword-list">
+              <div class="password-container">
+                <h2 class="tag_title">Password</h2>
+                <p class = "tag_explaint">For your account's safety, you should have a strong password!!!</p>
+                <hr class="solid">
+                <h3>Change your password</h3>
+                <div class="form-container">
+                  <div class = "input-container">
+                    <input type="password" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "form-label">Password</label>
+                  </div>
+                  <div class = "input-container">
+                    <input type="password" class = "form-input" placeholder=" ">
+                    <label for = "name" class = "form-label">Re-password</label>
+                  </div>
+                  <button class ="btn btn-primary" >Save change</button>
+                </div>
+                <div class="separator"></div>
+                <div class="note-container">
+                  <h4>Note</h4>
+                  <p>The password must have more than 8 characters</p>
+                  <p>It must contain 1 special character</p>
+                  <p>It should be different from your recent password</p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade show active" id="list-address" role="tabpanel" aria-labelledby="list-address-list">
+              <div class="address-managerment-container ">
+                <h2 class="tag_title">Address Managerment</h2>
+                <p class = "tag_explaint">Manage your address</p>
+                <hr class="solid">
+                <button class = "add-address-btn" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus"></i> Add New Address</button>
+                <div class="address-item-container">
+                  <div class = "info-container">
+                    <span class = "name-wrapper">
+                      <h5 class = "user-name">Trần Quang Tuấn</h5> <p class="status"><i class="fa-solid fa-check fa-2xs">
+                      </i> default address</p>
+                    </span>
+                    <p class="user-info"><span>Address:</span> 670/2 TNV, Tp.Thu Duc, Ho Chi Minh</p>
+                    <p class="user-info"><span>Phone number:</span> (+84) 0823 *** ***</p>
+                  </div>
+                  <button class="delete-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i></button>
+                  <button class="modified-btn btn btn-primary"><i class="fa-solid fa-pen"></i></button>
+                </div>
+
+                <div class="address-item-container">
+                  <div class = "info-container">
+                    <span class = "name-wrapper">
+                      <h5 class = "user-name">Trần Quang Tuấn</h5>
+                    </span>
+                    <p class="user-info"><span>Address:</span> Da Lat</p>
+                    <p class="user-info"><span>Phone number:</span> (+84) 0823 *** ***</p>
+                  </div>
+                  <button type="button" class="delete-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i></button>
+                  <button class="modified-btn btn btn-primary"><i class="fa-solid fa-pen"></i></button>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
   </div>  
 </div>
 
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Address</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do your want to delete this address?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new address</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="name" autocomplete="off">
+          <label for = "name" class = "form-label">Name</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="companyName" autocomplete="off">
+          <label for = "companyName" class = "form-label">Company's name</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="phoneNumber" autocomplete="off">
+          <label for = "phoneNumber" class = "form-label">Phone number</label>
+        </div>
+        <div class = "input-container">
+          <select name="province" class = "form-input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="female">Other</option>
+          </select>
+          <label for = "name" class = "select-label">Province/City</label>
+        </div>
+        <div class = "input-container">
+          <select name="district" class = "form-input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="female">Other</option>
+          </select>
+          <label for = "name" class = "select-label">District</label>
+        </div>
+        <div class = "input-container">
+          <select name="subDistrict" id="cars" class = "form-input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="female">Other</option>
+          </select>
+          <label for = "name" class = "select-label">Sub-District</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="address" autocomplete="off">
+          <label for = "address" class = "form-label">Address</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%- contentFor("end") %>
 
+<script src="/public/javascripts/user/userprofile-page.js"></script>
