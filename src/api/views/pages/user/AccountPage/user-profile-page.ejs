@@ -7,16 +7,16 @@
 
 <div class="user-account-area">
   <div class = "container ">
-    <div class="row">
-        <div class="col-4">
+    <div class="row" id = "menu-area">
+        <div class="col-4" id = "tag-area">
           <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action " id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile-list">
+            <a class="list-group-item list-group-item-action active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile-list">
               <div class="row">
                 <div class="col-1">
                   <i class="fa-solid fa-user fa-lg"></i>
                 </div>
                 <div class="col-11">
-                  <p>Account</p>
+                  <p class = "tag_name">Account</p>
                 </div>
               </div>
             </a>
@@ -26,7 +26,7 @@
                   <i class="fa-solid fa-cart-shopping fa-lg"></i>
                 </div>
                 <div class="col-11">
-                  <p>Order History</p>
+                  <p class = "tag_name">Order History</p>
                 </div>
               </div>
             </a>
@@ -36,7 +36,7 @@
                   <i class="fa-solid fa-heart fa-lg"></i>
                 </div>
                 <div class="col-11">
-                  <p>Wishlist</p>
+                  <p class = "tag_name">Wishlist</p>
                 </div>
               </div>
             </a>
@@ -47,25 +47,25 @@
                   <i class="fa-solid fa-key fa-lg"></i>
                 </div>
                 <div class="col-11">
-                  <p>Password</p>
+                  <p class = "tag_name">Password</p>
                 </div>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action active" id="list-address-list" data-bs-toggle="list" href="#list-address" role="tab" aria-controls="list-address">
+            <a class="list-group-item list-group-item-action" id="list-address-list" data-bs-toggle="list" href="#list-address" role="tab" aria-controls="list-address">
               <div class="row">
                 <div class="col-1">
                   <i class="fa-solid fa-location-dot fa-lg"></i>
                 </div>
                 <div class="col-11">
-                  <p>Address Managerment</p>
+                  <p class = "tag_name">Address Managerment</p>
                 </div>
               </div>
             </a>
           </div>
         </div>
-        <div class="col-8 content-area">
+        <div class="col-8 content-area" id = "content-area">
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade " id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+            <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
               <div class="account-info-container">
                 <h2 class = "tag_title">General</h2>
               <ul class = "inform-list">
@@ -254,7 +254,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade show active" id="list-address" role="tabpanel" aria-labelledby="list-address-list">
+            <div class="tab-pane fade " id="list-address" role="tabpanel" aria-labelledby="list-address-list">
               <div class="address-managerment-container ">
                 <h2 class="tag_title">Address Managerment</h2>
                 <p class = "tag_explaint">Manage your address</p>

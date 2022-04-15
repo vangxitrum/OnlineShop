@@ -104,8 +104,8 @@ class ShopCategoryController {
                                     pages: Math.ceil(count.length / perPage),// tổng số các page
                                     auth: false,
                                     photos,
-                                    PageIndex: 0,
-                                    count: count.length,
+                                    pageIndex: 0,pageName: "shopPage",
+                                    count:count.length,
                                     categoryObject,
                                     manufacture,
                                     tag,

@@ -20,7 +20,7 @@ class ProductDetailController{
       ])
         .then(values=>{
           console.log(values[5])
-          res.render('pages/user/ShopPage/product-detail.ejs',{auth:false,PageIndex:1,
+          res.render('pages/user/ShopPage/product-detail.ejs',{auth:false,pageIndex: 1,pageName: "productDetailPage",
             product:values[0],
             photos:values[1],
             quantity:values[2],
