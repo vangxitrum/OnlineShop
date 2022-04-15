@@ -1653,7 +1653,7 @@
     align-items: center;
     position: absolute;
     justify-content: center;
-    left: 20%;
+    left: 30%;
     top: 37px;
     z-index: 999;
     max-width: 1190px;
@@ -1694,6 +1694,7 @@
   .horizontal_menu .left_menu .main_menu nav > ul > li:first-child > a {
     padding-left: 6px;
   }
+
   .horizontal_menu .main_menu nav > ul > li:first-child > a {
     padding: 15px 24px;
   }
@@ -2486,7 +2487,7 @@
   
 
   .horizontal_menu > .left_menu > .main_menu >  nav > ul {
-    margin-bottom: 25px;
+    margin-bottom: 0;
   }
 
   .header_product{

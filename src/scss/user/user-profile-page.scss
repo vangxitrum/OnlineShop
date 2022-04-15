@@ -1,5 +1,51 @@
 @import 'variable';
 
+//responsive
+
+@media screen and (max-width:1100px){
+  .content-area{
+    width: 90%; 
+    margin: 0 auto;
+  }
+
+  .tag_name{
+    visibility: hidden;
+  }
+
+  .list-group{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 2rem;
+ 
+  }
+
+  .list-group-item{
+    width: 80px;
+    border: none;
+    height: 2.5rem;
+    border: none;
+    text-align: center;
+    padding-left: 2rem;
+    border-radius: none;
+  }
+
+  .list-group-item.active{
+    border: none;
+    background-color: white;
+    color: $black-color;
+    font-weight: bolder;
+    border-bottom: .4rem solid $base-color;  
+    border-radius: none; 
+  }
+
+  .list-group-item:last-child{
+    border-radius: 0% ;
+  }
+  
+}
+
 .user-account-area {
     margin-top: 3rem;
     margin-bottom: 5rem;
@@ -7,11 +53,14 @@
     
 }
 
-.list-group-item{
+
+@media screen and (min-width:1100px){
+  .list-group-item{
     height: 2.8rem;
     width: 90%;
     padding-top: .7rem;
     color: #7e7e7e
+    
 }
   
 .list-group-item.active{
@@ -25,6 +74,8 @@
 .list-group-item:hover{
     color: $black-color;
     border-left: .4rem solid $base-color;
+
+}
 
 }
 
@@ -410,12 +461,7 @@ hr.solid {
 
 
 .password-container{
-  .btn{
-    margin-left: 2rem;
-    font-size: 12px;
-    width: 16%;
-    margin-bottom: 1rem;
-  }
+  
   
   .form-container{
     width: 44%;
@@ -460,10 +506,16 @@ hr.solid {
     margin-left: .5rem;
   }
 
-  button{
-    width: 40%;
-    height: 5%;
+  .btn{
+    margin-left: 2rem;
+    font-size: 12px;
+    width: 16%;
+    margin-bottom: 1rem;
+    width: 50%;
+    height: 10%;
   }
+
+  
 }
 
 .address-managerment-container{

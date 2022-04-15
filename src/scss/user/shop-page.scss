@@ -424,11 +424,11 @@
 }
 
 .widget_list > ul > li > a:hover {
-    color: #ff6a28;
+    color: $base_color;
 }
 
 .widget_list > ul > li > a:hover span {
-    background: #ff6a28;
+    background: $base_color;
     color: #fff;
 }
 
@@ -471,7 +471,7 @@
 }
   
 .widget_list.widget_filter form button:hover {
-    background: #ff6a28;
+    background: $base_color;
 }
 
 .shop_title {
@@ -619,7 +619,7 @@
 }
 
 .product_ratting ul li a {
-  color: #ff6a28;
+  color: $base_color;
 }
 
 .product_list_item .product_ratting {
@@ -704,12 +704,12 @@
 }
 
 .pagination ul li a:hover {
-  background: #ff6a28;
+  background: $base_color;
   color: #ffffff;
 }
 
 .pagination ul li.current {
-  background: #ff6a28;
+  background: $base_color;
   color: #ffffff;
 }
 
@@ -739,9 +739,9 @@
   }
 }
 .tag_widget ul li a:hover {
-  background: #ff6a28;
+  background: $base_color;
   color: #fff;
-  border-color: #ff6a28;
+  border-color: $base_color;
 }
 
 .col-cust-5 {
@@ -772,7 +772,7 @@
 }
 
 .ui-slider-horizontal .ui-slider-range {
-  background: #ff6a28;
+  background: $base_color;
   height: 5px;
 }
 
