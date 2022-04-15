@@ -1,12 +1,19 @@
 const { render } = require('node-sass')
 const Cart = require('../models/cart')
 const productQuantity = require('../models/productQuantity')
-
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Types.ObjectId;
 class CartPageController {
     show(req, res, next) {
-        res.render('pages/user/ShopPage/cart.ejs', { auth: false, PageIndex: 0 });
+        Cart.find({ customerID: ObjectId('6222cd37bcd8e3cabfde0323') })
+            .then(items => {
+                console.log(items)
+                res.render('pages/user/CartPage/cart.ejs', { items, auth: false, PageIndex: 0 });
+            })
+
+
     }
-    
+
     add(req, res, next) {
         console.log(req.body)
         console.log('AJAX FUNC HAS CALLED ')
@@ -16,6 +23,7 @@ class CartPageController {
             productObject['productDetailID'] = req.body.productid
             productObject['size'] = req.body.size
             productObject['color'] = req.body.color
+            productObject['image'] = req.body.image
 
             productQuantity.findOne(productObject)
                 .then(quantityObject => {
@@ -24,7 +32,13 @@ class CartPageController {
                     let cartObject = {
                         productID: quantityObject._id,
                         customerID: '6222cd37bcd8e3cabfde0323',
-                        quatity: quantity
+                        quantity: quantity,
+                        productDt: productObject.productDetailID,
+                        image: productObject['image'],
+                        color: req.body.color,
+                        size: req.body.size,
+                        name: req.body.name,
+                        price: req.body.price
                     }
                     console.log('them vao gio hang')
                     Cart.insertMany([cartObject]).then(result => {
@@ -34,16 +48,16 @@ class CartPageController {
                         }
                         res.end(JSON.stringify(response));
                     })
-                    .catch(error=>{
-                        console.log(error)
-                        let response = {
-                            status: 400,
-                            error: 'Added Unsuccessfully'
-                        }
-                        res.end(JSON.stringify(response));
-                    })
+                        .catch(error => {
+                            console.log(error)
+                            let response = {
+                                status: 400,
+                                error: 'Added Unsuccessfully'
+                            }
+                            res.end(JSON.stringify(response));
+                        })
                 })
-                .catch(error=>{
+                .catch(error => {
                     console.log(error)
                     let response = {
                         status: 400,
@@ -68,12 +82,29 @@ class CartPageController {
 
 
 
-    delete(req, res, next) {
-        if (req.params.id) {
-
+    update(req, res, next) {
+        if (req.body.products) {
+            console.log('product array from cart')
+            Cart.deleteMany({ customerID: '6222cd37bcd8e3cabfde0323' }).then(r => {
+                let cartList = req.body.products
+                cartList.forEach(element => {
+                    element['customerID'] = '6222cd37bcd8e3cabfde0323'
+                });
+                console.log(cartList)
+                Cart.insertMany(cartList).then(result => {
+                    let response = {
+                        status: 200,
+                        success: 'Added Successfully'
+                    }
+                    res.end(JSON.stringify(response));
+                })
+            })
+            console.log(cartList)
+            res.end(JSON.stringify({ status: 200 }))
+        } else {
+            res.end({ status: 400 })
         }
     }
-
 
 }
 

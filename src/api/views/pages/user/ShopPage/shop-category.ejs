@@ -41,49 +41,26 @@
                                             <div class="input-wrapper">
                                                 <div class="price-input">
                                                     <span>Min</span>
-                                                    <input type="number" class="input-min" value = "2500">
+                                                    <input  class="input-min"  data-price="25000" value = "25000">
                                                 </div>
                                                 <div class="separator">-</div>
                                                 <div class="price-input">
                                                     <span>Max</span>
-                                                    <input type="number" class="input-max" value = "100000">
+                                                    <input   class="input-max"  data-price="500000" value = "500000">
                                                 </div>
                                             </div>
                                             <div class="range-wrapper">
                                                 <div class="progress"></div>
                                             </div>
                                             <div class="range-input">
-                                                <input type="range" class="range-min" min="0" max="10000" value="2500">
-                                                <input type="range" class="range-max" min="0" max="10000" value="7500">
+                                                <input type="range" class="range-min" min="0" max="3000000" value="2500">
+                                                <input type="range" class="range-max" min="0" max="3000000" value="500000">
                                             </div>
                                             <button class="filter-btn">Filter</button>
                                         </div>
-                                        <div class="widget_list widget_categories">
-                                            <h2>Product categories</h2>
-                                            <ul id="categoriesList">
-
-                                            </ul>
+                                        <div id="filter-list">
+                                            <%- include('filter.ejs',{categoryObject,color,tag,manufacture,paramObject})%>
                                         </div>
-
-                                        <div class="widget_list widget_categories">
-                                            <h2>Manufacturer</h2>
-                                            <ul id="manufacturerList">
-                                            </ul>
-                                        </div>
-                                        <div class="widget_list widget_categories">
-                                            <h2>Select By Color</h2>
-                                            <ul id="color_list">
-                                            </ul>
-                                        </div>
-                                        <div class="widget_list tag-cloud">
-                                            <h2>Popular Tags</h2>
-                                            <div class="tag_widget">
-                                                <ul id="tag_list">
-
-                                                </ul>
-                                            </div>
-                                        </div>
-
                                     </div>
                                     <!--sidebar widget end-->
                                 </div>
@@ -110,18 +87,12 @@
                                         </div>
                                         
                                         <select  id="sort_select">
-                                            <option value="0">All</option>      
-                                            <option value="1">Sort by price: low to high</option>
-                                            <option value="2">Sort by price: high to low</option>
-                                            <option value="3">Sort by name: A->Z</option>
-                                            <option value="4">Sort by name: Z->A</option>
-                                        </select>
-                                    
-                                              
-
-
-
-                                     
+                                            <option class="sort-type" value="0">All</option>      
+                                            <option class="sort-type" value="1">Sort by price: low to high</option>
+                                            <option class="sort-type" value="2">Sort by price: high to low</option>
+                                            <option class="sort-type" value="3">Sort by name: A->Z</option>
+                                            <option class="sort-type" value="4">Sort by name: Z->A</option>
+                                        </select>                                  
                                         <div class="page_amount">
                                             <p>Showing <%= (current-1)*perPage+1 %> – <%= (current-1)*perPage+count
                                                         -(perPage*(current-1)) %> of <%= count%> results</p>
@@ -129,18 +100,15 @@
                                     </div>
                                     <!--shop toolbar end-->
 
-                                    <div class="row shop_wrapper">
-                                        <% products.forEach(function(item){ -%>
-                                            <div class="col-lg-4  ">
-                                                <%- include('product_single_container.ejs',{product:
-                                                    item,photos:photos,isHomePage:false}); %>
-                                            </div>
-                                            <% }); -%>
+                                    <div class="row shop_wrapper" id="product-category">
+                                        <%- include('product-category.ejs',{products:
+                                            products,photos:photos}) %>
                                     </div>
 
                                     <div class="shop_toolbar t_bottom">
                                         <div class="pagination">
                                             <ul id="myPagination">
+                                                <%- include('pagination.ejs',{c:current,l:pages})%>
                                             </ul>
                                         </div>
 
@@ -167,44 +135,27 @@
     ============================================ -->
 
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="/public/javascripts/user/pagination.js"></script>
-        <script src="/public/javascripts/user/list.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <!-- Plugins JS -->
-
-
-        <script>pagination('<%= current%>', '<%= pages%>')</script>
-        
-        <%for (const [key, value] of Object.entries(categoryObject)) { -%>
-        <script>  createList('categoriesList', 'type', '<%= key%>', '<%= value%>')   </script>
-        <% }-%>
-
-        <script>pagination('<%= current%>', '<%= pages%>')</script>
-        <%for (const [key, value] of Object.entries(manufacture)) { -%>
-        <script>  createList('manufacturerList', 'brand', '<%= key%>', '<%= value%>')   </script>
-        <% }-%>
-
-        <%for (const [key, value] of Object.entries(tag)) { -%>
-        <script>  createList('tag_list', 'tag', '<%= key%>', '')   </script>
-        <% }-%>
-
-        <%for (const [key, value] of Object.entries(color)) { -%>
-        <script>  createList('color_list', 'color', '<%= key%>', '<%= value%>')   </script>
-        <% }-%>
-        
-        <script>
-        $('#sort_select').val('<%= sort%>')
-        $( "#sort_select" ).change(function() {
-            let sortUrl='/shopcategory/?color=red'
-            $('#sort_form').attr('action',`/shopcategory/?${addParam('sort', $( "#sort_select" ).val())}`)
-            $('#sort_form').submit()
-        
-        });
-        </script>
+       
 
 <%- contentFor("end") %>
+
+
+<!--Page's local value  -->
+ <script> var sort='<%= sort%>'</script>
+// script build UI
+<!-- Plugins JS -->
 <script src="/public/javascripts/user/shop-page.js"></script>
+<script src="/public/javascripts/user/pagination.js"></script>
+<script src="/public/javascripts/user/list.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<%  let minVal= +paramObject.gt||200000 %>
+<%  let maxVal= +paramObject.lt||2000000 %>
+<script>setRangeInput("<%=minVal%>","<%=maxVal%>") </script>  
+<script>setPriceInput("<%=minVal%>","<%=maxVal%>") </script>  
+
+
+
 
 
 

@@ -1,0 +1,11 @@
+<% let currentPage = c||1 -%>
+<% let last = l||1 -%>
+<% currentPage = parseInt(currentPage) -%>
+<%  last = parseInt(last) -%>
+<% for(let i=1;i<=last;i++) {  -%>
+   <% if(i!=c){ -%>
+       <li><a class="pagination_button" data-page="<%= i%>"><%= i%></a></li>
+   <% } else { -%>  
+       <li class="current" data-page="<%= i%>"><%= i%></li>
+<% } -%> 
+<% } -%>

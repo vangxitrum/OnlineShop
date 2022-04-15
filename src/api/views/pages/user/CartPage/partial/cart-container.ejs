@@ -1,0 +1,23 @@
+<% include ('../../../../shared/function.ejs') %>
+<% let i=0%> 
+<% console.log(items) %>
+<% items.forEach(function(item){ -%>
+<tr id="item<%= i %>" >
+    <td class="product_remove"><a  ><i class="fa-solid fa-trash-can remove-product"
+         data-image="<%= item.image %>" 
+         data-id="<%=i%>" 
+         data-productid="<%= item.productID %>" 
+         data-color="<%= item.color %>" 
+         data-size="<%= item.size %>"
+         data-name="<%= item.name %>"
+         data-price="<%= item.price %>"
+         data-productdt="<%= item.productDt %>" 
+          ></i></a></td>
+     <td class="product_thumb"><a><img src="<%= item.image %> " alt=""></a></td>
+     <td class="product_name"><a ><%= item.name%></a></td>
+     <td class="product-price" ><%= formatPrice(item.price)%></td>
+     <td class="product_quantity "><input class="input_quantity"  data-price="<%= item.price %>" data-id="<%= i %> "  min="1" max="100" value="<%= item.quantity%>" type="number"></td>
+     <td class="product_total" id='product-total<%= i %>' data-price="<%= item.price%>"  data-id="<%= i %>"><%= formatPrice(item.quantity*item.price) %> </td>
+ </tr>
+ <% i++%>
+ <% } )%>

@@ -64,7 +64,7 @@
                     <div class="col-lg-7 col-md-7">
                         <div class="product_d_right">
                             <div>
-                                <h1>
+                                <h1 id="product-name" data-name="<%= product[0].name %>">
                                     <%= product[0].name %>
                                 </h1>
                                 <div class=" product_ratting">
@@ -78,13 +78,13 @@
                                         <li class="review"><a href="#"> Write a review </a></li>
                                     </ul>
                                 </div>
-                                <div class="product_price">
+                                <div class="product_price" data-price="<%= calPrice(product[0].price,product[0].discount) %> ">
                                     <span class="current_price">
                                         <%=  formatPrice(calPrice(product[0].price,product[0].discount)) %>
                                     </span>
                                 </div>
                                 <div class="product_desc">
-                                    <p>
+                                    <p >
                                         <%= product[0].descript %>
                                     </p>
                                 </div>
@@ -185,8 +185,10 @@
 
                                 
                                 <div class="tab-pane fade" id="reviews" role="tabpanel">
-                                  
-                                            <%- include('review.ejs',{reviews: reviews,moment:moment}); %>
+                                    <div id="reviewscontainer"  class="scrollbar-warning product_review_container" >
+                                        <%- include('review.ejs',{reviews: reviews,moment:moment}); %>
+                                    </div>
+                                           
                                   
                                     <div class="product_review_form">
                                         <div >
@@ -246,56 +248,10 @@
         <!--product section area end-->
         <!-- modal alert start -->
         <%- include('add-to-cart-popup.ejs',{}); %>
-
-
             <!-- hide form -->
             <form action="" method="POST" id="add-to-cart-form"></form>
             <!-- Script -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            <script>
-                $("#add-to-cart-button").click(function () {
-                    selectedColor = $('#color-select').find(":selected").val();
-                    selectedSize = $('#size-select').find(":selected").val();
-                    quantity = $('#quantity').val()
-
-                    if (selectedColor != '0' && selectedSize != '0') {
-                        cartUrl = `cart/<%=  product[0]._id %>?size=${selectedSize}&color=${selectedColor}&quantity=${quantity}`
-                        //   $('#add-to-cart-form').submit()
-                        let cartObject = {
-                            productid: '<%=  product[0]._id %>',
-                            size: selectedSize,
-                            color: selectedColor,
-                            quantity: quantity
-                        }
-                        $.post("/cart",
-                            cartObject,
-                            function (data, status) {
-                                // add popup here
-                                alert(data)
-                            });
-                    } else {
-                        $('#add-popup').modal('show')
-                    }
-                })
-
-            </script>
-            <script>
-                $('#add-review').click(
-                    function(){
-                        if($('#author').val()&& $('#email').val()&& $('#comment').val()&& $('#comment').val() ){
-                            reviewObject={
-                                name:$('#author').val(),
-                                email:$('#email').val(),
-                                comment: $('#comment').val(),
-                                productid:'<%= product[0]._id %>'
-                                }
-                            $.post("/productdetail",
-                                reviewObject,
-                            function (data, status) {
-                                alert(JSON.stringify(reviewObject))
-                            });
-                        }
-                 })
-            </script>
    <%- contentFor("end") %>
+   <script>productid="<%=  product[0]._id %>"</script>
+   <script src="/public/javascripts/user/product-detail.js"></script>

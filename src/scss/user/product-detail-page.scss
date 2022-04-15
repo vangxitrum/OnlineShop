@@ -354,7 +354,7 @@
 }
 
 .product_info_inner .product_ratting {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .product_info_inner .product_ratting p {
@@ -663,4 +663,31 @@
   
   .action_button ul li:last-child a::before {
     display: none;
+  }
+.product_review_container{
+  height: 300px;
+  overflow-y: scroll;
+  
+}
+
+  .scrollbar-warning::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+  }
+  
+  .scrollbar-warning::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+  }
+  
+  .scrollbar-warning::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ffa946d1;
+  }
+  
+  .scrollbar-warning {
+    scrollbar-color: #FF8800 #F5F5F5;
+  }
+  .product_demo{
+    margin-left: 4px;
   }

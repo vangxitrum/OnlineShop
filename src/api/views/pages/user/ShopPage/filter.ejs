@@ -1,0 +1,52 @@
+<!-- filterObject param -->
+<% function buildList(filterObject,param){ %>
+      <%for (const [key, value] of Object.entries(filterObject)) { -%>
+            <% let temp -%>
+                  <% param=="tag" ?temp='' :temp=value %>
+                        <% let content=key.charAt(0).toUpperCase() + key.slice(1); -%>
+                              <% if(key===paramObject[param]) { -%>
+                                    <li><a class='filter-item  text-warning <%= param%>' data-param="<%= param%>" data-key="<%= key%>"
+                                              >
+                                                <%= content%><span>
+                                                            <%= temp%>
+                                                      </span>
+                                          </a> </li>
+                                    <% } else{ -%>
+                                          <li><a class='filter-item <%= param%>' data-param="<%= param%>" data-key="<%= key%>" 
+                                                     >
+                                                      <%= content%><span>
+                                                                  <%= temp%>
+                                                            </span>
+                                                </a> </li>
+                                          <% } -%>
+                                                <% }-%>
+                                                      <% } -%>
+
+
+                                                            <!--  -->
+                                                            <div class="widget_list widget_categories">
+                                                                  <h2>Product categories</h2>
+                                                                  <ul id="categories-list">
+                                                                        <%- buildList(categoryObject,'type') %>
+                                                                  </ul>
+                                                            </div>
+                                                            <div class="widget_list widget_categories">
+                                                                  <h2>Manufacturer</h2>
+                                                                  <ul id="manufacture-list">
+                                                                        <%- buildList(manufacture,'brand') %>
+                                                                  </ul>
+                                                            </div>
+                                                            <div class="widget_list widget_categories">
+                                                                  <h2>Select By Color</h2>
+                                                                  <ul id="color-list">
+                                                                        <%- buildList(color,'color') %>
+                                                                  </ul>
+                                                            </div>
+                                                            <div class="widget_list tag-cloud">
+                                                                  <h2>Popular Tags</h2>
+                                                                  <div class="tag_widget">
+                                                                        <ul id="tag-list">
+                                                                              <%- buildList(tag,'tag') %>
+                                                                        </ul>
+                                                                  </div>
+                                                            </div>

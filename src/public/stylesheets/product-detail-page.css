@@ -53,7 +53,7 @@ a.meanmenu-reveal {
   float: left;
   position: relative;
   width: 100%;
-  border-top: 1px solid #ddd; }
+  border-top: 1px solid; }
 
 .mean-container .mean-nav ul li a {
   background: #f8f8f8 none repeat scroll 0 0;
@@ -1493,7 +1493,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   padding-left: 10px; }
 
 .product_info_inner .product_ratting {
-  margin-bottom: 10px; }
+  margin-bottom: 20px; }
 
 .product_info_inner .product_ratting p {
   margin-bottom: 5px; }
@@ -1769,3 +1769,25 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .action_button ul li:last-child a::before {
   display: none; }
+
+.product_review_container {
+  height: 300px;
+  overflow-y: scroll; }
+
+.scrollbar-warning::-webkit-scrollbar-track {
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-warning::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-warning::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ffa946d1; }
+
+.scrollbar-warning {
+  scrollbar-color: #FF8800 #F5F5F5; }
+
+.product_demo {
+  margin-left: 4px; }

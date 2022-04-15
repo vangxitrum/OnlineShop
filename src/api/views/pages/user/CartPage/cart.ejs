@@ -23,7 +23,7 @@
 <!-- shopping cart area start -->
 <div class="shopping_cart_area">
     <div class="container">  
-        <form action="#"> 
+        <div > 
             <div class="row">
                 <div class="col-12">
                     <div class="table_desc">
@@ -40,7 +40,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <%- include('partial/cart-container.ejs',{items}) %> 
+                                    <!-- <tr>
                                        <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
                                         <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
                                         <td class="product_name"><a href="#">Handbag fringilla</a></td>
@@ -48,29 +49,20 @@
                                         <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
                                         <td class="product_total">£130.00</td>
                                     </tr>
-                                    <tr>
-                                       <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbags justo</a></td>
-                                        <td class="product-price">£90.00</td>
-                                        <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£180.00</td>
-
-
-                                    </tr>
+                                   
                                     <tr>
                                        <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
                                         <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product3.jpg" alt=""></a></td>
                                         <td class="product_name"><a href="#">Handbag elit</a></td>
                                         <td class="product-price">£80.00</td>
                                         <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£160.00</td>
+                                        <td class="product_total">£160.00</td> -->
                                     </tr>
                                 </tbody>
                             </table>   
                         </div>  
                         <div class="cart_submit">
-                            <button type="submit">update cart</button>
+                            <button id="update-button">update cart</button>
                         </div>      
                     </div>
                 </div>
@@ -95,17 +87,17 @@
                             <div class="coupon_inner">
                                <div class="cart_subtotal">
                                    <p>Subtotal</p>
-                                   <p class="cart_amount">£215.00</p>
+                                   <p class="cart_amount" id="cart-total">£215.00</p>
                                </div>
                                <div class="cart_subtotal ">
                                    <p>Shipping</p>
-                                   <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
+                                   <p class="cart_amount"><span>Flat Rate:</span> <%= formatPrice(50000) %></p>
                                </div>
                                <a href="#">Calculate shipping</a>
 
                                <div class="cart_subtotal">
                                    <p>Total</p>
-                                   <p class="cart_amount">£215.00</p>
+                                   <p class="cart_amount" id="price-total">£215.00</p>
                                </div>
                                <div class="checkout_btn">
                                    <a href="#">Proceed to Checkout</a>
@@ -117,7 +109,9 @@
             </div>
             <!--coupon code area end-->
             
-        </form> 
+        </div> 
     </div>     
 </div>
 <%- contentFor("end") %> 
+<script src="/public/javascripts/user/function.js"></script>
+<script src="/public/javascripts/user/cart-page.js"></script>

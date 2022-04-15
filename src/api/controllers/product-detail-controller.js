@@ -7,6 +7,7 @@ const ProductQuantity = require('../models/productQuantity')
 const Review= require('../models/review')
 var moment = require('moment');
 const { resolveInclude } = require('ejs');
+const { find } = require('../models/photo');
 class ProductDetailController{
     show(req,res,next){
        const productID= req.query.id
@@ -51,7 +52,17 @@ class ProductDetailController{
               status: 200,
               success: 'Added Review Successfully'
           }
-          res.end(JSON.stringify(response));
+          Review.find({productDetailID: req.body.productid})
+          .then(reviews=>{
+            console.log(reviews)
+            res.render('pages/user/ShopPage/review.ejs',{ layout:false,reviews: reviews,moment:moment})
+          })
+          .catch(erro=>{
+            console.log(erro)
+            res.end(JSON.stringify(response));
+          })
+        
+        
       })
        .catch( error=>{
          console.log(error)
@@ -60,6 +71,7 @@ class ProductDetailController{
           success: 'Added Review Unsuccessfully'
       }
       res.end(JSON.stringify(response));
+
        })
       }
       

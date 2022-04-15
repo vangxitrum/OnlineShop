@@ -17,7 +17,8 @@ require('../middleware/passport')
 //index router
 router.get('/shopcategory/:page', expressLayout, ShopCategoryController.show)
 router.get('/shopcategory', expressLayout, ShopCategoryController.show)
-router.post('/shopcategory', expressLayout, ShopCategoryController.show)
+router.post('/shopcategory/:page', expressLayout, ShopCategoryController.showPagination)
+router.post('/shopcategory', expressLayout, ShopCategoryController.showPagination)
 
 
 
@@ -29,6 +30,7 @@ router.get('/productdetail',expressLayout, productDetailController.show)
 router.post('/productdetail',expressLayout, productDetailController.addReview)
 router.post('/cart',expressLayout,cartController.add)
 router.get('/cart',expressLayout, cartController.show)
+router.put('/cart',expressLayout, cartController.update)
 
 router.get('/blogdetail',expressLayout, blogDetail.show)
 
