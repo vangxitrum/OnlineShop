@@ -25,18 +25,20 @@ class LoginController{
     }
 
     async secret(req,res,next){
-        console.log("call secret")
+      res.render('shared/alert.ejs',{auth:false, pageIndex: -1,pageName: "alertPage"});
        
     }
 
     async signIn(req,res,next){
-        console.log(req.user)
         const token = encodedToken(req.user._id)
-        res.setHeader('Authorization',token)
+        //res.setHeader('Authorization', "Bearer " + token)
+        //res.cookie('Authorization',token, { maxAge: 900000, httpOnly: true });
         return ProductDetail.find({})
         .then((products) => {
           Photo.find({})
             .then((photos) => {
+              res.header('Authorization', "Bearer " + token);
+              res.redirect("/");
               res.render('pages/user/index.ejs', {
                 products, photos, auth: true, pageIndex: 0,pageName: "homePage"
               })
@@ -57,10 +59,13 @@ class LoginController{
         newUser.save();
         const token = encodedToken(newUser._id)
         res.setHeader('Authorization', "Bearer " + token)
+        console.log("Authorization= Bearer + {$token}")
+        
         return ProductDetail.find({})
         .then((products) => {
           Photo.find({})
             .then((photos) => {
+              res.redirect();
               res.render('pages/user/index.ejs', {
                 products, photos, auth: true, pageIndex: 0,pageName: "homePage"
               })

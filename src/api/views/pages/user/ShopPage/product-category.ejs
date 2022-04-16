@@ -1,0 +1,11 @@
+<% products.forEach(function(item){ -%>
+    <div class="col-lg-3 col-md-4 col-sm-6 ">
+        <%- include('product_single_container.ejs',{product:
+            item,photos:photos,isHomePage:false}); %>
+    </div>
+    <% }); -%>
+    <% console.log(`${pages}====${current}`) %>
+    <% if(pages&&current ){%>
+        <script>pagination('<%= current%>' , '<%= pages %>')</script>  
+        <% } %> 
+

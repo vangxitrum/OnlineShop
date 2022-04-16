@@ -23,7 +23,7 @@ router.post('/shopcategory', expressLayout, ShopCategoryController.show)
 
 router.get('/home', expressLayout, HomePageController.show)
 
-router.get('/', expressLayout, HomePageController.show)
+router.get('/', expressLayout,expressLayout,passport.authenticate('jwt',{session: false}), HomePageController.show)
 
 router.get('/productdetail',expressLayout, productDetailController.show)
 router.post('/productdetail',expressLayout, productDetailController.addReview)
@@ -46,5 +46,6 @@ router.post('/login',expressLayout,passport.authenticate('local',{session: false
 
 router.post('/register',expressLayout, loginController.signUp)
 
-router.get('/secret',expressLayout,passport.authenticate('jwt',{session: false}),loginController.secret)
+router.get('/secret',expressLayout,loginController.secret)
+//router.get('/secret',expressLayout,passport.authenticate('jwt',{session: false}),loginController.secret)
 module.exports = router
