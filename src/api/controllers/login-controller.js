@@ -24,18 +24,17 @@ class LoginController{
     }
 
     async secret(req,res,next){
-        console.log(req.user)
+      res.render('shared/alert.ejs',{auth:false, pageIndex: -1,pageName: "alertPage"});
        
     }
 
     async signIn(req,res,next){
-        console.log(req.user)
         const token = encodedToken(req.user._id)
         res.cookie('token', token, {
           httpOnly: true,
-          //sameSite: true,
-          //signed: true,
-          //secure: true
+          sameSite: true,
+          signed: true,
+          secure: true
       });
         return ProductDetail.find({})
         .then((products) => {
@@ -59,10 +58,13 @@ class LoginController{
         newUser.save();
         const token = encodedToken(newUser._id)
         res.setHeader('Authorization', "Bearer " + token)
+        console.log("Authorization= Bearer + {$token}")
+        
         return ProductDetail.find({})
         .then((products) => {
           Photo.find({})
             .then((photos) => {
+              res.redirect();
               res.render('pages/user/index.ejs', {
                 products, photos, auth: true, pageIndex: 0,pageName: "homePage"
               })

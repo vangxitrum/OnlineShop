@@ -95,16 +95,8 @@
                                     </div>
                                     <div class="shop_toolbar_wrapper">
                                         <div class="shop_toolbar_btn">
-
-                                            <button data-role="grid_3" type="button" class="active btn-grid-3"
-                                                data-toggle="tooltip" title="3"></button>
-
-                                            <button data-role="grid_4" type="button" class=" btn-grid-4"
+                                            <button data-role="grid_4" type="button" class="active btn-grid-4"
                                                 data-toggle="tooltip" title="4"></button>
-
-                                            <button data-role="grid_5" type="button" class="btn-grid-5"
-                                                data-toggle="tooltip" title="5"></button>
-
                                             <button data-role="grid_list" type="button" class="btn-list"
                                                 data-toggle="tooltip" title="List"></button>
                                         </div>
@@ -129,6 +121,7 @@
                                     </div>
                                     <!--shop toolbar end-->
 
+<<<<<<< Updated upstream
                                     <div class="row shop_wrapper">
                                         <% products.forEach(function(item){ -%>
                                             <div class="col-lg-4  ">
@@ -136,6 +129,11 @@
                                                     item,photos:photos,isHomePage:false}); %>
                                             </div>
                                             <% }); -%>
+=======
+                                    <div class="row  shop_wrapper" id="product-category">
+                                        <%- include('product-category.ejs',{products:
+                                            products,photos:photos}) %>
+>>>>>>> Stashed changes
                                     </div>
 
                                     <div class="shop_toolbar t_bottom">

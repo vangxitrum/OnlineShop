@@ -35,7 +35,8 @@ passport.use(new LocalStrategy({
         }
         const isCorrectPassword = user.isValidPassword(password)
         if (!isCorrectPassword) return done(null,false)
-        done(null, user)
+        var auth = true;
+        done(null, user,auth)
     }
     catch(error){
         done(error,false)

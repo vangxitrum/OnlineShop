@@ -47,7 +47,6 @@ router.post('/login',expressLayout,passport.authenticate('local',{session: false
 
 router.post('/register',expressLayout, loginController.signUp)
 
-router.get('/secret',loginController.secret)
-module.exports = router;
-
-
+router.get('/secret',expressLayout,loginController.secret)
+//router.get('/secret',expressLayout,passport.authenticate('jwt',{session: false}),loginController.secret)
+module.exports = router
