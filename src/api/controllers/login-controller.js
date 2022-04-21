@@ -19,27 +19,29 @@ const encodedToken = (userID) => {
 class LoginController{
 
     
-
     show(req,res,next){
         res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage"});
     }
 
     async secret(req,res,next){
-        console.log("call secret")
+        console.log(req.user)
        
     }
 
     async signIn(req,res,next){
         console.log(req.user)
         const token = encodedToken(req.user._id)
-        res.setHeader('Authorization',token)
+        res.cookie('token', token, {
+          httpOnly: true,
+          //sameSite: true,
+          //signed: true,
+          //secure: true
+      });
         return ProductDetail.find({})
         .then((products) => {
           Photo.find({})
             .then((photos) => {
-              res.render('pages/user/index.ejs', {
-                products, photos, auth: true, pageIndex: 0,pageName: "homePage"
-              })
+              return res.redirect('/')
             });
         });
     }

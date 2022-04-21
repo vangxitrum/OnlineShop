@@ -5,17 +5,21 @@ require('dotenv').config()
 const app = express()
 const path = require('path')
 var bodyParser = require('body-parser')
+var jwt = require('jsonwebtoken');
+var cookieParser = require('cookie-parser');
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 // includes routes /shop
+app.use(express.json())
 const allRoute = require('./api/routes/all.js')
 //const Users = require('./api/data').users
-app.use(express.json())
+
 const DB=require('./api/models/connnectDb')
 //middleware
-app.use(logger('dev'))
+//app.use(logger('dev'))
+app.use(cookieParser("secret"));
 //database conect
  DB.connectDB()
 // setting
@@ -48,9 +52,8 @@ app.use((err,req,res,next) =>{
 })
 
 
-
 // listen
 const port = app.get('port') || 3000
 app.listen(port, () => {
-  console.log(`Server is lisntening on port ${port}`)
+  console.log(`Server is listening on port ${port}`)
 })

@@ -12,6 +12,7 @@ const productDetailController = require('../controllers/product-detail-controlle
 const ShopCategoryController = require('../controllers/shop-page-controller')
 const userProfileController = require('../controllers/user-profile-controller')
 const passport = require('passport')
+const { cookieJwtAuth } = require('../middleware/cookieJwtAuth')
 require('../middleware/passport')
 
 //index router
@@ -23,7 +24,7 @@ router.post('/shopcategory', expressLayout, ShopCategoryController.show)
 
 router.get('/home', expressLayout, HomePageController.show)
 
-router.get('/', expressLayout, HomePageController.show)
+router.get('/', expressLayout,expressLayout,cookieJwtAuth,HomePageController.show)
 
 router.get('/productdetail',expressLayout, productDetailController.show)
 router.post('/productdetail',expressLayout, productDetailController.addReview)
@@ -38,7 +39,7 @@ router.get('/about',expressLayout, aboutController.show)
 
 router.get('/contact',expressLayout, contactController.show)
 
-router.get('/userprofile',expressLayout, userProfileController.show)
+router.get('/userprofile',expressLayout,cookieJwtAuth, userProfileController.show)
 
 router.get('/login',expressLayout, loginController.show)
 
@@ -46,5 +47,7 @@ router.post('/login',expressLayout,passport.authenticate('local',{session: false
 
 router.post('/register',expressLayout, loginController.signUp)
 
-router.get('/secret',expressLayout,passport.authenticate('jwt',{session: false}),loginController.secret)
-module.exports = router
+router.get('/secret',loginController.secret)
+module.exports = router;
+
+
