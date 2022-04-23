@@ -84,6 +84,7 @@ button{
   transform: translateY(-50%);
   color: #ce8500;
   font-size: 30px;
+  z-index: 999;
 }
 .alert .msg{
   padding: 0 20px;
@@ -91,6 +92,7 @@ button{
   color: #ce8500;
 }
 .alert .close-btn{
+  
   position: absolute;
   right: 0px;
   top: 50%;

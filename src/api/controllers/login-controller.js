@@ -35,14 +35,8 @@ class LoginController{
           sameSite: true,
           signed: true,
           secure: true
-      });
-        return ProductDetail.find({})
-        .then((products) => {
-          Photo.find({})
-            .then((photos) => {
-              return res.redirect('/')
-            });
         });
+        return res.redirect('/');
     }
 
     async signUp(req,res,next){

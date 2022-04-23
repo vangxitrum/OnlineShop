@@ -1236,6 +1236,100 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   margin-top: 15rem;
   font-size: 25px; }
 
+.message {
+  padding: 20px 40px;
+  min-width: 420px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: 10000; }
+
+.message.showAlert {
+  opacity: 1;
+  pointer-events: auto; }
+
+.message.show {
+  animation: show_slide 1s ease forwards; }
+
+@keyframes show_slide {
+  0% {
+    transform: translateX(100%); }
+  40% {
+    transform: translateX(-10%); }
+  80% {
+    transform: translateX(0%); }
+  100% {
+    transform: translateX(-10px); } }
+
+.message.hide {
+  animation: hide_slide 1s ease forwards; }
+
+@keyframes hide_slide {
+  0% {
+    transform: translateX(-10px); }
+  40% {
+    transform: translateX(0%); }
+  80% {
+    transform: translateX(-10%); }
+  100% {
+    transform: translateX(100%); } }
+
+.alert {
+  background: #ffdb9b;
+  border-left: 8px solid #ffa502; }
+
+.alert .fa-exclamation-circle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ce8500;
+  font-size: 30px; }
+
+.alert .msg {
+  padding: 0 20px;
+  font-size: 18px;
+  color: #ce8500; }
+
+.success {
+  background: #2da46d;
+  border-left: 8px solid #198754; }
+
+.success .fa-circle-check {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #198754;
+  font-size: 30px; }
+
+.success .msg {
+  padding: 0 20px;
+  font-size: 18px;
+  color: #126840; }
+
+.fail {
+  background: #d37272;
+  border-left: 8px solid #cf5151; }
+
+.fail .fa-circle-xmark {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #884848;
+  font-size: 30px; }
+
+.fail .msg {
+  padding: 0 20px;
+  font-size: 18px;
+  color: #884848; }
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .shop_area .list_view.active {
     margin-bottom: 54px; } }

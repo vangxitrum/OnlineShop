@@ -75,7 +75,8 @@ button {
   top: 50%;
   transform: translateY(-50%);
   color: #ce8500;
-  font-size: 30px; }
+  font-size: 30px;
+  z-index: 999; }
 
 .alert .msg {
   padding: 0 20px;

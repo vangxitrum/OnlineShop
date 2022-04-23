@@ -3,7 +3,7 @@ const {JWT_CODE} = require('../config')
 const User = require('../models/user')
 
 exports.cookieJwtAuth = async (req,res,next) => {
-    const token = req.cookies.token;
+    const token = req.signedCookies.token;
     try{
         const payload = jwt.verify(token, JWT_CODE);
         const user = await User.findById(payload.sub)
@@ -15,7 +15,7 @@ exports.cookieJwtAuth = async (req,res,next) => {
         next();
     }
     catch(err){
-        res.clearCookie("jwt")
+        res.clearCookie("token")
         req.auth = false;
         return res.redirect('/login')
     }

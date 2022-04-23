@@ -14,8 +14,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 // includes routes /shop
 app.use(express.json())
 const allRoute = require('./api/routes/all.js')
-//const Users = require('./api/data').users
-
+const adminRoute = require('./api/routes/adminRoute')
 const DB=require('./api/models/connnectDb')
 //middleware
 //app.use(logger('dev'))
@@ -25,13 +24,14 @@ app.use(cookieParser("secret"));
 // setting
 app.set('view engine', 'ejs')
 app.set('views', __dirname+ '/api/views')
-app.set('layout', 'layouts/layout')
+app.set('layout', 'layouts/user-layout')
 
 // utilities
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/public', express.static(__dirname+ '/public'))
 
 app.use('/', allRoute)
+app.use('/admin', adminRoute)
 app.use(express.urlencoded());
 // routes
 //Catch 404

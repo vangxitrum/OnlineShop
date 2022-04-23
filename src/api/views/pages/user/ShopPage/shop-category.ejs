@@ -121,19 +121,9 @@
                                     </div>
                                     <!--shop toolbar end-->
 
-<<<<<<< Updated upstream
-                                    <div class="row shop_wrapper">
-                                        <% products.forEach(function(item){ -%>
-                                            <div class="col-lg-4  ">
-                                                <%- include('product_single_container.ejs',{product:
-                                                    item,photos:photos,isHomePage:false}); %>
-                                            </div>
-                                            <% }); -%>
-=======
                                     <div class="row  shop_wrapper" id="product-category">
                                         <%- include('product-category.ejs',{products:
                                             products,photos:photos}) %>
->>>>>>> Stashed changes
                                     </div>
 
                                     <div class="shop_toolbar t_bottom">

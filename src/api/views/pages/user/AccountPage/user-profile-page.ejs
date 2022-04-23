@@ -197,33 +197,46 @@
                 <p class = "tag_explaint">Your favorite items</p>
                 <hr class="solid">
                 <div class="table-container">
-                  <table class = "data-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Order Date</th>
-                        <th scope="col">Order ID</th>
-                        <th scope="col">Sum</th>
-                        <th scope="col">Status</th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td id = "orderDate">19/4/2001</td>
-                        <td id = "orderID">12acxs12xv</td>
-                        <td id = "orderSum">100.000</td>
-                        <td id = "orderStatus">Shipping</td>
-                        <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
-                      </tr>
-                      <tr>
-                        <td id = "orderDate">19/4/2001</td>
-                        <td id = "orderID">12acxs12xv</td>
-                        <td id = "orderSum">100.000</td>
-                        <td id = "orderStatus">Shipping</td>
-                        <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div class="table_desc">
+                    <div class="cart_page table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product_remove">Delete</th>
+                                    <th class="product_thumb">Image</th>
+                                    <th class="product_name">Product</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product_total">Onsale</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
+                                    <td class="product_name"><a href="#">Handbag fringilla</a></td>
+                                    <td class="product-price">£65.00</td>
+                                    <td class="product_total">20%</td>
+                                </tr>
+                                <tr>
+                                   <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a></td>
+                                    <td class="product_name"><a href="#">Handbags justo</a></td>
+                                    <td class="product-price">£90.00</td>
+                                    <td class="product_total">50%</td>
+
+
+                                </tr>
+                                <tr>
+                                   <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product3.jpg" alt=""></a></td>
+                                    <td class="product_name"><a href="#">Handbag elit</a></td>
+                                    <td class="product-price">£80.00</td>
+                                    <td class="product_total">No sale</td>
+                                </tr>
+                            </tbody>
+                        </table>   
+                    </div>    
+                </div>
                   <button class = "more-btn">Load more</button>
                 </div>
               </div>
@@ -259,7 +272,7 @@
                 <h2 class="tag_title">Address Managerment</h2>
                 <p class = "tag_explaint">Manage your address</p>
                 <hr class="solid">
-                <button class = "add-address-btn" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus"></i> Add New Address</button>
+                <button class = "add-address-btn" data-bs-toggle="modal" data-bs-target="#addAddressModal"><i class="fa-solid fa-plus"></i> Add New Address</button>
                 <div class="address-item-container">
                   <div class = "info-container">
                     <span class = "name-wrapper">
@@ -269,8 +282,8 @@
                     <p class="user-info"><span>Address:</span> 670/2 TNV, Tp.Thu Duc, Ho Chi Minh</p>
                     <p class="user-info"><span>Phone number:</span> (+84) 0823 *** ***</p>
                   </div>
-                  <button class="delete-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i></button>
-                  <button class="modified-btn btn btn-primary"><i class="fa-solid fa-pen"></i></button>
+                  <button class="delete-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAddressModal"><i class="fa-solid fa-trash"></i></button>
+                  <button class="modified-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#modifiedAddressModal"><i class="fa-solid fa-pen"></i></button>
                 </div>
 
                 <div class="address-item-container">
@@ -293,7 +306,7 @@
   </div>  
 </div>
 
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+<div class="modal fade" id="deleteAddressModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -310,7 +323,69 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+<div class="modal fade" id="modifiedAddressModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mofify address</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="name" autocomplete="off">
+          <label for = "name" class = "form-label">Name</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="companyName" autocomplete="off">
+          <label for = "companyName" class = "form-label">Company's name</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="phoneNumber" autocomplete="off">
+          <label for = "phoneNumber" class = "form-label">Phone number</label>
+        </div>
+        <div class = "input-container">
+          <select name="province" class = "form-input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="female">Other</option>
+          </select>
+          <label for = "name" class = "select-label">Province/City</label>
+        </div>
+        <div class = "input-container">
+          <select name="district" class = "form-input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="female">Other</option>
+          </select>
+          <label for = "name" class = "select-label">District</label>
+        </div>
+        <div class = "input-container">
+          <select name="subDistrict" id="cars" class = "form-input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="female">Other</option>
+          </select>
+          <label for = "name" class = "select-label">Sub-District</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" placeholder=" " name="address" autocomplete="off">
+          <label for = "address" class = "form-label">Address</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="modifiedAddressCheckBox" checked>
+          <label class="form-check-label" for="modifiedAddressCheckBox">
+            Set as default address
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -357,6 +432,12 @@
         <div class = "input-container">
           <input type="text" class = "form-input" placeholder=" " name="address" autocomplete="off">
           <label for = "address" class = "form-label">Address</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="addAddressCheckBox">
+          <label class="form-check-label" for="addAddressCheckBox">
+            Set as default address
+          </label>
         </div>
       </div>
       <div class="modal-footer">

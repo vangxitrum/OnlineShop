@@ -14,7 +14,11 @@ const userProfileController = require('../controllers/user-profile-controller')
 const passport = require('passport')
 const { cookieJwtAuth } = require('../middleware/cookieJwtAuth')
 require('../middleware/passport')
-
+router.use((req, res, next) => {
+    // changing layout for my admin panel
+    req.app.set('layout', 'layouts/user-layout');
+    next();
+});
 //index router
 router.get('/shopcategory/:page', expressLayout, ShopCategoryController.show)
 router.get('/shopcategory', expressLayout, ShopCategoryController.show)
@@ -48,5 +52,12 @@ router.post('/login',expressLayout,passport.authenticate('local',{session: false
 router.post('/register',expressLayout, loginController.signUp)
 
 router.get('/secret',expressLayout,loginController.secret)
+
+router.get('/policy&term',expressLayout,(req,res,next) =>{
+    res.render('pages/user/InfoPage/policy-page.ejs',{auth:false, pageIndex: 0,pageName: "policyPage"});
+})
+router.get('/return-policy',expressLayout,(req,res,next) =>{
+    res.render('pages/user/InfoPage/return-policy-page.ejs',{auth:false, pageIndex: 0,pageName: "policyPage"});
+})
 //router.get('/secret',expressLayout,passport.authenticate('jwt',{session: false}),loginController.secret)
 module.exports = router

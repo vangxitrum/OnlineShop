@@ -40,7 +40,7 @@ a.meanmenu-reveal{display:none}
   float: left;
   position: relative;
   width: 100%;
-  border-top: 1px solid#ddd;
+  border-top: 1px solid #ddd;
 }
 .mean-container .mean-nav ul li a {
   background: #f8f8f8 none repeat scroll 0 0;
@@ -1473,5 +1473,115 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   text-align: center;
   margin-top: 15rem;
   font-size: 25px;
+}
+
+.message{
+  padding: 20px 40px;
+  min-width: 420px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position:fixed;
+  z-index: 10000;
+}
+
+
+.message.showAlert{
+  opacity: 1;
+  pointer-events: auto;
+}
+.message.show{
+  animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide {
+  0%{
+    transform: translateX(100%);
+  }
+  40%{
+    transform: translateX(-10%);
+  }
+  80%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-10px);
+  }
+}
+.message.hide{
+  animation: hide_slide 1s ease forwards;
+}
+@keyframes hide_slide {
+  0%{
+    transform: translateX(-10px);
+  }
+  40%{
+    transform: translateX(0%);
+  }
+  80%{
+    transform: translateX(-10%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+
+.alert{
+  background: #ffdb9b;
+  border-left: 8px solid #ffa502;
+}
+.alert .fa-exclamation-circle{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ce8500;
+  font-size: 30px;
+}
+.alert .msg{
+  padding: 0 20px;
+  font-size: 18px;
+  color: #ce8500;
+}
+
+.success{
+  background: hsl(152, 57%, 41%);
+  border-left: 8px solid #198754;
+}
+
+.success .fa-circle-check{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #198754;
+  font-size: 30px;
+}
+.success .msg{
+  padding: 0 20px;
+  font-size: 18px;
+  color: #126840;
+}
+
+.fail{
+  background: rgb(211, 114, 114);
+  border-left: 8px solid rgb(207, 81, 81);
+}
+
+.fail .fa-circle-xmark{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(136, 72, 72);
+  font-size: 30px;
+}
+.fail .msg{
+  padding: 0 20px;
+  font-size: 18px;
+  color: rgb(136, 72, 72);
 }
 
