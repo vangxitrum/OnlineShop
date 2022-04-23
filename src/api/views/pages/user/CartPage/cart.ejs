@@ -76,8 +76,8 @@
                             <h3>Coupon</h3>
                             <div class="coupon_inner">   
                                 <p>Enter your coupon code if you have one.</p>                                
-                                <input placeholder="Coupon code" type="text">
-                                <button type="submit">Apply coupon</button>
+                                <input placeholder="Coupon code" id="code-input" type="text">
+                                <button id="coupon-button">Apply coupon</button>
                             </div>    
                         </div>
                     </div>
@@ -87,17 +87,16 @@
                             <div class="coupon_inner">
                                <div class="cart_subtotal">
                                    <p>Subtotal</p>
-                                   <p class="cart_amount" id="cart-total">£215.00</p>
+                                   <p class="cart_amount" id="cart-total" data-price="0">£215.00</p>
                                </div>
                                <div class="cart_subtotal ">
-                                   <p>Shipping</p>
-                                   <p class="cart_amount"><span>Flat Rate:</span> <%= formatPrice(50000) %></p>
+                                   <p>Discount</p>
+                                   <p class="cart_amount text-danger" id="discount"> <%= formatPrice(0) %></p>
                                </div>
-                               <a href="#">Calculate shipping</a>
-
+                             
                                <div class="cart_subtotal">
                                    <p>Total</p>
-                                   <p class="cart_amount" id="price-total">£215.00</p>
+                                   <p class="cart_amount" id="price-total" data-price="0">£215.00</p>
                                </div>
                                <div class="checkout_btn">
                                    <a href="#">Proceed to Checkout</a>

@@ -5,19 +5,23 @@ require('dotenv').config()
 const app = express()
 const path = require('path')
 var bodyParser = require('body-parser')
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
+const {cloudinary}= require('../util/cloudinary')
+app.use( bodyParser.json());   // to support JSON-encoded bodies   
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
+//database connect
+const DB=require('./api/models/connnectDb')
+DB.connectDB()
 // includes routes /shop
 const allRoute = require('./api/routes/all.js')
 //const Users = require('./api/data').users
 app.use(express.json())
-const DB=require('./api/models/connnectDb')
 //middleware
 app.use(logger('dev'))
-//database conect
- DB.connectDB()
+
+
+
 // setting
 app.set('view engine', 'ejs')
 app.set('views', __dirname+ '/api/views')

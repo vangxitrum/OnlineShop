@@ -28,6 +28,8 @@ router.get('/', expressLayout, HomePageController.show)
 
 router.get('/productdetail',expressLayout, productDetailController.show)
 router.post('/productdetail',expressLayout, productDetailController.addReview)
+
+router.post('/cart/:code',expressLayout,cartController.checkCoupon)
 router.post('/cart',expressLayout,cartController.add)
 router.get('/cart',expressLayout, cartController.show)
 router.put('/cart',expressLayout, cartController.update)
@@ -41,6 +43,8 @@ router.get('/about',expressLayout, aboutController.show)
 router.get('/contact',expressLayout, contactController.show)
 
 router.get('/userprofile',expressLayout, userProfileController.show)
+router.post('/userprofile',expressLayout, userProfileController.updateProfile)
+
 
 router.get('/login',expressLayout, loginController.show)
 

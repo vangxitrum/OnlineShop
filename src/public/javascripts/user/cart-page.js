@@ -1,5 +1,4 @@
 
-
 const quantityInput = document.querySelectorAll(".input_quantity")
 
 loadCartTotal()
@@ -26,7 +25,9 @@ function loadPrice(){
 function loadCartTotal(){
     let total=loadPrice()
     $('#cart-total').html(formatPrice(total))
-    $('#price-total').html(formatPrice(total+50000))
+    $('#cart-total').attr('data-price',total)
+    $('#price-total').html(formatPrice(total))
+    $('#price-total').attr('data-price',total)
 }
 $('#update-button').on('click',function(){
     let deleteInput = document.querySelectorAll(".remove-product")
@@ -47,10 +48,45 @@ $('#update-button').on('click',function(){
     $.ajax({
         url: '/cart',
         type: 'PUT',
-        dataType:JSON,
+     //   dataType:JSON,
         data:{ products:cartArray},
-        success: function(result) {
-         alert(result)
+        success: function(data ,result) {
+         alert(data)
         }
     });
+    
+    
+})
+$('#coupon-button').on('click',function(){
+   let code= $("#code-input").val()
+   if(code){
+    $.post(`/cart/${code}`,{},
+    function (data, status) {
+        alert(data)
+        let coupon=JSON.parse(data).dataObject 
+        let price= parseInt( $('#cart-total').attr('data-price'))
+        let discount=0
+        startday=Date.parse(coupon.startday)
+        expire=Date.parse(coupon.expire)
+        current= Date.now()
+        if(expire<current||startday>current){
+            alert( "Your coupon is expired")
+            return
+        }
+        if(coupon.percent){
+            discount=price*(coupon.percent/100)
+            $('#price-total').attr('data-price',price-=discount)
+            
+        }else if( coupon.value){
+            discount=coupon.value
+            $('#price-total').attr('data-price',price-=discount)
+        }
+        alert(price)
+        $('#price-total').html(formatPrice(price))
+        $('#discount').html(formatPrice(discount))
+     });
+   }else{
+       alert("Is empty")
+   }
+  
 })

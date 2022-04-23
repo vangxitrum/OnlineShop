@@ -1,0 +1,71 @@
+    <div class="account-info-container">
+      <h2 class = "tag_title">General</h2>
+    <ul class = "inform-list">
+      <li class = "inform-item">
+        <p class = "tag">Email</p>
+        <p class = "content"><%= user.email%></p>
+      </li>
+      <li class = "inform-item">
+        <p class = "tag" class = "tag">Username</p>
+        <p class = "content"><%= user.username%></p>
+      </li>
+      <li class = "inform-item">
+        <p class = "tag">Name</p>
+        <p class = "content"><%= user.name|| "EMPTY"%></p>
+      </li>
+      <li class = "inform-item">
+        <p>Custumer Tie</p>
+        <p class = "content">Gold</p>
+      </li>
+      <li class = "inform-item">
+        <p class = "tag">Đã tích lũy</p>
+        <p class = "content">10.000.000VND</p>
+      </li>
+      <li class = "inform-item">
+        <p class = "tag">Joint Date</p>
+        <p class = "content"><%= moment(user.joinday).format("DD-MM-YYYY")%></p>
+      </li>
+    </ul>
+    <hr class="solid">
+    <div class="container avatar-container">
+      <div class="avatar-upload">
+          <div class="avatar-edit">
+              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+              <label for="imageUpload"><i class="fa-solid fa-pen"></i></label>
+          </div>
+          <div class="avatar-preview">
+              <div id="imagePreview" style="background-image: url( <%= user.avatar||"http://i.pravatar.cc/500?img=7"%> );">
+              </div>
+          </div>
+      </div>
+      <p class = "avatar-note">Choose your avatar</p>
+    </div>
+    <hr class="solid">
+    <h2 class = "tag_title">Personal</h2>
+    <div class = "modified-inform-container">
+      <div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" id="name_input" placeholder=" " value="<%= user.name%>" data-initial="<%= user.name%>">
+          <label for = "name" class = "form-label">Name</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input"  id="phone_input" placeholder=" " value="<%= user.phone%>" data-initial="<%= user.phone%>">
+          <label for = "name" class = "form-label">Phone number</label>
+        </div>
+        <div class = "input-container">
+          <input type="text" class = "form-input" id="cmnd_input" placeholder=" " value="<%= user.citizenID%>" data-initial="<%= user.citizenID%>">
+          <label for = "name" class = "form-label">CMND</label>
+        </div>
+        <div class = "input-container">
+          <select name="sex" id="gender_input" class = "form-input" data-initial="<%= user.gender %>">
+            <option value="" >Other</option>
+            <option value="true" <%= user.gender==true?"selected":"" %>  >Male</option>
+            <option value="false"<%= user.gender==false?"selected":"" %> >Female</option>
+          </select>
+          <label for = "name" class = "select-label">Sex</label>
+        </div>
+        <button class ="btn btn-primary" id="save_profile">Save</button>
+      </div>
+    </div>
+    </div>
+

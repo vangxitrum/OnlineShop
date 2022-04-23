@@ -36,6 +36,34 @@ const User = new Schema(
             type:String,
             default: null
         },
+        phone:{
+            type:String,
+            default: null
+        },
+         citizenID:{
+            type:String,
+            default: null
+        },
+         avatar:{
+            type:String,
+            default: null
+        },
+        deliveryAddress:{
+            type:Array,
+            default: null
+        },
+        wishlish:{
+            type:Array,
+            default: null
+        },
+        joinday:{
+            type:Date,
+            default: null
+        },
+        imageID:{
+            type:String,
+            default: null
+        }
 
     }
 )

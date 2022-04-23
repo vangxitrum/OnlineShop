@@ -1,0 +1,28 @@
+<% var i=0%>
+  <% user.deliveryAddress.forEach(function(element){ %>
+    <div class="address-item-container " id="indexitem<%= i %> ">
+      <div class="info-container">
+        <span class="name-wrapper">
+          <h5 class="user-name">
+            <%= element.name %>
+          </h5>
+          <% if(element.default==="true" ){ -%>
+            <p class="status"><i class="fa-solid fa-check fa-2xs">
+              </i> default address</p>
+            <% } %>
+        </span>
+        <p class="user-info"><span>Address:</span>
+          <%= `${ element.address}, ${element.province}, ${element.district}, ${element.ward} ` %>
+        </p>
+        <p class="user-info"><span>Phone number:</span>
+          <%= element.phone %>
+        </p>
+      </div>
+      <button class="delete-btn btn btn-danger open-delete-modal" data-index="<%= i %>" data-bs-toggle="modal"
+        data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i></button>
+      <button class="modified-btn btn btn-primary " data-index="<%= i %>  "
+        data-default="<%= element.default==="true"?"true":"false" %>" data-bs-toggle="modal"
+        data-bs-target="#addModal" ><i class="fa-solid fa-pen"></i></button>
+    </div>
+    <% i++ -%>
+      <% }) %>
