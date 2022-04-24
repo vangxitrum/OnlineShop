@@ -14,6 +14,7 @@ const ShopCategoryController = require('../controllers/user/shop-page-controller
 const userProfileController = require('../controllers/user/user-profile-controller')
 const passport = require('passport')
 const { cookieJwtAuth } = require('../middleware/cookieJwtAuth')
+const searchController = require('../controllers/user/search-controller')
 require('../middleware/passport')
 router.use((req, res, next) => {
     // changing layout for my admin panel

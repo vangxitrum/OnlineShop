@@ -1,8 +1,8 @@
 const { render } = require('node-sass')
-const Coupon=require ('../models/coupon')
+const Coupon=require ('../../models/user/coupon')
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
-const Shared= require('../controllers/_shared')
+const Shared= require('../user/_shared')
 const Cart = require('../../models/user/cart')
 const productQuantity = require('../../models/user/productQuantity')
 

@@ -1,4 +1,4 @@
-const ProductDetail = require('../models/productDetail')
+const ProductDetail = require('../../models/user/productDetail')
 class HomePageController {
     showSuggestion(req, res, next) {
       ProductDetail.find({})

@@ -5,16 +5,12 @@ require('dotenv').config()
 const app = express()
 const path = require('path')
 var bodyParser = require('body-parser')
-const {cloudinary}= require('../util/cloudinary') // to support JSON-encoded bodies   
-var jwt = require('jsonwebtoken');
 var cookieParser = require('cookie-parser');
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 //database connect
-const DB=require('./api/models/connnectDb')
-DB.connectDB()
 // includes routes /shop
 app.use(express.json())
 const allRoute = require('./api/routes/all.js')

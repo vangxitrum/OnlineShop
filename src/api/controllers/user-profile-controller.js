@@ -1,10 +1,8 @@
-const { render } = require('node-sass')
 const User = require('../models/user')
 var moment = require('moment');
 const Shared = require('../controllers/_shared')
 const Cloudinary = require('../../../util/cloudinary')
 const fetch = require('node-fetch');
-const { type } = require('express/lib/response');
 class ShopCategoryController {
     show(req, res, next) {
         Promise.all([User.findOne({ _id: '625a7df9f2aa2e293954e727' }), fetch('https://provinces.open-api.vn/api/?depth=3')])
