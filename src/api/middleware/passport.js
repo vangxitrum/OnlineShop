@@ -3,7 +3,7 @@ const JwtCookieComboStrategy = require('passport-jwt-cookiecombo')
 const LocalStrategy = require('passport-local').Strategy
 const {ExtractJwt} = require('passport-jwt')
 const {JWT_CODE} = require('../config')
-const User = require('../models/user')
+const User = require('../models/user/user')
 const bcrypt = require('bcryptjs')
 const res = require('express/lib/response')
 //passport jwt

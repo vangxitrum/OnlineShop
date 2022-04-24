@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use(express.json())
 const allRoute = require('./api/routes/all.js')
 const adminRoute = require('./api/routes/adminRoute')
-const DB=require('./api/models/connnectDb')
+const DB=require('./api/models/user/connnectDb')
 //middleware
 //app.use(logger('dev'))
 app.use(cookieParser("secret"));

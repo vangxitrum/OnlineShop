@@ -5,33 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css" 
-  integrity="sha512-NZ19NrT58XPK5sXqXnnvtf9T5kLXSzGQlVZL9taZWeTBtXoN3xIfTdxbkQh6QSoJfJgpojRqMfhyqBAAEeiXcA==" 
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-  <% include ('../shared/function') %> 
   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
   <%- head %> 
 
 </head>
 <body>
-  
+  <!--
   <div class="loader-wrapper">
     <p>loading...</p>
     <span class = "loader"></span>
   </div>
   <div class="off_canvars_overlay">           
   </div>
-    
-    <% if(true){ %>
-      <%- include('../shared/admin/header.ejs'); %> 
-    <% }else if(false){ %>
-      <%- include('../shared/header-1.ejs'); %> 
-    <% } %> 
+    -->
+    <%- include('../shared/admin/header.ejs'); %> 
     <%- body %> 
-    <% if(true){ %>
     <%- include('../shared/admin/footer.ejs'); %>
-    <% } %> 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

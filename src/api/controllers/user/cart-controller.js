@@ -1,6 +1,6 @@
 const { render } = require('node-sass')
-const Cart = require('../models/cart')
-const productQuantity = require('../models/productQuantity')
+const Cart = require('../../models/user/cart')
+const productQuantity = require('../../models/user/productQuantity')
 
 class CartPageController {
     show(req, res, next) {

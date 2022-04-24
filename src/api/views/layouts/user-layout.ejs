@@ -25,10 +25,10 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-  <link rel="stylesheet" href="/public/stylesheets/global.css">
-  <link rel="stylesheet" href="/public/stylesheets/header.css">
-  <link rel="stylesheet" href="/public/stylesheets/footer.css">
-  <% include ('../shared/function') %> 
+  <link rel="stylesheet" href="/public/stylesheets/user/global.css">
+  <link rel="stylesheet" href="/public/stylesheets/user/header.css">
+  <link rel="stylesheet" href="/public/stylesheets/user/footer.css">
+  <% include ('../shared/user/function') %> 
   
   <%- head %> 
 
@@ -43,13 +43,13 @@
   </div>
     
     <% if(pageIndex == "0"){ %>
-      <%- include('../shared/header-0.ejs'); %> 
+      <%- include('../shared/user/header-0.ejs'); %> 
     <% }else if(pageIndex == "1"){ %>
-      <%- include('../shared/header-1.ejs'); %> 
+      <%- include('../shared/user/header-1.ejs'); %> 
     <% } %> 
     <%- body %> 
     <% if(pageIndex != "-1"){ %>
-    <%- include('../shared/footer.ejs'); %>
+    <%- include('../shared/user/footer.ejs'); %>
     <% } %> 
 </body>
 

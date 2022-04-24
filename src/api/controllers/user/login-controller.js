@@ -1,12 +1,11 @@
 const { render } = require('node-sass')
 const mongoose = require('mongoose');
 const { redirect } = require('express/lib/response');
-const User = require('../models/user');
-const user = require('../models/user');
+const User = require('../../models/user/user');
 const JWT = require("jsonwebtoken")
-const {JWT_CODE} = require('../config')
-const ProductDetail = require('../models/productDetail')
-const Photo = require('../models/photo')
+const {JWT_CODE} = require('../../config')
+const ProductDetail = require('../../models/user/productDetail')
+const Photo = require('../../models/user/photo')
 const encodedToken = (userID) => {
     return JWT.sign({
         iss: "Chum",
