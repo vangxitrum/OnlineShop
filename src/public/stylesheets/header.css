@@ -5065,7 +5065,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   align-items: center;
   position: absolute;
   justify-content: center;
-  left: 20%;
+  left: 30%;
   top: 37px;
   z-index: 999;
   max-width: 1190px; }
@@ -5805,7 +5805,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   opacity: 0.8; }
 
 .horizontal_menu > .left_menu > .main_menu > nav > ul {
-  margin-bottom: 25px; }
+  margin-bottom: 0; }
 
 .header_product {
   border-bottom: 1px solid #999; }

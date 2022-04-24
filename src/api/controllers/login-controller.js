@@ -21,7 +21,7 @@ class LoginController{
     
 
     show(req,res,next){
-        res.render('pages/user/AccountPage/login-page.ejs',{auth:false, PageIndex: -1});
+        res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage"});
     }
 
     async secret(req,res,next){
@@ -38,7 +38,7 @@ class LoginController{
           Photo.find({})
             .then((photos) => {
               res.render('pages/user/index.ejs', {
-                products, photos, auth: true, PageIndex: 0
+                products, photos, auth: true, pageIndex: 0,pageName: "homePage"
               })
             });
         });
@@ -62,7 +62,7 @@ class LoginController{
           Photo.find({})
             .then((photos) => {
               res.render('pages/user/index.ejs', {
-                products, photos, auth: true, PageIndex: 0
+                products, photos, auth: true, pageIndex: 0,pageName: "homePage"
               })
             });
         });

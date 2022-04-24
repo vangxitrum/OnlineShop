@@ -25,8 +25,8 @@
                             <ul> 
                                   <li class="top_links"><a href="#" class = "my_account">My Account <i class="fa-solid fa-user"></i></a>
                                           <ul class="dropdown_links">
-                                                  <li><a href="wishlist.html">My Wish List </a></li>
-                                                 <li><a href="my-account.html">My Account </a></li>
+                                                  <li><a href="/userprofile">My Wish List </a></li>
+                                                 <li><a href="/userprofile">My Account </a></li>
                                                  <li><a href="#">Sign In</a></li>
                                                  <li><a href="compare.html">Compare Products  </a></li>
                                            </ul>
@@ -62,9 +62,7 @@
                     <div class="cart_area">
                         <div class="middel_links">
                            <ul>
-                               <li><a href="login.html">Login</a></li>
-                               <li>/</li>
-                               <li><a href="login.html">Register</a></li>
+                               <li><a href="/login">Login / Register</a></li>
                            </ul>
 
                         </div>
@@ -115,35 +113,32 @@
                                 </div>
                                 
                                 <div class="cart_button view_cart">
-                                    <a href="cart.html">View Cart</a>
+                                    <a href="/cart">View Cart</a>
                                 </div>
                                 <div class="cart_button checkout">
-                                    <a href="checkout.html">Checkout</a>
+                                    <a href="/checkout">Checkout</a>
                                 </div>
                             </div>
                             <!--mini cart end-->
                         </div>
                     </div>
                     <div class="contact_phone">
-                        <p>Call Free Support: <a href="tel:+(012)800456789">(+012) 800 456 789 </a></p>
+                        <p>Call Free Support: <a href="tel:+(84)0823XXXXXX">(+84) 0823 XXX XXX </a></p>
                     </div>
                     <div id="menu" class="text-left ">
                         <ul class="offcanvas_main_menu">
-                            <li class="menu-item-has-children active">
-                                <a href="#">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <li><a href="index-2.html">Home 2</a></li>
-                                    <li><a href="index-3.html">Home 3</a></li>
-                                    <li><a href="index-4.html">Home 4</a></li>
-                                    <li><a href="index-5.html">Home 5</a></li>
-                                    <li><a href="index-6.html">Home 6</a></li>
-                                    <li><a href="index-7.html">Home 7</a></li>
-                                    <li><a href="index-8.html">Home 8</a></li>
-                                    <li><a href="index-9.html">Home 9</a></li>
-                                </ul>
+                            <% if(pageName == "homePage"){ %>
+                                <li class="menu-item-has-children active">
+                            <%}else{%>
+                                <li class="menu-item-has-children">
+                            <%}%>
+                                <a href="/">Home</a>
                             </li>
-                            <li class="menu-item-has-children">
+                            <% if(pageName == "shopPage"){ %>
+                                <li class="menu-item-has-children active">
+                            <%}else{%>
+                                <li class="menu-item-has-children">
+                            <%}%>
                                 <a href="/shopcategory">Shop</a>
                                 <ul class="sub-menu">
                                     <li class="menu-item-has-children">
@@ -157,65 +152,40 @@
                                             <li><a href="shop-list.html">List View</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">other Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="portfolio.html">portfolio</a></li>
-                                            <li><a href="portfolio-details.html">portfolio details</a></li>
-                                            <li><a href="cart.html">cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="my-account.html">my account</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Product Types</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="product-details.html">product details</a></li>
-                                            <li><a href="product-sidebar.html">product sidebar</a></li>
-                                            <li><a href="product-grouped.html">product grouped</a></li>
-                                            <li><a href="variable-product.html">product variable</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                    <li><a href="blog-sidebar.html">blog  Sidebar</a></li>
-                                    <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                </ul>
-
+                            <% if(pageName == "blogPage" || pageName == "blogDetailPage"){ %>
+                                <li class="menu-item-has-children active">
+                            <%}else{%>
+                                <li class="menu-item-has-children">
+                            <%}%>
+                                <a href="/blogcategory">blog</a>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="#">pages </a>
-                                <ul class="sub-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="services.html">services</a></li>
-                                    <li><a href="faq.html">Frequently Questions</a></li>
-                                    <li><a href="contact.html">contact</a></li>
-                                    <li><a href="login.html">login</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="404.html">Error 404</a></li>
-                                    <li><a href="compare.html">compare</a></li>
-                                    <li><a href="privacy-policy.html">privacy policy</a></li>
-                                    <li><a href="coming-soon.html">coming soon</a></li>
-                                </ul>
+                            <% if(pageName == "userPage"){ %>
+                                <li class="menu-item-has-children active">
+                            <%}else{%>
+                                <li class="menu-item-has-children">
+                            <%}%>
+                                <a href="/userprofile">my account</a>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="my-account.html">my account</a>
+                            <% if(pageName == "aboutPage"){ %>
+                                <li class="menu-item-has-children active">
+                            <%}else{%>
+                                <li class="menu-item-has-children">
+                            <%}%>
+                                <a href="/about">About Us</a>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="about.html">About Us</a>
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a href="contact.html"> Contact Us</a> 
+                            <% if(pageName == "contactPage"){ %>
+                                <li class="menu-item-has-children active">
+                            <%}else{%>
+                                <li class="menu-item-has-children">
+                            <%}%>
+                                <a href="/contact"> Contact Us</a> 
                             </li>
                         </ul>
                     </div>
                     <div class="offcanvas_footer">
-                        <span><a href="#"><i class="fa fa-envelope-o"></i> info@yourdomain.com</a></span>
+                        <span><a href="#"><i class="fa fa-envelope-o"></i> tuantq666@gmail.com</a></span>
                         <ul>
                             <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -251,8 +221,8 @@
                          <ul> 
                                <li class="top_links"><a href="#" class = "my_account">My Account <i class="fa-solid fa-user"></i></a>
                                        <ul class="dropdown_links">
-                                               <li><a href="wishlist.html">My Wish List </a></li>
-                                              <li><a href="my-account.html">My Account </a></li>
+                                               <li><a href="/userprofile">My Wish List </a></li>
+                                              <li><a href="/userprofile">My Account </a></li>
                                               <li><a href="#">Sign In</a></li>
                                               <li><a href="compare.html">Compare Products  </a></li>
                                         </ul>
@@ -357,10 +327,18 @@
                     <div class="main_menu"> 
                         <nav>  
                             <ul>
-                                <li class="active">
-                                    <a href="/home">Home</i>
+                                <% if(pageName == "homePage"){ %>
+                                    <li class="active">
+                                <%}else{%>
+                                    <li>
+                                <%}%>
+                                    <a href="/home">Home </a>
                                 </li>
-                                <li class="mega_items">
+                                <% if(pageName == "shopPage" || pageName == "productDetailPage"){ %>
+                                    <li class="mega_items active">
+                                <%}else{%>
+                                    <li class="mega_items">
+                                <%}%>
                                     <a href="/shopcategory">shop <i class="fa-solid fa-angle-down"></i>
                                     <ul class="mega_menu">
                                         <li><a href="#">Shop Layouts</a>
@@ -406,7 +384,11 @@
                                         <li class="banner_menu"><a href="#"><img src="/public/assets/img/bg/banner1.jpg" alt=""></a></li>
                                     </ul>
                                 </li>
-                                <li>
+                                <% if(pageName == "blogPage" || pageName == "blogDetailPage"){ %>
+                                    <li class="active">
+                                <%}else{%>
+                                    <li>
+                                <%}%>
                                     <a href="/blogcategory">blog</i>
                                 </li>
                                 
@@ -421,10 +403,20 @@
                     <div class="main_menu"> 
                         <nav>  
                             <ul>
-                                <li><a href="#">Specials</a></li>
-                                <li><a href="#">Sneaker</a></li>
-                                <li><a href="/about">About us</a></li>
-                                <li><a href="/contact">Contact Us</a></li>
+                                <% if(pageName == "aboutPage"){ %>
+                                    <li class="active">
+                                <%}else{%>
+                                    <li>
+                                <%}%>
+                                    <a href="/about">About us</a>
+                                </li>
+                                <% if(pageName == "contactPage"){ %>
+                                    <li class="active">
+                                <%}else{%>
+                                    <li>
+                                <%}%>
+                                    <a href="/contact">Contact Us</a>
+                                </li>
                             </ul> 
                         </nav> 
                     </div>
@@ -443,12 +435,42 @@
                         <div class="main_menu"> 
                             <nav>  
                                 <ul>
-                                    <li class="active"><a href="/home">Home </a></li>
-                                    <li><a href="/shopcategory">shop </a></li>
-                                    <li><a href="/about">About us</a></li>
-                                    <li><a href="/blogcategory">blog</a></li>
-                                    
-                                    <li><a href="/contact">Contact Us</a></li>
+
+                                    <% if(pageName == "homePage"){ %>
+                                        <li class="active">
+                                    <%}else{%>
+                                        <li>
+                                    <%}%>
+                                        <a href="/home">Home </a>
+                                    </li>
+                                    <% if(pageName == "shopPage" || pageName == "productDetailPage"){ %>
+                                        <li class="active">
+                                    <%}else{%>
+                                        <li>
+                                    <%}%>
+                                        <a href="/shopcategory">shop </a>
+                                    </li>
+                                    <% if(pageName == "aboutPage"){ %>
+                                        <li class="active">
+                                    <%}else{%>
+                                        <li>
+                                    <%}%>
+                                        <a href="/about">About us</a>
+                                    </li>
+                                    <% if(pageName == "blogPage" || pageName == "blogDetailPage"){ %>
+                                        <li class="active">
+                                    <%}else{%>
+                                        <li>
+                                    <%}%>
+                                        <a href="/blogcategory">blog</a>
+                                    </li>
+                                    <% if(pageName == "contactPage"){ %>
+                                        <li class="active">
+                                    <%}else{%>
+                                        <li>
+                                    <%}%>
+                                        <a href="/contact">Contact Us</a>
+                                    </li>
                                 </ul>   
                             </nav> 
                         </div>
