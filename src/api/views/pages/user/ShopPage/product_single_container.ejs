@@ -85,8 +85,16 @@
                         <li><a href="#"><i class="fa fa-star"></i></a></li>
                     </ul>
                 </div>
+                <div class="product_price">
+                    <%  if(product.discount) {-%>
+                        <span class="current_price"><%=  formatPrice(calPrice(product.price,product.discount)) %></span>
+                        <span class="old_price"><%= formatPrice(product.price)%></span>
+                            <% } else { -%>
+                        <span class="current_price"><%= formatPrice(product.price) %></span>
+                             <% } -%>
+                </div>
                 <div class="product_desc">
-                    <p><%= product.discripe %></p>
+                    <p><%= product.descript %></p>
                 </div>
 
             </div>

@@ -1,10 +1,11 @@
 const { render } = require('node-sass')
-const Cart = require('../models/cart')
-const productQuantity = require('../models/productQuantity')
 const Coupon=require ('../models/coupon')
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const Shared= require('../controllers/_shared')
+const Cart = require('../../models/user/cart')
+const productQuantity = require('../../models/user/productQuantity')
+
 class CartPageController {
     show(req, res, next) {
         Cart.find({ customerID: ObjectId('6222cd37bcd8e3cabfde0323') })

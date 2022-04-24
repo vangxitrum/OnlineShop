@@ -1,0 +1,16 @@
+.content-container {
+  margin-top: 2rem;
+  margin-bottom: 5rem; }
+  .content-container h4 {
+    color: black;
+    font-weight: 700;
+    font-size: 20px; }
+  .content-container h5 {
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    margin: 1rem; }
+  .content-container p {
+    margin: 1rem;
+    font-size: 13px;
+    color: black; }

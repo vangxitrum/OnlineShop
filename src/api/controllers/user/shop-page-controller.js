@@ -1,6 +1,6 @@
 const { render } = require('node-sass')
-const ProductDetail = require('../models/productDetail')
-const Photo = require('../models/photo')
+const ProductDetail = require('../../models/user/productDetail')
+const Photo = require('../../models/user/photo')
 class ShopCategoryController {
 
     show(req, res, next) {

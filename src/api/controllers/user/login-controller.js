@@ -1,12 +1,11 @@
 const { render } = require('node-sass')
 const mongoose = require('mongoose');
 const { redirect } = require('express/lib/response');
-const User = require('../models/user');
-const user = require('../models/user');
+const User = require('../../models/user/user');
 const JWT = require("jsonwebtoken")
-const {JWT_CODE} = require('../config')
-const ProductDetail = require('../models/productDetail')
-const Photo = require('../models/photo')
+const {JWT_CODE} = require('../../config')
+const ProductDetail = require('../../models/user/productDetail')
+const Photo = require('../../models/user/photo')
 const encodedToken = (userID) => {
     return JWT.sign({
         iss: "Chum",
@@ -19,29 +18,24 @@ const encodedToken = (userID) => {
 class LoginController{
 
     
-
     show(req,res,next){
         res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage"});
     }
 
     async secret(req,res,next){
-        console.log("call secret")
+      res.render('shared/alert.ejs',{auth:false, pageIndex: -1,pageName: "alertPage"});
        
     }
 
     async signIn(req,res,next){
-        console.log(req.user)
         const token = encodedToken(req.user._id)
-        res.setHeader('Authorization',token)
-        return ProductDetail.find({})
-        .then((products) => {
-          Photo.find({})
-            .then((photos) => {
-              res.render('pages/user/index.ejs', {
-                products, photos, auth: true, pageIndex: 0,pageName: "homePage"
-              })
-            });
+        res.cookie('token', token, {
+          httpOnly: true,
+          sameSite: true,
+          signed: true,
+          secure: true
         });
+        return res.redirect('/');
     }
 
     async signUp(req,res,next){
@@ -57,10 +51,13 @@ class LoginController{
         newUser.save();
         const token = encodedToken(newUser._id)
         res.setHeader('Authorization', "Bearer " + token)
+        console.log("Authorization= Bearer + {$token}")
+        
         return ProductDetail.find({})
         .then((products) => {
           Photo.find({})
             .then((photos) => {
+              res.redirect();
               res.render('pages/user/index.ejs', {
                 products, photos, auth: true, pageIndex: 0,pageName: "homePage"
               })

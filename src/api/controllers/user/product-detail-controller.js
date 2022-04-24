@@ -1,10 +1,10 @@
 const { query } = require('express');
 const { render } = require('node-sass')
-const Photo = require('../models/photo')
+const Photo = require('../../models/user/photo')
 var mongoose = require('mongoose');
-const ProductDetail = require('../models/productDetail')
-const ProductQuantity = require('../models/productQuantity')
-const Review= require('../models/review')
+const ProductDetail = require('../../models/user/productDetail')
+const ProductQuantity = require('../../models/user/productQuantity')
+const Review= require('../../models/user/review')
 var moment = require('moment');
 const { resolveInclude } = require('ejs');
 const { find } = require('../models/photo');

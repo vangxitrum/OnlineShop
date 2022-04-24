@@ -1,0 +1,20 @@
+<%
+calPrice = function(price, sale) {
+    rs = price - price * sale / 100;
+    return rs;
+}
+
+formatPrice = function (price){
+    rs = price.toString();
+    index = rs.length-3;
+    len = rs.length;
+    while (index > 0){
+        txt = rs.slice(0, index) + "." + rs.slice(index);
+        rs = txt;
+        index -=3;
+    }
+
+    rs += ' ₫'
+    return rs;
+}
+%>

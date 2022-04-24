@@ -1,6 +1,6 @@
 <%- contentFor("head") %>
 
-    <link rel="stylesheet" href="/public/stylesheets/shop-page.css">
+    <link rel="stylesheet" href="/public/stylesheets/user/shop-page.css">
     <%- contentFor("body") %>
 
         <div>
@@ -72,16 +72,8 @@
                                     </div>
                                     <div class="shop_toolbar_wrapper">
                                         <div class="shop_toolbar_btn">
-
-                                            <button data-role="grid_3" type="button" class="active btn-grid-3"
-                                                data-toggle="tooltip" title="3"></button>
-
-                                            <button data-role="grid_4" type="button" class=" btn-grid-4"
+                                            <button data-role="grid_4" type="button" class="active btn-grid-4"
                                                 data-toggle="tooltip" title="4"></button>
-
-                                            <button data-role="grid_5" type="button" class="btn-grid-5"
-                                                data-toggle="tooltip" title="5"></button>
-
                                             <button data-role="grid_list" type="button" class="btn-list"
                                                 data-toggle="tooltip" title="List"></button>
                                         </div>
@@ -100,7 +92,7 @@
                                     </div>
                                     <!--shop toolbar end-->
 
-                                    <div class="row shop_wrapper" id="product-category">
+                                    <div class="row  shop_wrapper" id="product-category">
                                         <%- include('product-category.ejs',{products:
                                             products,photos:photos}) %>
                                     </div>

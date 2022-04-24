@@ -1,6 +1,5 @@
-const { render } = require('node-sass')
-const ProductDetail = require('../models/productDetail')
-const Photo = require('../models/photo')
+const ProductDetail = require('../../models/user/productDetail')
+const Photo = require('../../models/user/photo')
 class HomePageController {
   show(req, res, next) {
     // var dbo = ProductDetail.db('onlineshop');
@@ -10,7 +9,7 @@ class HomePageController {
         Photo.find({})
           .then((photos) => {
             res.render('pages/user/index.ejs', {
-              products, photos, auth: false, pageIndex: 0,pageName: "homePage"
+              products, photos, auth: req.auth, pageIndex: 0,pageName: "homePage",user :req.user
             })
           });
       })

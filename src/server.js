@@ -5,8 +5,10 @@ require('dotenv').config()
 const app = express()
 const path = require('path')
 var bodyParser = require('body-parser')
-const {cloudinary}= require('../util/cloudinary')
-app.use( bodyParser.json());   // to support JSON-encoded bodies   
+const {cloudinary}= require('../util/cloudinary') // to support JSON-encoded bodies   
+var jwt = require('jsonwebtoken');
+var cookieParser = require('cookie-parser');
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
@@ -14,24 +16,26 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 const DB=require('./api/models/connnectDb')
 DB.connectDB()
 // includes routes /shop
-const allRoute = require('./api/routes/all.js')
-//const Users = require('./api/data').users
 app.use(express.json())
+const allRoute = require('./api/routes/all.js')
+const adminRoute = require('./api/routes/adminRoute')
+const DB=require('./api/models/user/connnectDb')
 //middleware
-app.use(logger('dev'))
-
-
-
+//app.use(logger('dev'))
+app.use(cookieParser("secret"));
+//database conect
+ DB.connectDB()
 // setting
 app.set('view engine', 'ejs')
 app.set('views', __dirname+ '/api/views')
-app.set('layout', 'layouts/layout')
+app.set('layout', 'layouts/user-layout')
 
 // utilities
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/public', express.static(__dirname+ '/public'))
 
 app.use('/', allRoute)
+app.use('/admin', adminRoute)
 app.use(express.urlencoded());
 // routes
 //Catch 404
@@ -52,9 +56,8 @@ app.use((err,req,res,next) =>{
 })
 
 
-
 // listen
 const port = app.get('port') || 3000
 app.listen(port, () => {
-  console.log(`Server is lisntening on port ${port}`)
+  console.log(`Server is listening on port ${port}`)
 })
