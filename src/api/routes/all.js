@@ -11,6 +11,7 @@ const loginController = require('../controllers/login-controller')
 const productDetailController = require('../controllers/product-detail-controller')
 const ShopCategoryController = require('../controllers/shop-page-controller')
 const userProfileController = require('../controllers/user-profile-controller')
+const searchController = require('../controllers/search-controller')
 const passport = require('passport')
 require('../middleware/passport')
 
@@ -20,7 +21,7 @@ router.get('/shopcategory', expressLayout, ShopCategoryController.show)
 router.post('/shopcategory/:page', expressLayout, ShopCategoryController.showPagination)
 router.post('/shopcategory', expressLayout, ShopCategoryController.showPagination)
 
-
+router.post('/search/:keyword', expressLayout, searchController.showSuggestion)
 
 router.get('/home', expressLayout, HomePageController.show)
 

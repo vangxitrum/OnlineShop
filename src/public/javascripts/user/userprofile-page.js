@@ -14,6 +14,7 @@ function readURL(input) {
     }
 }
 
+
 function fillAddressSelect(id, addressArray, firstValue) {
 
     $(`#${id}`).empty()
@@ -199,4 +200,4 @@ $('#access-delete-button').on('click', function () {
         $('#address-area').html(view)
     })
 })
-// Manage Delivery Address End
+

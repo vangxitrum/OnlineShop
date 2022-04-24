@@ -1,7 +1,6 @@
 const { render } = require('node-sass')
 const ProductDetail = require('../models/productDetail')
 const Photo = require('../models/photo')
-const { mongooseToObject } = require('../../../util/mongoose')
 class HomePageController {
   show(req, res, next) {
     // var dbo = ProductDetail.db('onlineshop');
@@ -20,5 +19,6 @@ class HomePageController {
       })
 
   }
+
 }
 module.exports = new HomePageController;

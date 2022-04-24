@@ -61,8 +61,6 @@ class ProductDetailController{
             console.log(erro)
             res.end(JSON.stringify(response));
           })
-        
-        
       })
        .catch( error=>{
          console.log(error)
@@ -74,8 +72,6 @@ class ProductDetailController{
 
        })
       }
-      
-
     }
 
 }
