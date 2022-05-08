@@ -41,12 +41,11 @@ const User = new Schema(
 )
 
 User.pre('save',async function(next){
+    
     try
     {
         const salt = await bcrypt.genSalt(10)
-        console.log(salt)
         const passwordHashed = await bcrypt.hash(this.password,salt)
-        console.log(passwordHashed)
         this.password = passwordHashed
         next()
     } catch(error)
