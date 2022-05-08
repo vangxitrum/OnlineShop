@@ -58,7 +58,14 @@ router.delete('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileCo
 
 router.get('/login',expressLayout, loginController.show)
 
-router.post('/login',expressLayout,passport.authenticate('local',{session: false}), loginController.signIn)
+router.post('/login',expressLayout,passport.authenticate('local',{failureRedirect: '/login',failureFlash: {
+    type: 'messageFailure',
+    message: 'Invalid email and/ or password.'
+  },
+  successFlash: {
+    type: 'messageSuccess',
+    message: 'Successfully logged in.'
+  }}), loginController.signIn)
 
 router.post('/register',expressLayout, loginController.signUp)
 

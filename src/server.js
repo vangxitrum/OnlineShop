@@ -1,13 +1,30 @@
 // includes packages
 const express = require('express')
 const logger = require('morgan')
+var flash = require('connect-flash')
 require('dotenv').config()
 const app = express()
 const path = require('path')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser');
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+const session = require('express-session')
+
+//session
+app.use(session({
+  secret: 'ilikecats',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(flash())
+
+
+
+app.use( bodyParser.json() );       
+// to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     
+// to support URL-encoded bodies
   extended: true
 })); 
 //database connect
@@ -51,6 +68,7 @@ app.use((err,req,res,next) =>{
   })
 })
 
+  
 
 // listen
 const port = app.get('port') || 3000

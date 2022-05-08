@@ -33,8 +33,11 @@ passport.use(new LocalStrategy({
         if (!user){
             return done(null,false)
         }
-        const isCorrectPassword = user.isValidPassword(password)
-        if (!isCorrectPassword) return done(null,false)
+        const isCorrectPassword = await user.isValidPassword(password)
+        if (!isCorrectPassword) {
+            return done(null,false)
+        }
+
         done(null, user)
     }
     catch(error){
@@ -42,4 +45,11 @@ passport.use(new LocalStrategy({
     }
 }))
 
+passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+  
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });   
 

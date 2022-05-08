@@ -1,0 +1,85 @@
+@import 'variables';
+@import 'global';
+
+
+.container{
+    grid-template-columns: 14rem auto;
+
+    
+    .product-container{
+        width: 100%;
+        margin: 2rem;
+        margin-top: 4rem;
+        h2{
+            font-size: 2rem;
+        }
+        table thead tr th{
+            text-align: center;
+        }
+        table{
+            background-color: $white-color;
+            width: 100%;
+            border-radius: $card-border-radius;
+            padding: $card-padding;
+            text-align: center;
+            box-shadow: $box-shadow;
+            transition: all 300ms ease;
+            
+            &:hover{
+                box-shadow: none;
+            }
+            thead{
+                th{
+                    font-size: 1.2rem;
+                    
+                }
+            }
+            tbody {
+                
+                td{
+                    height: 2.8rem;
+                    border-bottom:1px solid $light-color;
+                    color: $dark-variant-color;
+                    user-select: none;
+                }
+                th{
+                    height: 2.8rem;
+                    border-bottom:1px solid $light-color;
+                }
+                
+                tr:last-child td, tr:last-child th{
+                    border:none;
+                }
+                tr:first-child td, tr:first-child th{
+                    border-top:1px solid $light-color;
+                    margin-top: .5rem;
+                }
+                img{
+                    width: inherit;
+                    margin: .5rem auto;
+                }
+
+                input[type = checkbox]{
+                    width: 1.2rem;
+                }
+
+                .product-name,.product-quantity,.product-price,.product-sale{
+                    font-size: 1rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                .product-image{
+                    width: 23%;
+                }
+                .product-name{
+                    width: 15%;
+                }
+                .product-price{
+                    width: 10%;
+                }
+            }
+
+        }
+    }
+}

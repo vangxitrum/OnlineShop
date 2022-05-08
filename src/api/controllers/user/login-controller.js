@@ -19,7 +19,8 @@ class LoginController{
 
     
     show(req,res,next){
-        res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage"});
+      console.log(req.flash("messageFailure"));
+      res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage"});
     }
 
     async secret(req,res,next){
@@ -28,18 +29,19 @@ class LoginController{
     }
 
     async signIn(req,res,next){
-        const token = encodedToken(req.user._id)
-        res.cookie('token', token, {
-          httpOnly: true,
-          sameSite: true,
-          signed: true,
-          secure: true
-        });
-        return res.redirect('/');
+      console.log(req.flash('messageSuccess'));
+      const token = encodedToken(req.user._id)
+      res.cookie('token', token, {
+        httpOnly: true,
+        sameSite: true,
+        signed: true,
+        secure: true
+      });
+      return res.redirect('/');
     }
 
     async signUp(req,res,next){
-        console.log("call sign up")
+
         const {username,password,email} = req.body
         const foundUser = await User.findOne({email})
         if (foundUser){
