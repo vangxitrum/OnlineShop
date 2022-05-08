@@ -29,7 +29,7 @@ router.get('/shopcategory', expressLayout, ShopCategoryController.show)
 router.post('/shopcategory/:page', expressLayout, ShopCategoryController.showPagination)
 router.post('/shopcategory', expressLayout, ShopCategoryController.showPagination)
 
-router.post('/search/:keyword', expressLayout, searchController.showSuggestion)
+router.post('/search', expressLayout, searchController.showSuggestion)
 
 router.get('/home', expressLayout, HomePageController.show)
 
@@ -48,12 +48,13 @@ router.get('/blogdetail',expressLayout, blogDetail.show)
 router.get('/blogcategory',expressLayout, blogCategory.show)
 
 router.get('/about',expressLayout, aboutController.show)
-
+        
 router.get('/contact',expressLayout, contactController.show)
 
 router.get('/userprofile',expressLayout,cookieJwtAuth, userProfileController.show)
+router.post('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.showWishLish)
 router.post('/userprofile',expressLayout,cookieJwtAuth, userProfileController.updateProfile)
-
+router.delete('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.deleteWishItem)
 
 router.get('/login',expressLayout, loginController.show)
 

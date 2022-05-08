@@ -10,13 +10,11 @@ class CartPageController {
     show(req, res, next) {
         Cart.find({ customerID: ObjectId('6222cd37bcd8e3cabfde0323') })
             .then(items => {
-                console.log(items)
-                res.render('pages/user/CartPage/cart.ejs', { items, pageIndex: 0,pageName: "cartPage"});
+                res.render('pages/user/CartPage/cart.ejs', { items, pageIndex: 0,pageName: "cartPage",auth:false});
             })
     }
 
     add(req, res, next) {
-        console.log(req.body)
         console.log('AJAX FUNC HAS CALLED ')
         let quantity = req.body.quantity || 1
         let productObject = {}
@@ -28,8 +26,6 @@ class CartPageController {
 
             productQuantity.findOne(productObject)
                 .then(quantityObject => {
-                    console.log('tim` doi tuong them vao gio hang')
-                    console.log(quantityObject)
                     let cartObject = {
                         productID: quantityObject._id,
                         customerID: '6222cd37bcd8e3cabfde0323',
@@ -41,10 +37,8 @@ class CartPageController {
                         name: req.body.name,
                         price: req.body.price
                     }
-                    console.log('them vao gio hang')
                     Cart.updateOne({productID:cartObject.productID},{$inc :{quantity:parseInt(cartObject.quantity)}})
                     .then( updataResult=>{
-                        console.log(updataResult)
                         if(!updataResult.modifiedCount) {
                             Cart.insertMany([cartObject]).then(result => {
                                 res.end(Shared.jsonResponse(200,' New Item  Has Added  Successfully'));
@@ -95,12 +89,10 @@ class CartPageController {
     update(req, res, next) {
         let cartList = req.body.products
         if (cartList) {
-            console.log('product array from cart')
             Cart.deleteMany({ customerID: '6222cd37bcd8e3cabfde0323' }).then(r => {
                 cartList.forEach(element => {
                     element['customerID'] = '6222cd37bcd8e3cabfde0323'
                 });
-                console.log(cartList)
                 Cart.insertMany(cartList).then(result => {
                     res.end(Shared.jsonResponse(200,"Update Successfully"))
                    

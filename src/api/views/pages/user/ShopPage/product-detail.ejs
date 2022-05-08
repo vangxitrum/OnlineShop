@@ -1,4 +1,4 @@
-<% include ('../../../shared/function.ejs') %> 
+<% include ('../../../shared/user/function.ejs') %> 
 <%- contentFor("head") %> 
 
     <link rel="stylesheet" href="/public/stylesheets/user/product-detail-page.css">
@@ -42,11 +42,6 @@
 
                             <div class="single-zoom-thumb">
                                 <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
-                                    <!-- <li>
-                                <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/img/product/product4.jpg" data-zoom-image="assets/img/product/product4.jpg">
-                                    <img src="assets/img/s-product/product3.jpg" alt="zo-th-1"/>
-                                </a>
-                            </li> -->
                                     <% console.log(photos[0]) -%>
                                         <% photos.forEach( (photoItem)=> { -%>
                                             <li>
@@ -132,7 +127,7 @@
                                 </div>
                                 <div class=" product_d_action">
                                     <ul>
-                                        <li><a href="#" title="Add to wishlist"><i class="fa fa-heart-o"
+                                        <li><a  id="add_to_wishlist" title="Add to wishlist"><i class="fa fa-heart-o"
                                                     aria-hidden="true"></i> Add to Wish List</a></li>
                                     </ul>
                                 </div>
@@ -254,4 +249,5 @@
 
    <%- contentFor("end") %>
    <script>productid="<%=  product[0]._id %>"</script>
+   <script>discount='<%= product[0].discount %>'</script>
    <script src="/public/javascripts/user/product-detail.js"></script>

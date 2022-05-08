@@ -1,9 +1,11 @@
 const ProductDetail = require('../../models/user/productDetail')
 const Photo = require('../../models/user/photo')
+const Cart = require('../../models/user/cart')
 class HomePageController {
   show(req, res, next) {
     // var dbo = ProductDetail.db('onlineshop');
     // dbo.conllection('productdetail')
+    
     ProductDetail.find({})
       .then((products) => {
         Photo.find({})

@@ -1,12 +1,13 @@
 const { render } = require('node-sass')
 const ProductDetail = require('../../models/user/productDetail')
 const Photo = require('../../models/user/photo')
+const Cart = require('../../models/user/cart')
 class ShopCategoryController {
 
     show(req, res, next) {
 
         let page = req.params.page || 1;
-        let perPage = 9;
+        let perPage = 12;
         let categoryObject = {}
         let manufacture = {}
         let tag = {}
@@ -121,7 +122,7 @@ class ShopCategoryController {
     showPagination(req, res, next) {
         console.log('Ajax has called showPagination function')
         let page = req.params.page || 1;
-        let perPage=9
+        let perPage=12
         let sortQuery = {}
         let queryObject = {}
         let compareQuery={}
@@ -180,7 +181,9 @@ class ShopCategoryController {
                                   photos: photos,
                                   pages: quantityPage,
                                   current: page,
-                                  paramObject: req.query
+                                  paramObject: req.query,
+                                  perPage,
+                                  count:count.length
                             })
                         })
 

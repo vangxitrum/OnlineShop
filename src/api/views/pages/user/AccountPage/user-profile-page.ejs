@@ -1,291 +1,256 @@
-<%- contentFor("head") %> 
+<%- contentFor("head") %>
 
-<link rel="stylesheet" href="/public/stylesheets/user/user-profile-page.css">
-<title>User profile</title>
-<%- contentFor("body") %>
-
-
-<div class="user-account-area">
-  <div class = "container ">
-    <div class="row" id = "menu-area">
-        <div class="col-4" id = "tag-area">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action active " id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile-list">
-              <div class="row">
-                <div class="col-1">
-                  <i class="fa-solid fa-user fa-lg"></i>
-                </div>
-                <div class="col-11">
-                  <p class = "tag_name">Account</p>
-                </div>
-              </div>
-            </a>
-            <a class="list-group-item list-group-item-action" id="list-history-list" data-bs-toggle="list" href="#list-history" role="tab" aria-controls="list-history">
-              <div class="row">
-                <div class="col-1">
-                  <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                </div>
-                <div class="col-11">
-                  <p class = "tag_name">Order History</p>
-                </div>
-              </div>
-            </a>
-            <a class="list-group-item list-group-item-action" id="list-wishlist-list" data-bs-toggle="list" href="#list-wishlist" role="tab" aria-controls="list-wishlist">
-              <div class="row">
-                <div class="col-1">
-                  <i class="fa-solid fa-heart fa-lg"></i>
-                </div>
-                <div class="col-11">
-                  <p class = "tag_name">Wishlist</p>
-                </div>
-              </div>
-            </a>
-            <a class="list-group-item list-group-item-action" id="list-repassword-list" data-bs-toggle="list" href="#list-repassword" role="tab" aria-controls="list-repassword">
-             
-              <div class="row">
-                <div class="col-1">
-                  <i class="fa-solid fa-key fa-lg"></i>
-                </div>
-                <div class="col-11">
-                  <p class = "tag_name">Password</p>
-                </div>
-              </div>
-            </a>
-            <a class="list-group-item list-group-item-action " id="list-address-list" data-bs-toggle="list" href="#list-address" role="tab" aria-controls="list-address">
-              <div class="row">
-                <div class="col-1">
-                  <i class="fa-solid fa-location-dot fa-lg"></i>
-                </div>
-                <div class="col-11">
-                  <p class = "tag_name">Address Managerment</p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-8 content-area" id = "content-area">
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
-              <%- include('partial/user-order-history.ejs') %> 
-            </div>
-            <div class="tab-pane fade" id="list-wishlist" role="tabpanel" aria-labelledby="list-wishlist-list">
-              <div class="wishlist-container">
-                <h2 class="tag_title">Wishlist</h2>
-                <p class = "tag_explaint">Your favorite items</p>
-                <hr class="solid">
-                <div class="table-container">
-                  <div class="table_desc">
-                    <div class="cart_page table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="product_remove">Delete</th>
-                                    <th class="product_thumb">Image</th>
-                                    <th class="product_name">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product_total">Onsale</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                   <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                    <td class="product-price">£65.00</td>
-                                    <td class="product_total">20%</td>
-                                </tr>
-                                <tr>
-                                   <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product2.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbags justo</a></td>
-                                    <td class="product-price">£90.00</td>
-                                    <td class="product_total">50%</td>
+  <link rel="stylesheet" href="/public/stylesheets/user/user-profile-page.css">
+  <title>User profile</title>
+  <%- contentFor("body") %>
 
 
-                                </tr>
-                                <tr>
-                                   <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product3.jpg" alt=""></a></td>
-                                    <td class="product_name"><a href="#">Handbag elit</a></td>
-                                    <td class="product-price">£80.00</td>
-                                    <td class="product_total">No sale</td>
-                                </tr>
-                            </tbody>
-                        </table>   
-                    </div>    
-                </div>
-                  <button class = "more-btn">Load more</button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="list-repassword" role="tabpanel" aria-labelledby="list-repassword-list">
-                <%- include('partial/user-repassword.ejs') %> 
-              </div>
-                <div class="tab-pane fade show active" role="tabpanel" id="list-address" aria-labelledby="list-address-list">
-                  <div class="address-managerment-container ">
-                    <h2 class="tag_title">Address Managerment</h2>
-                    <p class="tag_explaint">Manage your address</p>
-                    <hr class="solid">
-                    <button class="add-address-btn open-address-modal" id="add_new_address" data-bs-toggle="modal" data-bs-target="#addModal"
-                      data-index="-1"><i class="fa-solid fa-plus"></i> Add New Address</button>
-                      <div id="address-area">
-                        <%- include('partial/user-delivery-address.ejs',{user}) %> 
-                      </div>
+    <div class="user-account-area">
+      <div class="container ">
+        <div class="row" id="menu-area">
+          <div class="col-4" id="tag-area">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active " id="list-profile-list" data-bs-toggle="list"
+                href="#list-profile" role="tab" aria-controls="list-profile-list">
+                <div class="row">
+                  <div class="col-1">
+                    <i class="fa-solid fa-user fa-lg"></i>
+                  </div>
+                  <div class="col-11">
+                    <p class="tag_name">Account</p>
                   </div>
                 </div>
-              <div class="tab-pane fade " id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">              
-                  <%- include('partial/user-profile.ejs',{user,moment}) %> 
-              </div>  
+              </a>
+              <a class="list-group-item list-group-item-action" id="list-history-list" data-bs-toggle="list"
+                href="#list-history" role="tab" aria-controls="list-history">
+                <div class="row">
+                  <div class="col-1">
+                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                  </div>
+                  <div class="col-11">
+                    <p class="tag_name">Order History</p>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" id="list-wishlist-list" data-bs-toggle="list"
+                href="#list-wishlist" role="tab" aria-controls="list-wishlist">
+                <div class="row">
+                  <div class="col-1">
+                    <i class="fa-solid fa-heart fa-lg"></i>
+                  </div>
+                  <div class="col-11">
+                    <p class="tag_name">Wishlist</p>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" id="list-repassword-list" data-bs-toggle="list"
+                href="#list-repassword" role="tab" aria-controls="list-repassword">
+
+                <div class="row">
+                  <div class="col-1">
+                    <i class="fa-solid fa-key fa-lg"></i>
+                  </div>
+                  <div class="col-11">
+                    <p class="tag_name">Password</p>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action " id="list-address-list" data-bs-toggle="list"
+                href="#list-address" role="tab" aria-controls="list-address">
+                <div class="row">
+                  <div class="col-1">
+                    <i class="fa-solid fa-location-dot fa-lg"></i>
+                  </div>
+                  <div class="col-11">
+                    <p class="tag_name">Address Managerment</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-8 content-area" id="content-area">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
+                <%- include('partial/user-order-history.ejs') %>
+              </div>
+              <div class="tab-pane fade" id="list-wishlist" role="tabpanel" aria-labelledby="list-wishlist-list">
+                <%- include('partial/user-wishlist.ejs',{user, currentPage:1}) %>
+              </div>
+              <div class="tab-pane fade" id="list-repassword" role="tabpanel" aria-labelledby="list-repassword-list">
+                <%- include('partial/user-repassword.ejs',{user}) %>
+              </div>
+              <div class="tab-pane fade show active" role="tabpanel" id="list-address"
+                aria-labelledby="list-address-list">
+                <div class="address-managerment-container ">
+                  <h2 class="tag_title">Address Managerment</h2>
+                  <p class="tag_explaint">Manage your address</p>
+                  <hr class="solid">
+                  <button class="add-address-btn open-address-modal" data-bs-toggle="modal"
+                    data-bs-target="#addAddressModal" data-index="-1"><i class="fa-solid fa-plus"></i> Add New
+                    Address</button>
+                  <div id="address-area">
+                    <%- include('partial/user-delivery-address.ejs',{user}) %>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade " id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                <%- include('partial/user-profile.ejs',{user,moment}) %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-  </div>  
-</div>
+    </div>
+    <!-- delete address modal start -->
+    <div class="modal fade" id="deleteAddressModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Address</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Do your want to delete this address?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" id="access-delete-button" data-bs-dismiss="modal"
+              data-index="-1">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- delete address modal end  -->
 
-<div class="modal fade" id="deleteAddressModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Address</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Do your want to delete this address?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" id="access-delete-button" data-bs-dismiss="modal" data-index="-1" >Delete</button>
+    <!-- modified address modal start -->
+    <div class="modal fade" id="modifiedAddressModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mofify address</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-container">
+              <input type="text" class="form-input" placeholder=" " id="modified_name_input" name="name"
+                autocomplete="off">
+              <label for="name" class="form-label">Name</label>
+            </div>
+
+            <div class="input-container">
+              <input type="text" class="form-input" placeholder=" " id="modified_phone_input" name="phone"
+                autocomplete="off">
+              <label for="phoneNumber" class="form-label">Phone number</label>
+            </div>
+            <div class="input-container">
+              <select name="province" class="form-input" id="modified_province_input">
+
+              </select>
+              <label for="name" class="select-label">Province/City</label>
+            </div>
+            <div class="input-container">
+              <select name="district" class="form-input" id="modified_district_input">
+
+              </select>
+              <label for="name" class="select-label">District</label>
+            </div>
+            <div class="input-container">
+              <select name="subDistrict" class="form-input" id="modified_ward_input">
+              </select>
+              <label for="name" class="select-label">Sub-District</label>
+            </div>
+            <div class="input-container">
+              <input type="text" class="form-input" placeholder=" " name="address" id="modified_address_input"
+                autocomplete="off">
+              <label for="address" class="form-label">Address</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="modifiedAddressCheckBox" checked>
+              <label class="form-check-label" for="modifiedAddressCheckBox">
+                Set as default address
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary add_modify_button" id="modified_address_button" data-index="-1"
+              data-type="save">Save</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="modal fade" id="modifiedAddressModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Mofify address</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" " name="name" autocomplete="off">
-          <label for = "name" class = "form-label">Name</label>
+    <!-- modified address modal end -->
+
+    <!-- Address modal  start -->
+    <div class="modal fade " id="addAddressModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add new address</h5>
+            <button type="button" class="btn-close open-address-modal" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-container">
+              <input type="text" class="form-input" placeholder=" " name="name" id="modal_name_input" autocomplete="on">
+              <label for="name" class="form-label">Name</label>
+            </div>
+            <div class="input-container">
+              <input type="text" class="form-input" placeholder=" " name="phoneNumber" id="modal_phone_input"
+                autocomplete="on">
+              <label for="phoneNumber" class="form-label">Phone number</label>
+            </div>
+            <div class="input-container">
+              <select name="province" id="province_input" class="form-input">
+                <option value="-1">Select Province/City</option>
+                <% let i=0 -%>
+                  <% provinces.forEach(element=> { -%>
+                    <option value="<%= i %>">
+                      <%= element.name%>
+                    </option>
+                    <% i++ -%>
+                      <% }); -%>
+              </select>
+              <label for="name" class="select-label">Province/City</label>
+            </div>
+            <div class="input-container">
+              <select name="district" id="district_input" class="form-input">
+                <option value="-1">Select District</option>
+              </select>
+              <label for="name" class="select-label">District</label>
+            </div>
+            <div class="input-container">
+              <select name="subDistrict" id="ward_input" class="form-input">
+                <option value="-1">Select Ward</option>
+              </select>
+              <label for="name" class="select-label">Sub-District</label>
+            </div>
+            <div class="input-container">
+              <input type="text" class="form-input" placeholder=" " name="address" id="address_input" autocomplete="on">
+              <label for="address" class="form-label">Address</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="addAddressCheckBox">
+              <label class="form-check-label" for="addAddressCheckBox">
+                Set as default address
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary add_modify_button" data-type="add">Add</button>
+          </div>
         </div>
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" " name="companyName" autocomplete="off">
-          <label for = "companyName" class = "form-label">Company's name</label>
-        </div>
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" " name="phoneNumber" autocomplete="off">
-          <label for = "phoneNumber" class = "form-label">Phone number</label>
-        </div>
-        <div class = "input-container">
-          <select name="province" class = "form-input">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="female">Other</option>
-          </select>
-          <label for = "name" class = "select-label">Province/City</label>
-        </div>
-        <div class = "input-container">
-          <select name="district" class = "form-input">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="female">Other</option>
-          </select>
-          <label for = "name" class = "select-label">District</label>
-        </div>
-        <div class = "input-container">
-          <select name="subDistrict" id="cars" class = "form-input">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="female">Other</option>
-          </select>
-          <label for = "name" class = "select-label">Sub-District</label>
-        </div>
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" " name="address" autocomplete="off">
-          <label for = "address" class = "form-label">Address</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="modifiedAddressCheckBox" checked>
-          <label class="form-check-label" for="modifiedAddressCheckBox">
-            Set as default address
-          </label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
-  </div>
-</div>
-<div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add new address</h5>
-        <button type="button" class="btn-close open-address-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" " name="name" id="modal_name_input" autocomplete="on">
-          <label for = "name" class = "form-label">Name</label>
-        </div>
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" " name="phoneNumber" id="modal_phone_input" autocomplete="on">
-          <label for = "phoneNumber" class = "form-label">Phone number</label>
-        </div>
-        <div class = "input-container">
-          <select name="province" id="province_input" class = "form-input">
-            <option value="-1">Select Province/City</option>
-            <%  let i=0 -%> 
-            <% provinces.forEach(element => { -%>
-              <option value="<%= i %>"><%= element.name%></option>
-              <% i++ -%> 
-           <% }); -%> 
-          </select>
-          <label for = "name" class = "select-label">Province/City</label>
-        </div>
-        <div class = "input-container">
-          <select name="district" id="district_input" class = "form-input">
-            <option value="-1">Select District</option>
-          </select>
-          <label for = "name" class = "select-label">District</label>
-        </div>
-        <div class = "input-container">
-          <select name="subDistrict" id="ward_input" class = "form-input">
-            <option value="-1">Select Ward</option>
-          </select>
-          <label for = "name" class = "select-label">Sub-District</label>
-        </div>
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" " name="address" id="address_input" autocomplete="on">
-          <label for = "address" class = "form-label">Address</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="addAddressCheckBox">
-          <label class="form-check-label" for="addAddressCheckBox">
-            Set as default address
-          </label>
-        </div>
-      </div>
-      <div class="form-check">
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="set_default_check_box">
-          <label class="form-check-label" for="set_default_check_box">
-            Default Address
-          </label>
-        </div>
-    </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="add_modify_button"  data-index="">Add</button>
-      </div>
-    </div>
-  </div>
-</div>
-<%- contentFor("end") %>
-<script> const provincesString=`<%- provincesJSON %>` </script>
-<script> var deliveryAddressJSON= `<%- JSON.stringify(user.deliveryAddress) %>`  </script>
-<script src="/public/javascripts/user/userprofile-page.js"></script>
+    <!-- Address modal  end -->
+
+    <%- contentFor("end") %>
+      <script> const provincesString = `<%- provincesJSON %>` </script>
+      <script> var deliveryAddressJSON = `<%- JSON.stringify(user.deliveryAddress) %>`  </script>
+      <script src="/public/javascripts/user/user-profile-page/change-password.js"></script>
+      <script src="/public/javascripts/user/user-profile-page/delivery-address.js"></script>
+      <script src="/public/javascripts/user/user-profile-page/order-history.js"></script>
+      <script src="/public/javascripts/user/user-profile-page/user-account.js"></script>
+      <script src="/public/javascripts/user/user-profile-page/wish-list.js"></script>

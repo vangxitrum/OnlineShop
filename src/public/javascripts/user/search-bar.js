@@ -1,22 +1,23 @@
- var temp =['12', '13', '14', '15', '16', '17', '18']
+
+ let searchTimeout 
+ let searchString =""
  $(document).ready(function(){
-    alert('searchbar')
     $('.search-input').keyup(function(e) {
-        clearTimeout($.data(this, 'timer'));
-          $(this).data('timer', setTimeout(search, 500));
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(search,800)
+        searchString = $(this).val();
        
     });
     function search() {
-        var existingString = $(".search-input").val();
-        if ( existingString.length < 3) return; //wasn't enter, not > 2 char
-        alert('Search shownewsletter')
-        $("#suggesstion-box").show();
-        $("#suggesstion-box").html('<div>Orange</div><div>Banana</div><div>Cocos</div><div>Papua</div><div>Papua</div>');
-        // $.post('/'+existingString, function(data) {
-        //     suggesstionView= `<div class="`
-        //     $("#suggesstion-box").show();
-        //     $("#suggesstion-box").html(data);
-        // });
+        let existingString = $(".search-input").val();
+        $.post('/search', {searchText:searchString},function(data) {
+           let productSuggesstion = JSON.parse(data);
+           let htmlSearchSuggesstion='';
+            Object.keys(productSuggesstion).forEach(function(key) {
+                htmlSearchSuggesstion += `<div <class="product-suggesstion" data-id="${key}"> <a>${productSuggesstion[key]}</a> </div>`
+            })
+            $(".suggesstion-box").html(htmlSearchSuggesstion);
+        });
     }
 
  })

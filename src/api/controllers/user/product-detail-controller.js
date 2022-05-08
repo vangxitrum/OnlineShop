@@ -2,6 +2,7 @@ const Photo = require('../../models/user/photo')
 const ProductDetail = require('../../models/user/productDetail')
 const ProductQuantity = require('../../models/user/productQuantity')
 const Review= require('../../models/user/review')
+const Cart = require('../../models/user/cart')
 var moment = require('moment');
 class ProductDetailController{
     show(req,res,next){
@@ -14,7 +15,6 @@ class ProductDetailController{
         Review.find({productDetailID: productID})
       ])
         .then(values=>{
-          console.log(values[5])
           res.render('pages/user/ShopPage/product-detail.ejs',{auth:false,pageIndex: 1,pageName: "productDetailPage",
             product:values[0],
             photos:values[1],
@@ -31,7 +31,6 @@ class ProductDetailController{
     addReview(req,res,next){
 
       console.log('AJAX ADD REVIEW')
-      console.log(req.body)
       if(req.body.name&&req.body.email&&req.body.comment&&req.body.productid){
       let  reviewObject={
           date:new Date(),
@@ -42,14 +41,12 @@ class ProductDetailController{
           productDetailID:req.body.productid
         }
         Review.insertMany([reviewObject]).then(result => {
-          console.log(result)
           let response = {
               status: 200,
               success: 'Added Review Successfully'
           }
           Review.find({productDetailID: req.body.productid})
           .then(reviews=>{
-            console.log(reviews)
             res.render('pages/user/ShopPage/review.ejs',{ layout:false,reviews: reviews,moment:moment})
           })
           .catch(erro=>{

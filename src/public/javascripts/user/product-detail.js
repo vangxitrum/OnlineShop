@@ -12,9 +12,9 @@ $("#add-to-cart-button").click(function () {
             size: selectedSize,
             color: selectedColor,
             quantity: quantity,
-            image:$('#zoom1').attr('src'),
-            name:$('#product-name').attr('data-name'),
-            price:$('.product_price').attr('data-price')
+            image: $('#zoom1').attr('src'),
+            name: $('#product-name').attr('data-name'),
+            price: $('.product_price').attr('data-price')
         }
         $.post("/cart",
             cartObject,
@@ -44,16 +44,29 @@ $('#add-review').click(
                         alert(review)
                     changeReviews(review)
                     refreshInput()
-                    $('#reviewscontainer').animate({scrollTop:0}, "smooth");;
+                    $('#reviewscontainer').animate({ scrollTop: 0 }, "smooth");;
                 });
         }
     })
 
+$('#add_to_wishlist').on('click', function () {
+    alert(`pricce is ${ $('#product_price').attr('data-price')}`)
+    let wantProduct = {}
+    wantProduct['image'] = $('#zoom1').attr('src')
+    wantProduct['name'] = $('#product-name').attr('data-name')
+    wantProduct['price'] = $('.product_price').attr('data-price')
+    wantProduct['productid'] = productid
+    wantProduct['discount'] = parseInt(discount) 
+    alert(JSON.stringify(wantProduct))
+    $.post('/userprofile', { wantProduct: wantProduct }, function (data) {
+      alert(JSON.stringify(data))
+    })
+})
 
 function changeReviews(review) {
     $('#reviewscontainer').html(review)
 }
-function refreshInput(){
+function refreshInput() {
     $('#comment').val('')
     $('#author').val('')
     $('#email').val('')

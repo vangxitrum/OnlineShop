@@ -1,35 +1,54 @@
-    <div class="wishlist-container">
-      <h2 class="tag_title">Wishlist</h2>
-      <p class = "tag_explaint">Your favorite items</p>
-      <hr class="solid">
-      <div class="table-container">
-        <table class = "data-table">
+<div class="wishlist-container">
+  <h2 class="tag_title">Wishlist</h2>
+  <p class="tag_explaint">Your favorite items</p>
+  <hr class="solid">
+  <div class="table-container">
+    <div class="table_desc">
+      <div class="cart_page table-responsive">
+        <table>
           <thead>
             <tr>
-              <th scope="col">Order Date</th>
-              <th scope="col">Order ID</th>
-              <th scope="col">Sum</th>
-              <th scope="col">Status</th>
-              <th scope="col"></th>
+              <th class="product_remove">Delete</th>
+              <th class="product_thumb">Image</th>
+              <th class="product_name">Product</th>
+              <th class="product-price">Price</th>
+              <th class="product_total">Onsale</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td id = "orderDate">19/4/2001</td>
-              <td id = "orderID">12acxs12xv</td>
-              <td id = "orderSum">100.000</td>
-              <td id = "orderStatus">Shipping</td>
-              <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
-            </tr>
-            <tr>
-              <td id = "orderDate">19/4/2001</td>
-              <td id = "orderID">12acxs12xv</td>
-              <td id = "orderSum">100.000</td>
-              <td id = "orderStatus">Shipping</td>
-              <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
-            </tr>
+            <% let i = 0%>
+            <% user.wishlist.forEach(function(wishItem) { %>
+              <% if( i>= (currentPage-1)*4 && i< (currentPage)*4 ){ -%>
+              <tr>
+                <td class="product_remove" data-id="<%= wishItem.productid %>"><a><i class="fa-solid fa-trash-can"></i></a></td>
+                <td class="product_thumb"><a href="#"><img src="<%= wishItem.image%>" alt=""></a></td>
+                <td class="product_name"><a href="#"><%= wishItem.name %></a></td>
+                <td class="product-price"><%= wishItem.price %></td>
+                <td class="product_total"><%= wishItem.discount==="0" ? 'NO SALE' : wishItem.discount+"%" %></td> ></td>
+              </tr>
+              <% } -%>
+              <% i++ %>
+              <% }) %>
           </tbody>
         </table>
-        <button class = "more-btn">Load more</button>
       </div>
     </div>
+    <!-- <button class="more-btn">Load more</button> -->
+    
+    <div class="pagination">
+      <ul id="wishlish-pagination">
+        <% if(currentPage>user.wishlist.length/4) { %>
+          <% currentPage = user.wishlist.length/4%> 
+          <% } %> 
+        <% for( let j=0;j< user.wishlist.length/4;j++ ) { %>
+         <% if(currentPage==j+1){ %>
+            <li class="current"  ><%= j+1%></li>
+         <% } else { %>
+          <li><a class="pagination_button" data-index="<%= j+1%>" ><%= j+1%></a></li>
+          <% } %>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>
+<script> var _currentPage = parseInt('<%= currentPage %>');</script>

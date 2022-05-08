@@ -52,7 +52,7 @@ const User = new Schema(
             type:Array,
             default: null
         },
-        wishlish:{
+        wishlist:{
             type:Array,
             default: null
         },

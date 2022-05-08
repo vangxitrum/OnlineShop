@@ -4,8 +4,11 @@
             item,photos:photos,isHomePage:false}); %>
     </div>
     <% }); -%>
-    <% console.log(`${pages}====${current}`) %>
+
+
+
     <% if(pages&&current ){%>
+        <script> refreshResultFilt('<%= current%>' , '<%= pages %>','<%=perPage%>', '<%= count %>')</script> 
         <script>pagination('<%= current%>' , '<%= pages %>')</script>  
         <% } %> 
 

@@ -19,10 +19,10 @@
         </p>
       </div>
       <button class="delete-btn btn btn-danger open-delete-modal" data-index="<%= i %>" data-bs-toggle="modal"
-        data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i></button>
+        data-bs-target="#deleteAddressModal"><i class="fa-solid fa-trash"></i></button>
       <button class="modified-btn btn btn-primary " data-index="<%= i %>  "
         data-default="<%= element.default==="true"?"true":"false" %>" data-bs-toggle="modal"
-        data-bs-target="#addModal" ><i class="fa-solid fa-pen"></i></button>
+        data-bs-target="#modifiedAddressModal" ><i class="fa-solid fa-pen"></i></button>
     </div>
     <% i++ -%>
       <% }) %>

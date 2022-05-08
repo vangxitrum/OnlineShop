@@ -90,6 +90,7 @@ $('.filter-item').on('click',function(){
     let param=$(this).attr('data-param')
     let value=$(this).attr('data-key')
     $(`.${param}`).removeClass('text-warning')
+  if(value!=getValueOfParam(param))  
     $(this).addClass(' text-warning')
     let link
         value===getValueOfParam(param)?link=deleteParam(param):link=addParam(param,value)
@@ -101,9 +102,7 @@ $('.filter-item').on('click',function(){
             let newUrl=currentUrl.slice(0,currentUrl.search('/shopcategory'))+rhef
             window.history.pushState({},"", newUrl);
             $('#product-category').html(view)
-           
         });
-    
 })
 $(".pagination_button").on('click',function(){
  let pageNumber=$(this).attr('data-page')
