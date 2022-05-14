@@ -2,49 +2,6 @@
 
 //responsive
 
-@media screen and (max-width:1100px){
-  .content-area{
-    width: 90%; 
-    margin: 0 auto;
-  }
-
-  .tag_name{
-    visibility: hidden;
-  }
-
-  .list-group{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 2rem;
- 
-  }
-
-  .list-group-item{
-    width: 80px;
-    border: none;
-    height: 2.5rem;
-    border: none;
-    text-align: center;
-    padding-left: 2rem;
-    border-radius: none;
-  }
-
-  .list-group-item.active{
-    border: none;
-    background-color: white;
-    color: $black-color;
-    font-weight: bolder;
-    border-bottom: .4rem solid $base-color;  
-    border-radius: none; 
-  }
-
-  .list-group-item:last-child{
-    border-radius: 0% ;
-  }
-  
-}
 
 .user-account-area {
     margin-top: 3rem;
@@ -53,8 +10,10 @@
     
 }
 
-
-
+.list-group-item.active{
+  background-color:$black-color;
+  border-color: $black-color;
+}
 .content-area{
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .4rem;
@@ -236,14 +195,18 @@ hr.solid {
   margin-top: -.6rem;
 }
 
+
+
 .history-container{
   .btn{
+    background-color: $black-color;
+    border-color: $black-color;
     margin-left: 2rem;
     font-size: 12px;
-    width: 16%;
+    width: 20%;
     margin-bottom: 1rem;
+    text-align: center;
   }
-  
   .form-input{
     margin-top: 1rem;
     margin-bottom: 0;
@@ -315,11 +278,12 @@ hr.solid {
     border-left: 0;
     border-radius: 4px;
     border-spacing: 0px;
-    button{
-      margin: 0;
-      width: 30%;
-      height: 20%;
-      font-size: 10px;
+    a{
+      color: $base-color;
+      font-weight: 500;
+      &:hover{
+        color: $black-color;
+      }
     }
     thead {
       display: table-header-group;
@@ -609,3 +573,46 @@ hr.solid {
   }
 }
   
+@media screen and (max-width:1100px){
+  .content-area{
+    width: 90%; 
+    margin: 0 auto;
+  }
+
+  .tag_name{
+    visibility: hidden;
+  }
+
+  .list-group{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 2rem;
+ 
+  }
+
+  .list-group-item{
+    width: 80px;
+    border: none;
+    height: 2.5rem;
+    border: none;
+    text-align: center;
+    padding-left: 2rem;
+    border-radius: none;
+  }
+
+  .list-group-item.active{
+    border: none;
+    background-color: white;
+    color: $black-color;
+    font-weight: bolder;
+    border-bottom: .4rem solid $base-color;  
+    border-radius: none; 
+  }
+
+  .list-group-item:last-child{
+    border-radius: 0% ;
+  }
+  
+}

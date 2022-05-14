@@ -10,7 +10,7 @@ class CartPageController {
     show(req, res, next) {
         Cart.find({ customerID: ObjectId('6222cd37bcd8e3cabfde0323') })
             .then(items => {
-                res.render('pages/user/CartPage/cart.ejs', { items, pageIndex: 0,pageName: "cartPage",auth:false});
+                res.render('pages/user/CartPage/cart.ejs', { items, pageIndex: 0,pageName: "cartPage",auth:req.auth});
             })
     }
 

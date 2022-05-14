@@ -2,7 +2,7 @@ const { render } = require('node-sass')
 
 class ContactController{
     show(req,res,next){
-        res.render('pages/user/InfoPage/contact-page.ejs',{auth:false, pageIndex: 0,pageName: "contactPage"});
+        res.render('pages/user/InfoPage/contact-page.ejs',{auth:req.auth, pageIndex: 0,pageName: "contactPage"});
     }
 
 

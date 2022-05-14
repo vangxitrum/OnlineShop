@@ -14,7 +14,9 @@ const ShopCategoryController = require('../controllers/user/shop-page-controller
 const userProfileController = require('../controllers/user/user-profile-controller')
 const passport = require('passport')
 const { cookieJwtAuth } = require('../middleware/cookieJwtAuth')
+const { cookieJwtAuthWithoutRedirect } = require('../middleware/cookieJwtAuthWithoutRedirect')
 const searchController = require('../controllers/user/search-controller')
+const orderDetailController = require('../controllers/user/order-detail-controller')
 require('../middleware/passport')
 router.use((req, res, next) => {
     // changing layout for my admin panel
@@ -24,40 +26,41 @@ router.use((req, res, next) => {
     next();
 });
 //index router
-router.get('/shopcategory/:page', expressLayout, ShopCategoryController.show)
-router.get('/shopcategory', expressLayout, ShopCategoryController.show)
-router.post('/shopcategory/:page', expressLayout, ShopCategoryController.showPagination)
-router.post('/shopcategory', expressLayout, ShopCategoryController.showPagination)
+router.get('/shopcategory/:page', expressLayout,cookieJwtAuthWithoutRedirect, ShopCategoryController.show)
+router.get('/shopcategory', expressLayout,cookieJwtAuthWithoutRedirect, ShopCategoryController.show)
+router.post('/shopcategory/:page', expressLayout,cookieJwtAuthWithoutRedirect, ShopCategoryController.showPagination)
+router.post('/shopcategory', expressLayout,cookieJwtAuthWithoutRedirect, ShopCategoryController.showPagination)
 
 router.post('/search', expressLayout, searchController.showSuggestion)
 
-router.get('/home', expressLayout, HomePageController.show)
+router.get('/home', expressLayout,cookieJwtAuthWithoutRedirect, HomePageController.show)
 
-router.get('/', expressLayout,expressLayout,cookieJwtAuth,HomePageController.show)
+router.get('/', expressLayout,expressLayout,cookieJwtAuthWithoutRedirect,HomePageController.show)
 
-router.get('/productdetail',expressLayout, productDetailController.show)
-router.post('/productdetail',expressLayout, productDetailController.addReview)
+router.get('/productdetail',expressLayout,cookieJwtAuthWithoutRedirect, productDetailController.show)
+router.post('/productdetail',expressLayout,cookieJwtAuthWithoutRedirect, productDetailController.addReview)
 
-router.post('/cart/:code',expressLayout,cartController.checkCoupon)
-router.post('/cart',expressLayout,cartController.add)
-router.get('/cart',expressLayout, cartController.show)
-router.put('/cart',expressLayout, cartController.update)
+router.post('/cart/:code',expressLayout,cookieJwtAuth,cartController.checkCoupon)
+router.post('/cart',expressLayout,cookieJwtAuth,cartController.add)
+router.get('/cart',expressLayout,cookieJwtAuth, cartController.show)
+router.put('/cart',expressLayout,cookieJwtAuth, cartController.update)
 
-router.get('/blogdetail',expressLayout, blogDetail.show)
+router.get('/blogdetail',expressLayout,cookieJwtAuthWithoutRedirect, blogDetail.show)
 
-router.get('/blogcategory',expressLayout, blogCategory.show)
+router.get('/blogcategory',expressLayout,cookieJwtAuthWithoutRedirect, blogCategory.show)
 
-router.get('/about',expressLayout, aboutController.show)
+router.get('/about',expressLayout,cookieJwtAuthWithoutRedirect, aboutController.show)
         
-router.get('/contact',expressLayout, contactController.show)
+router.get('/contact',expressLayout,cookieJwtAuthWithoutRedirect, contactController.show)
 
 router.get('/userprofile',expressLayout,cookieJwtAuth, userProfileController.show)
+router.get('/userprofile/order-detail',expressLayout,cookieJwtAuth, orderDetailController.show)
 router.post('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.showWishLish)
 router.post('/userprofile',expressLayout,cookieJwtAuth, userProfileController.updateProfile)
 router.delete('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.deleteWishItem)
 
 router.get('/login',expressLayout, loginController.show)
-
+router.get('/logout',expressLayout, loginController.LogOut);
 router.post('/login',expressLayout,passport.authenticate('local',{failureRedirect: '/login',failureFlash: {
     type: 'messageFailure',
     message: 'Invalid email and/ or password.'

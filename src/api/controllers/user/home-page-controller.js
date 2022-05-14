@@ -5,7 +5,6 @@ class HomePageController {
   show(req, res, next) {
     // var dbo = ProductDetail.db('onlineshop');
     // dbo.conllection('productdetail')
-    
     ProductDetail.find({})
       .then((products) => {
         Photo.find({})

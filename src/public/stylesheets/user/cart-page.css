@@ -2442,7 +2442,7 @@
   text-align: right;
   padding: 12px; }
 
-.cart_submit button {
+.cart_submit button:not(.btn, .delete-btn, .btn-danger, .modified-btn, .btn-primary, .close-btn) {
   background: #242424;
   border: 0;
   color: #ffffff;
@@ -2652,8 +2652,7 @@ span:not(.name-wrapper) {
   float: right;
   width: 8%;
   margin: .5rem;
-  border: none;
-  background-color: black; }
+  border: none; }
 
 .status {
   width: 50%;
@@ -2681,3 +2680,64 @@ span:not(.name-wrapper) {
   .form-check .cod {
     height: 15%;
     width: 15%; }
+
+.address-item-container {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  margin-bottom: 1rem;
+  display: block;
+  overflow: hidden;
+  border: 1px solid transparent;
+  padding: .5rem 0; }
+
+.address-item-container:hover {
+  border: 1px solid #ff6a28;
+  border-radius: 5px; }
+
+.add-address-btn {
+  width: 100%;
+  height: 5%;
+  border: none;
+  background-color: white;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ff6a28;
+  margin: .5rem auto;
+  padding: .5rem; }
+
+.info-container {
+  width: 65%;
+  float: left; }
+
+.user-name {
+  margin-left: 1rem;
+  font-size: 14px;
+  color: black;
+  width: 50%;
+  display: inline; }
+
+.user-info {
+  margin: 0;
+  margin-left: 1rem;
+  font-size: 12px;
+  color: black; }
+
+span:not(.name-wrapper) {
+  color: #7e7e7e; }
+
+.name-wrapper {
+  display: inline-block;
+  margin-bottom: .5rem; }
+
+.delete-btn, .modified-btn {
+  float: right;
+  width: 10%;
+  margin: .5rem; }
+
+.status {
+  width: 50%;
+  display: inline;
+  font-size: 11px;
+  margin-left: 1rem;
+  color: #26BC4E; }

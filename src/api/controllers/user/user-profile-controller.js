@@ -12,7 +12,7 @@ class ShopCategoryController {
             Promise.all([fetch('https://provinces.open-api.vn/api/?depth=3')]).then(async result => {
                 let provincesRes = await result[0].json()
                 let provincesJSON = await JSON.stringify(provincesRes)
-                res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: false, pageIndex: 1, user: req.user, provinces: provincesRes, moment: moment, provincesJSON });
+                res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: req.auth, pageIndex: 1, user: req.user, provinces: provincesRes, moment: moment, provincesJSON });
             })
         }
         else {

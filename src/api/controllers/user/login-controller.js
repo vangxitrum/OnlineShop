@@ -70,8 +70,10 @@ class LoginController{
         })
     }
 
-
-
-}
+    async LogOut(req,res,next){
+      res.clearCookie("token");
+      res.redirect('back');
+    }
+  }
 
 module.exports = new LoginController;

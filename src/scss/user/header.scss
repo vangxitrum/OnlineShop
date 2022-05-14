@@ -2,17 +2,7 @@
 @import 'shared';
 @import 'animation';
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .header_area {
-      padding: 30px 0;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .header_area {
-      padding: 20px 0;
-    }
-  }
-  
+
   .sticky-header.sticky {
     position: fixed;
     z-index: 9;
@@ -38,26 +28,7 @@
     -webkit-animation-play-state: running;
     animation-play-state: running;
   }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .sticky-header.sticky {
-      position: inherit;
-      -webkit-box-shadow: inherit;
-      box-shadow: inherit;
-      -webkit-animation-name: inherit;
-      animation-name: inherit;
-      padding: 0;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .sticky-header.sticky {
-      position: inherit;
-      -webkit-box-shadow: inherit;
-      box-shadow: inherit;
-      -webkit-animation-name: inherit;
-      animation-name: inherit;
-      padding: 0;
-    }
-  }
+
   
   .off_canvars_overlay {
     width: 100%;
@@ -78,16 +49,7 @@
   .offcanvas_menu {
     display: none;
   }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .offcanvas_menu {
-      display: block;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .offcanvas_menu {
-      display: block;
-    }
-  }
+
   .offcanvas_menu .container {
     position: relative;
   }
@@ -286,12 +248,7 @@
     top: 30px;
     z-index: 9;
   }
-  @media only screen and (max-width: 767px) {
-    .canvas_open {
-      right: 20px;
-      top: 24px;
-    }
-  }
+ 
   .canvas_open a {
     font-size: 30px;
     color: #747474;
@@ -303,25 +260,12 @@
     border: 1px solid #747474;
     border-radius: 3px;
   }
-  @media only screen and (max-width: 767px) {
-    .canvas_open a {
-      width: 35px;
-      height: 34px;
-      line-height: 34px;
-      font-size: 24px;
-    }
-  }
+  
   .canvas_open a:hover {
     color: $base_color;
     border-color: $base_color;
   }
-  
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .offcanvas_two .canvas_open {
-      right: 33px;
-    }
-  }
-  
+
   .offcanvas_four .canvas_open a {
     color: #fff;
     border: 1px solid #fff;
@@ -335,36 +279,7 @@
     background: #242424;
     padding: 7px 0;
   }
-  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-    .header_top {
-      padding: 7px 30px;
-    }
-  }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .header_top {
-      padding: 12px 0;
-      display: none;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .header_top {
-      display: none;
-    }
-  }
   
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .welcome_text {
-      display: none;
-      text-align: center;
-      margin-bottom: 13px;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .welcome_text {
-      display: none;
-      margin-bottom: 13px;
-    }
-  }
   .welcome_text ul li {
     display: inline-block;
     font-size: 12px;
@@ -374,31 +289,8 @@
     padding-right: 15px;
     margin-right: 15px;
   }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .welcome_text ul li {
-      font-size: 11px;
-      padding-right: 12px;
-      margin-right: 12px;
-    }
-  }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .welcome_text ul li {
-      font-size: 11px;
-      padding-right: 0;
-      margin-right: 0;
-      display: block;
-      text-align: center;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .welcome_text ul li {
-      font-size: 11px;
-      padding-right: 0;
-      margin-right: 0;
-      display: block;
-      text-align: center;
-    }
-  }
+
+  
   .welcome_text ul li::before {
     content: "";
     height: 16px;
@@ -408,16 +300,8 @@
     top: 7px;
     right: 0;
   }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .welcome_text ul li::before {
-      display: none;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .welcome_text ul li::before {
-      display: none;
-    }
-  }
+
+  
   .welcome_text ul li:last-child {
     padding-right: 0;
     margin-right: 0;
@@ -1192,32 +1076,12 @@
     right: inherit;
   }
   
-  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-    .header_bottom {
-      padding: 0 30px;
-    }
-  }
+ 
   
   .contact_phone {
     text-align: right;
   }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .contact_phone {
-      text-align: center;
-      display: none;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .contact_phone {
-      text-align: center;
-      display: none;
-    }
-  }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .contact_phone p {
-      font-size: 11px;
-    }
-  }
+ 
   .contact_phone p a:hover {
     color: $base_color;
   }
@@ -1236,12 +1100,7 @@
     top: -33px;
     left: 65px;
   }
-  @media only screen and (max-width: 767px) {
-    .mean-container .mean-bar::after {
-      left: 9%;
-      font-size: 15px;
-    }
-  }
+
   .mean-container .mean-nav {
     max-height: 300px;
     overflow: auto;
@@ -1252,33 +1111,14 @@
     top: -34px;
     left: 20px;
   }
-  @media only screen and (max-width: 767px) {
-    .mean-container a.meanmenu-reveal {
-      float: right;
-      right: 15px;
-      top: -34px;
-      left: auto;
-    }
-  }
-  
+
   .mobile-menu {
     border: 1px solid #ddd;
     height: 45px;
     top: -31px;
     position: relative;
   }
-  @media only screen and (max-width: 767px) {
-    .mobile-menu {
-      top: 5px;
-    }
-  }
   
-  /*home two css here*/
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .header_two {
-      padding: 30px 15px;
-    }
-  }
   .header_two .sticky-header.sticky {
     background: rgba(36, 36, 36, 0.7);
   }
@@ -2493,3 +2333,203 @@
   .header_product{
     border-bottom: 1px solid $gray-color;
   }
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header_area {
+      padding: 30px 0;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .header_area {
+      padding: 20px 0;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .sticky-header.sticky {
+      position: inherit;
+      -webkit-box-shadow: inherit;
+      box-shadow: inherit;
+      -webkit-animation-name: inherit;
+      animation-name: inherit;
+      padding: 0;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .sticky-header.sticky {
+      position: inherit;
+      -webkit-box-shadow: inherit;
+      box-shadow: inherit;
+      -webkit-animation-name: inherit;
+      animation-name: inherit;
+      padding: 0;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .offcanvas_menu {
+      display: block;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .offcanvas_menu {
+      display: block;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .canvas_open {
+      right: 20px;
+      top: 24px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .canvas_open a {
+      width: 35px;
+      height: 34px;
+      line-height: 34px;
+      font-size: 24px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .offcanvas_two .canvas_open {
+      right: 33px;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .header_top {
+      padding: 7px 30px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header_top {
+      padding: 12px 0;
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .header_top {
+      display: none;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .welcome_text {
+      display: none;
+      text-align: center;
+      margin-bottom: 13px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .welcome_text {
+      display: none;
+      margin-bottom: 13px;
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .welcome_text ul li {
+      font-size: 11px;
+      padding-right: 12px;
+      margin-right: 12px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .welcome_text ul li {
+      font-size: 11px;
+      padding-right: 0;
+      margin-right: 0;
+      display: block;
+      text-align: center;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .welcome_text ul li {
+      font-size: 11px;
+      padding-right: 0;
+      margin-right: 0;
+      display: block;
+      text-align: center;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .welcome_text ul li::before {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .welcome_text ul li::before {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .header_bottom {
+      padding: 0 30px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .contact_phone {
+      text-align: center;
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .contact_phone {
+      text-align: center;
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .contact_phone p {
+      font-size: 11px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .mean-container .mean-bar::after {
+      left: 9%;
+      font-size: 15px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .mean-container a.meanmenu-reveal {
+      float: right;
+      right: 15px;
+      top: -34px;
+      left: auto;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .mobile-menu {
+      top: 5px;
+    }
+  }
+  
+  /*home two css here*/
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header_two {
+      padding: 30px 15px;
+    }
+  }
+
+
+
+  .suggesstion-box{
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 99;
+    a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block; 
+
+      &:hover{
+        background-color: #cacaca
+      }
+    }
+  }
+
+  .show {display:block;}

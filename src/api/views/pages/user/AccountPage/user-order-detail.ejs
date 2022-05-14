@@ -1,5 +1,6 @@
 <%- contentFor("head") %> 
 
+<% include ('../../../shared/user/function') %> 
 <link rel="stylesheet" href="/public/stylesheets/user/cart-page.css">
 <%- contentFor("body") %> 
 
@@ -10,8 +11,9 @@
                 <div class="breadcrumb_content">
                     <ul>
                         <li><a href="/">home</a></li>
+                        <li><a href="/userprofile">userprofile</a></li>
                         <li>/</li>
-                        <li>cart</li>
+                        <li>order-detail</li>
                     </ul>
                 </div>
             </div>
@@ -40,10 +42,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%- include('partial/cart-container.ejs',{items}) %> 
-                                    <!-- <tr>
+                                   
+                                    <tr>
                                        <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
+                                        <td class="product_thumb"><a href="#"><img src="/assets/img/s-product/product.jpg" alt=""></a></td>
                                         <td class="product_name"><a href="#">Handbag fringilla</a></td>
                                         <td class="product-price">£65.00</td>
                                         <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
@@ -52,24 +54,21 @@
                                    
                                     <tr>
                                        <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product3.jpg" alt=""></a></td>
+                                        <td class="product_thumb"><a href="#"><img src="/assets/img/s-product/product3.jpg" alt=""></a></td>
                                         <td class="product_name"><a href="#">Handbag elit</a></td>
                                         <td class="product-price">£80.00</td>
                                         <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£160.00</td> -->
+                                        <td class="product_total">£160.00</td>
                                     </tr>
                                 </tbody>
                             </table>   
-                        </div>  
-                        <div class="cart_submit">
-                            <button id="update-button">update cart</button>
-                        </div>      
+                        </div>     
                     </div>
                 </div>
             </div>
             <div class="coupon_area">
                 <div class="coupon_code">
-                    <h3><i class="fa-solid fa-location-dot"></i> Choose your address</h3>
+                    <h3><i class="fa-solid fa-location-dot"></i> Order address</h3>
                     <div class="address-item-container">
                         
                         <div class = "info-container">
@@ -79,32 +78,26 @@
                           <p class="user-info"><span>Address:</span> 670/2 TNV, Tp.Thu Duc, Ho Chi Minh</p>
                           <p class="user-info"><span>Phone number:</span> (+84) 0823 *** ***</p>
                         </div>
-                        <div class="cart_submit">
-                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter">CHANGE</button>
-                        </div>
                       </div>    
                 </div>
             </div>
 
             <div class="coupon_area">
                 <div class="coupon_code">
-                    <h3><i class="fa-solid fa-credit-card"></i> Choose payment method</h3>
+                    <h3><i class="fa-solid fa-credit-card"></i> Order payment method</h3>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                         <label class="form-check-label" for="flexRadioDefault1">
-                            <img class = "icon cod" src="public/assets/img/payment/COD.png" alt="#"> COD
+                            <img class = "icon cod" src="/assets/img/payment/COD.png" alt="#"> COD
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                         <label class="form-check-label" for="flexRadioDefault2">
-                            <img class = "icon" src="public/assets/img/payment/momo.png" alt="#"> Payment throw MOMO
+                            <img class = "icon" src="/assets/img/payment/momo.png" alt="#"> Payment throw MOMO
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
                         <label class="form-check-label" for="flexRadioDefault3">
-                            <img class = "icon" src="public/assets/img/payment/zalopay.png" alt="#"> Payment throw Zalo Pay
+                            <img class = "icon" src="/assets/img/payment/zalopay.png" alt="#"> Payment throw Zalo Pay
                         </label>
                     </div>   
                 </div>
@@ -112,17 +105,8 @@
             <!--coupon code area start-->
             <div class="coupon_area">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="coupon_code left">
-                            <h3><i class="fa-solid fa-percent"></i> Coupon</h3>
-                            <div class="coupon_inner">   
-                                <p>Enter your coupon code if you have one.</p>                                
-                                <input placeholder="Coupon code" id="code-input" type="text">
-                                <button id="coupon-button">Apply coupon</button>
-                            </div>    
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
+                   
+                    <div class="col-lg-12 col-md-12">
                         <div class="coupon_code right">
                             <h3><i class="fa-solid fa-money-bill"></i> Cart Totals</h3>
                             <div class="coupon_inner">
@@ -139,9 +123,6 @@
                                    <p>Total</p>
                                    <p class="cart_amount" id="price-total" data-price="0">£215.00</p>
                                </div>
-                               <div class="checkout_btn">
-                                   <a href="#">Place order</a>
-                               </div>
                             </div>
                         </div>
                     </div>
@@ -152,61 +133,6 @@
         </div> 
     </div>     
 </div>
-
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="address-item-container ">
-                <div class="info-container">
-                  <span class="name-wrapper">
-                    <h5 class="user-name">
-                      vuong123
-                    </h5>
-                    
-                  </span>
-                  <p class="user-info"><span>Address:</span>
-                    213123123, Tỉnh Bắc Ninh, Huyện Yên Phong, Xã Đông Thọ 
-                  </p>
-                  <p class="user-info"><span>Phone number:</span>
-                    123123123
-                  </p>
-                </div>
-                <button class="delete-btn btn btn-danger open-delete-modal" data-index="0" data-bs-toggle="modal" data-bs-target="#deleteAddressModal"><i class="fa-solid fa-trash"></i></button>
-                <button class="modified-btn btn btn-primary " data-index="0  " data-default="false" data-bs-toggle="modal" data-bs-target="#modifiedAddressModal"><i class="fa-solid fa-pen"></i></button>
-              </div>
-              <div class="address-item-container ">
-                <div class="info-container">
-                  <span class="name-wrapper">
-                    <h5 class="user-name">
-                      vuong123
-                    </h5>
-                    
-                  </span>
-                  <p class="user-info"><span>Address:</span>
-                    213123123, Tỉnh Bắc Ninh, Huyện Yên Phong, Xã Đông Thọ 
-                  </p>
-                  <p class="user-info"><span>Phone number:</span>
-                    123123123
-                  </p>
-                </div>
-                <button class="delete-btn btn btn-danger open-delete-modal" data-index="0" data-bs-toggle="modal" data-bs-target="#deleteAddressModal"><i class="fa-solid fa-trash"></i></button>
-                <button class="modified-btn btn btn-primary " data-index="0  " data-default="false" data-bs-toggle="modal" data-bs-target="#modifiedAddressModal"><i class="fa-solid fa-pen"></i></button>
-              </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 <%- contentFor("end") %> 
 <script src="/public/javascripts/user/function.js"></script>
 <script src="/public/javascripts/user/cart-page.js"></script>

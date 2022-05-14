@@ -14,7 +14,6 @@ class ShopCategoryController {
         let color = {}
         let sortQuery = {}
         let compareQuery={}
-        console.log(req.query.sort)
 
         let queryObject = {};
         if (req.query.type) {
@@ -41,7 +40,6 @@ class ShopCategoryController {
                 break;
 
         }
-        console.log(sortQuery)
         //Load manufacturer ,product category, color ,tag
         ProductDetail.find()
             .exec((err, allProducts) => {
@@ -103,7 +101,7 @@ class ShopCategoryController {
                                     current: page,// page hiện tại
                                     perPage,
                                     pages: Math.ceil(count.length / perPage),// tổng số các page
-                                    auth: false,
+                                    auth:req.auth,
                                     photos,
                                     pageIndex: 0,pageName: "shopPage",
                                     count:count.length,
@@ -183,7 +181,8 @@ class ShopCategoryController {
                                   current: page,
                                   paramObject: req.query,
                                   perPage,
-                                  count:count.length
+                                  count:count.length,
+                                  auth:req.auth
                             })
                         })
 

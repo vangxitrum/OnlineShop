@@ -15,7 +15,7 @@ class ProductDetailController{
         Review.find({productDetailID: productID})
       ])
         .then(values=>{
-          res.render('pages/user/ShopPage/product-detail.ejs',{auth:false,pageIndex: 1,pageName: "productDetailPage",
+          res.render('pages/user/ShopPage/product-detail.ejs',{auth:req.auth,pageIndex: 1,pageName: "productDetailPage",
             product:values[0],
             photos:values[1],
             quantity:values[2],
