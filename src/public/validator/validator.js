@@ -173,3 +173,17 @@ Validator.checkReEnter = function (selector, input1 , errorMessage) {
         }
     }
 }
+Validator.isDuplicatePassword = function (selector, passwordInput, errorMessage) {
+    return {
+        selector: selector,
+        test: function (value) {
+            var password = document.querySelector(passwordInput).value
+            if (value===password){
+                return undefined
+                
+            } else{
+                return errorMessage
+                }
+        },
+    }
+}

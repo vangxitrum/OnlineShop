@@ -1329,6 +1329,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   font-size: 18px;
   color: #884848; }
 
+.modal-button {
+  color: #ff6a28; }
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -5924,3 +5927,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .show {
   display: block; }
+.mini-cart-product-container {
+  padding: 3%;
+  height: 250px;
+  overflow-y: scroll; }

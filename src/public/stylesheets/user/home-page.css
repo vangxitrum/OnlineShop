@@ -1736,6 +1736,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   right: 0;
   left: auto; }
 
+.modal-button {
+  color: #ff6a28; }
+
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .slider_area {
     margin-bottom: 80px; } }

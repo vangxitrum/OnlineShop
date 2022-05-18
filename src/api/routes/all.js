@@ -8,6 +8,8 @@ const blogDetail = require('../controllers/user/blog-detail-controller')
 const cartController = require('../controllers/user/cart-controller')
 const contactController = require('../controllers/user/contact-controller')
 const HomePageController = require('../controllers/user/home-page-controller')
+const orderController = require('../controllers/user/order-controller')
+
 const loginController = require('../controllers/user/login-controller')
 const productDetailController = require('../controllers/user/product-detail-controller')
 const ShopCategoryController = require('../controllers/user/shop-page-controller')
@@ -17,6 +19,7 @@ const { cookieJwtAuth } = require('../middleware/cookieJwtAuth')
 const { cookieJwtAuthWithoutRedirect } = require('../middleware/cookieJwtAuthWithoutRedirect')
 const searchController = require('../controllers/user/search-controller')
 const orderDetailController = require('../controllers/user/order-detail-controller')
+const order = require('../models/user/order')
 require('../middleware/passport')
 router.use((req, res, next) => {
     // changing layout for my admin panel
@@ -44,6 +47,10 @@ router.post('/cart/:code',expressLayout,cookieJwtAuth,cartController.checkCoupon
 router.post('/cart',expressLayout,cookieJwtAuth,cartController.add)
 router.get('/cart',expressLayout,cookieJwtAuth, cartController.show)
 router.put('/cart',expressLayout,cookieJwtAuth, cartController.update)
+router.delete('/cart',expressLayout,cookieJwtAuth, cartController.delete)
+
+router.post('/order',expressLayout,cookieJwtAuth,orderController.show)
+router.put('/order',expressLayout,cookieJwtAuth,orderController.add)
 
 router.get('/blogdetail',expressLayout,cookieJwtAuthWithoutRedirect, blogDetail.show)
 
@@ -58,6 +65,8 @@ router.get('/userprofile/order-detail',expressLayout,cookieJwtAuth, orderDetailC
 router.post('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.showWishLish)
 router.post('/userprofile',expressLayout,cookieJwtAuth, userProfileController.updateProfile)
 router.delete('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.deleteWishItem)
+router.put('/userprofile/password',expressLayout,cookieJwtAuth, userProfileController.changePassword)
+
 
 router.get('/login',expressLayout, loginController.show)
 router.get('/logout',expressLayout, loginController.LogOut);

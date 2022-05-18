@@ -4,6 +4,7 @@ const ProductQuantity = require('../../models/user/productQuantity')
 const Review= require('../../models/user/review')
 const Cart = require('../../models/user/cart')
 var moment = require('moment');
+const user = require('../../models/user/user')
 class ProductDetailController{
     show(req,res,next){
        const productID= req.query.id
@@ -12,7 +13,8 @@ class ProductDetailController{
         ProductQuantity.find({ productDetailID: productID }),
         ProductDetail.find() .limit(5),
         Photo.find(),
-        Review.find({productDetailID: productID})
+        Review.find({productDetailID: productID}),
+        Cart.find({customerID:req.user._id})
       ])
         .then(values=>{
           res.render('pages/user/ShopPage/product-detail.ejs',{auth:req.auth,pageIndex: 1,pageName: "productDetailPage",
@@ -22,7 +24,8 @@ class ProductDetailController{
             allProducts:values[3],
             allPhotos:values[4],
             reviews:values[5],
-            moment
+            moment,
+            cartList:values[6],
           });
         })
       

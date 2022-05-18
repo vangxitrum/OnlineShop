@@ -1,9 +1,9 @@
 
 $("#add-to-cart-button").click(function () {
+    
     selectedColor = $('#color-select').find(":selected").val();
     selectedSize = $('#size-select').find(":selected").val();
     quantity = $('#quantity').val()
-
     if (selectedColor != '0' && selectedSize != '0') {
         cartUrl = `cart/${productid}?size=${selectedSize}&color=${selectedColor}&quantity=${quantity}`
         //   $('#add-to-cart-form').submit()
@@ -16,13 +16,19 @@ $("#add-to-cart-button").click(function () {
             name: $('#product-name').attr('data-name'),
             price: $('.product_price').attr('data-price')
         }
+      
         $.post("/cart",
             cartObject,
             function (data, status) {
-                // add popup here
-                alert(data)
+                reFetchCartList({})
+                $( document ).ready(function() {
+                    serverResponse= JSON.parse(data)
+                    $('.modal-body').html(serverResponse.msg)
+                    $('#add-popup').modal('show')
+                });
             });
     } else {
+        $('.modal-body').html("Please select color and size !")
         $('#add-popup').modal('show')
     }
 })
@@ -41,7 +47,6 @@ $('#add-review').click(
                 reviewObject,
                 function (review, status) {
                     if (status === 200)
-                        alert(review)
                     changeReviews(review)
                     refreshInput()
                     $('#reviewscontainer').animate({ scrollTop: 0 }, "smooth");;
@@ -50,16 +55,16 @@ $('#add-review').click(
     })
 
 $('#add_to_wishlist').on('click', function () {
-    alert(`pricce is ${ $('#product_price').attr('data-price')}`)
     let wantProduct = {}
     wantProduct['image'] = $('#zoom1').attr('src')
     wantProduct['name'] = $('#product-name').attr('data-name')
     wantProduct['price'] = $('.product_price').attr('data-price')
     wantProduct['productid'] = productid
     wantProduct['discount'] = parseInt(discount) 
-    alert(JSON.stringify(wantProduct))
     $.post('/userprofile', { wantProduct: wantProduct }, function (data) {
-      alert(JSON.stringify(data))
+        serverResponse= JSON.parse(data)
+        $('.modal-body').html(serverResponse.msg)
+        $('#add-popup').modal('show')
     })
 })
 
@@ -72,5 +77,4 @@ function refreshInput() {
     $('#email').val('')
 }
 
-
-
+  
