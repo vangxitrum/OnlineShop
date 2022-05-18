@@ -702,9 +702,13 @@
 .rating{
   display: flex;
   flex-direction: row;
-
+  transform: translate(-87%) rotateY(180deg);
+  margin: 1rem 0; 
   input{
     display: none;
+    &:checked ~ label::after{
+      opacity: 1;
+    }
   }
 
   label{
@@ -735,6 +739,13 @@
       color: $base-color;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
+      opacity: 0;
+      transition: .5s;
+      text-shadow: 0 2px 5px rgba(0,0,0,.2);
     }
+    &:hover{
+      opacity: 1;
+    }
+
   }
 }
