@@ -1,51 +1,33 @@
-    <div class = "history-container">
-      <h2 class="tag_title">History</h2>
-      <p class = "tag_explaint">Show your previous order's informations</p>
-      <hr class="solid">
-      <div class="filter-wrapper">
-        <div class = "input-container">
-          <input type="text" class = "form-input" placeholder=" ">
-          <label for = "name" class = "form-label">Search</label>
-        </div>
-        <div class = "input-container">
-          <input type="date" class = "form-input" placeholder=" ">
-          <label for = "name" class = "date-label">From</label>
-        </div>
-        <div class = "input-container">
-          <input type="date" class = "form-input" placeholder=" ">
-          <label for = "name" class = "date-label">To</label>
-        </div>
-        <button class = "btn btn-primary">Filter</button>
-      </div>
-      <hr class="solid">
-      <div class="table-container">
-        <table class = "data-table">
-          <thead>
+<div class="table-container">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th scope="col">Order Date</th>
+        <th scope="col">Order ID</th>
+        <th scope="col">Sum</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if(orderList.length==0){ %>
+        <button class="more-btn">Load more</button>
+        <% } %>
+          <% orderList.forEach(function(order) { %>
             <tr>
-              <th scope="col">Order Date</th>
-              <th scope="col">Order ID</th>
-              <th scope="col">Sum</th>
-              <th scope="col">Status</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id = "orderDate">19/4/2001</td>
-              <td id = "orderID">12acxs12xv</td>
-              <td id = "orderSum">100.000</td>
-              <td id = "orderStatus">Shipping</td>
+              <td id="orderDate">
+                <%= moment(order.startday).format("DD-MM-YYYY")%>
+              </td>
+              <td id="orderID">
+                <%= order._id %>
+              </td>
+              <td id="orderSum">
+                <%= order.price %>
+              </td>
+              <td id="orderStatus">Shipping</td>
               <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
             </tr>
-            <tr>
-              <td id = "orderDate">19/4/2001</td>
-              <td id = "orderID">12acxs12xv</td>
-              <td id = "orderSum">100.000</td>
-              <td id = "orderStatus">Shipping</td>
-              <td><button class="btn btn-primary"><i class="fa-solid fa-info"></i></button></td>
-            </tr>
-          </tbody>
-        </table>
-        <button class = "more-btn">Load more</button>
-      </div>
-    </div>
+            <%})%>
+    </tbody>
+  </table>
+</div>

@@ -40,23 +40,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%- include('partial/cart-container.ejs',{items}) %> 
-                                    <!-- <tr>
-                                       <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                        <td class="product-price">£65.00</td>
-                                        <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£130.00</td>
-                                    </tr>
-                                   
-                                    <tr>
-                                       <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets/img/s-product/product3.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag elit</a></td>
-                                        <td class="product-price">£80.00</td>
-                                        <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£160.00</td> -->
+                                    <%- include('partial/cart-container.ejs',{items:cartList}) %> 
                                     </tr>
                                 </tbody>
                             </table>   
@@ -128,7 +112,7 @@
                             <div class="coupon_inner">
                                <div class="cart_subtotal">
                                    <p>Subtotal</p>
-                                   <p class="cart_amount" id="cart-total" data-price="0">£215.00</p>
+                                   <p class="cart_amount" id="cart-total" data-price="0">0</p>
                                </div>
                                <div class="cart_subtotal ">
                                    <p>Discount</p>
@@ -137,10 +121,10 @@
                              
                                <div class="cart_subtotal">
                                    <p>Total</p>
-                                   <p class="cart_amount" id="price-total" data-price="0">£215.00</p>
+                                   <p class="cart_amount" id="price-total" data-price="0">0</p>
                                </div>
-                               <div class="checkout_btn">
-                                   <a href="#">Place order</a>
+                               <div class="checkout_btn" id="place_order_btn">
+                                   <a>Place order</a>
                                </div>
                             </div>
                         </div>

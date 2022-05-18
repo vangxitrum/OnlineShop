@@ -2493,3 +2493,8 @@
   .header_product{
     border-bottom: 1px solid $gray-color;
   }
+  .mini-cart-product-container {
+    padding:3%;
+    height: 250px;
+    overflow-y: scroll;
+  }

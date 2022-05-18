@@ -92,4 +92,6 @@ User.methods.isValidPassword = async function(newPassword){
         throw new Error(error)
     }
 }
+
+
 module.exports=mongoose.model('user',User,'user')

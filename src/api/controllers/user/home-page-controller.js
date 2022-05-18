@@ -3,21 +3,17 @@ const Photo = require('../../models/user/photo')
 const Cart = require('../../models/user/cart')
 class HomePageController {
   show(req, res, next) {
-    // var dbo = ProductDetail.db('onlineshop');
-    // dbo.conllection('productdetail')
     
-    ProductDetail.find({})
-      .then((products) => {
-        Photo.find({})
-          .then((photos) => {
-            res.render('pages/user/index.ejs', {
-              products, photos, auth: req.auth, pageIndex: 0,pageName: "homePage",user :req.user
-            })
-          });
+    Promise.all([ ProductDetail.find({}),Photo.find({}),Cart.find({customerID:req.user._id})])
+    .then((result)=>{
+      console.log(result[2])
+      res.render('pages/user/index.ejs', {
+        products:result[0], photos:result[1], auth: req.auth, pageIndex: 0,pageName: "homePage",user :req.user,cartList:result[2]
       })
-      .catch((error)=>{
-          console.log(error)
-      })
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
 
   }
 

@@ -71,7 +71,32 @@
           <div class="col-8 content-area" id="content-area">
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
-                <%- include('partial/user-order-history.ejs') %>
+                <div class = "history-container">
+                  <h2 class="tag_title">History</h2>
+                  <p class = "tag_explaint">Show your previous order's informations</p>
+                  <hr class="solid">
+                  <div class="filter-wrapper">
+                    <div class = "input-container">
+                      <input type="text" class = "form-input" id="filter_input" placeholder=" ">
+                      <label for = "name" class = "form-label">Search</label>
+                    </div>
+                    <div class = "input-container">
+                      <input type="date" id="start_date" class = "form-input" placeholder=" ">
+                      <label for = "name" class = "date-label">From</label>
+                    </div>
+                    <div class = "input-container">
+                      <input type="date"  id="end_date" class = "form-input" placeholder=" ">
+                      <label for = "name" class = "date-label">To</label>
+                    </div>
+                    <button class = "btn btn-primary" id="order_history_filter_button">Filter</button>
+                  </div>
+                  <hr class="solid">
+                  <div id="order-history-container">
+                    <%- include('partial/user-order-history.ejs',{orderList,moment}) %>
+
+                  </div>
+                </div>
+              
               </div>
               <div class="tab-pane fade" id="list-wishlist" role="tabpanel" aria-labelledby="list-wishlist-list">
                 <%- include('partial/user-wishlist.ejs',{user, currentPage:1}) %>
@@ -205,9 +230,7 @@
                 <option value="-1">Select Province/City</option>
                 <% let i=0 -%>
                   <% provinces.forEach(element=> { -%>
-                    <option value="<%= i %>">
-                      <%= element.name%>
-                    </option>
+                    <option value="<%= i %>"><%= element.name%></option>
                     <% i++ -%>
                       <% }); -%>
               </select>
@@ -247,8 +270,10 @@
     <!-- Address modal  end -->
 
     <%- contentFor("end") %>
+    <script> src="/public/shared"</script>
       <script> const provincesString = `<%- provincesJSON %>` </script>
       <script> var deliveryAddressJSON = `<%- JSON.stringify(user.deliveryAddress) %>`  </script>
+      <script src="/public/validator/validator.js"></script>
       <script src="/public/javascripts/user/user-profile-page/change-password.js"></script>
       <script src="/public/javascripts/user/user-profile-page/delivery-address.js"></script>
       <script src="/public/javascripts/user/user-profile-page/order-history.js"></script>

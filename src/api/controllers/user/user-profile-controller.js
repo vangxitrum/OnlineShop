@@ -1,31 +1,25 @@
 const User = require('../../models/user/user')
 const Cart = require('../../models/user/cart')
-var moment = require('moment');
+const Order = require('../../models/user/order')
 const Shared = require('../../controllers/user/_shared')
-const Cloudinary = require('../../../../util/cloudinary')
 const fetch = require('node-fetch');
+const Cloudinary = require('../../../../util/cloudinary')
+
+const moment = require('moment');
 
 class ShopCategoryController {
     show(req, res, next) {
         console.log(req.user)
         if (req.user) {
-            Promise.all([fetch('https://provinces.open-api.vn/api/?depth=3')]).then(async result => {
+            Promise.all([fetch('https://provinces.open-api.vn/api/?depth=3'),Cart.find({customerID:req.user._id}),Order.find({customerID:req.user._id})]).then(async result => {
                 let provincesRes = await result[0].json()
-                let provincesJSON = await JSON.stringify(provincesRes)
-                res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: false, pageIndex: 1, user: req.user, provinces: provincesRes, moment: moment, provincesJSON });
+                let provincesJSON = JSON.stringify(provincesRes)
+                res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: false, pageIndex: 1, user: req.user, provinces: provincesRes, moment: moment, provincesJSON, cartList:result[1],orderList:result[2] });
             })
         }
         else {
             res.direct('/login')
         }
-
-
-        // Promise.all([User.findOne({ _id: '625a7df9f2aa2e293954e727' }), fetch('https://provinces.open-api.vn/api/?depth=3')])
-        //     .then(async result => {
-        //         let provincesRes = await result[1].json()
-        //         let provincesJSON = await JSON.stringify(provincesRes)
-        //         res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: false, pageIndex: 1, user: result[0], provinces: provincesRes, moment: moment, provincesJSON });
-        //     })
 
     }
     deleteWishItem(req, res, next) {
@@ -154,11 +148,40 @@ class ShopCategoryController {
             res.end(Shared.jsonResponse(300, "Can't Define User Account"))
         }
     }
-    changePassword(req, res,next){
-       let currentPassword = req.body.currentPassword
+    async changePassword(req, res,next){
+        console.log(req.user)
+        console.log(req.body)
+        let currentPassword = req.body.currentPassword
         let newPassword = req.body.newPassword
-        
-
+        User.findById(req.user._id).then(user =>{
+            console.log(user)
+        if(!user){
+            res.end(Shared.jsonResponse(300, "Cant find User Profile"))
+            return
+        }
+        user.isValidPassword(currentPassword)
+        .then(rs=>{
+            if(rs){
+                console.log(rs)
+                user.password=newPassword
+                user.save()
+                res.end(Shared.jsonResponse(200, "Change Password Successfully"))
+                return
+            } else{
+                res.end(Shared.jsonResponse(300, "Your password is incorrect"))
+                return 
+            }
+          
+        })
+        .catch(err => {
+            res.end(Shared.jsonResponse(300, "Your password is incorrect"))
+            return
+        }) 
+        })
+        .catch(error => {
+            console.log(error)  
+            res.end(Shared.jsonResponse(400, "DB Error", error))
+        })
     }
 
 }

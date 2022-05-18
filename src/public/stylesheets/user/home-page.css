@@ -53,7 +53,7 @@ a.meanmenu-reveal {
   float: left;
   position: relative;
   width: 100%;
-  border-top: 1px solid; }
+  border-top: 1px solid #ddd; }
 
 .mean-container .mean-nav ul li a {
   background: #f8f8f8 none repeat scroll 0 0;
@@ -1329,6 +1329,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   padding: 0 20px;
   font-size: 18px;
   color: #884848; }
+
+.modal-button {
+  color: #ff6a28; }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .slider_area {

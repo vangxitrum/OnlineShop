@@ -8,6 +8,8 @@ const blogDetail = require('../controllers/user/blog-detail-controller')
 const cartController = require('../controllers/user/cart-controller')
 const contactController = require('../controllers/user/contact-controller')
 const HomePageController = require('../controllers/user/home-page-controller')
+const orderController = require('../controllers/user/order-controller')
+
 const loginController = require('../controllers/user/login-controller')
 const productDetailController = require('../controllers/user/product-detail-controller')
 const ShopCategoryController = require('../controllers/user/shop-page-controller')
@@ -15,6 +17,7 @@ const userProfileController = require('../controllers/user/user-profile-controll
 const passport = require('passport')
 const { cookieJwtAuth } = require('../middleware/cookieJwtAuth')
 const searchController = require('../controllers/user/search-controller')
+const order = require('../models/user/order')
 require('../middleware/passport')
 router.use((req, res, next) => {
     // changing layout for my admin panel
@@ -24,24 +27,28 @@ router.use((req, res, next) => {
     next();
 });
 //index router
-router.get('/shopcategory/:page', expressLayout, ShopCategoryController.show)
-router.get('/shopcategory', expressLayout, ShopCategoryController.show)
+router.get('/shopcategory/:page', expressLayout,cookieJwtAuth, ShopCategoryController.show)
+router.get('/shopcategory', expressLayout,cookieJwtAuth, ShopCategoryController.show)
 router.post('/shopcategory/:page', expressLayout, ShopCategoryController.showPagination)
 router.post('/shopcategory', expressLayout, ShopCategoryController.showPagination)
 
 router.post('/search', expressLayout, searchController.showSuggestion)
 
-router.get('/home', expressLayout, HomePageController.show)
+router.get('/home', expressLayout, cookieJwtAuth,HomePageController.show)
 
 router.get('/', expressLayout,expressLayout,cookieJwtAuth,HomePageController.show)
 
-router.get('/productdetail',expressLayout, productDetailController.show)
-router.post('/productdetail',expressLayout, productDetailController.addReview)
+router.get('/productdetail',expressLayout,cookieJwtAuth, productDetailController.show)
+router.post('/productdetail',expressLayout,cookieJwtAuth, productDetailController.addReview)
 
 router.post('/cart/:code',expressLayout,cartController.checkCoupon)
-router.post('/cart',expressLayout,cartController.add)
-router.get('/cart',expressLayout, cartController.show)
-router.put('/cart',expressLayout, cartController.update)
+router.post('/cart',expressLayout,cookieJwtAuth,cartController.add)
+router.get('/cart',expressLayout,cookieJwtAuth, cartController.show)
+router.put('/cart',expressLayout,cookieJwtAuth, cartController.update)
+router.delete('/cart',expressLayout,cookieJwtAuth, cartController.delete)
+
+router.post('/order',expressLayout,cookieJwtAuth,orderController.show)
+router.put('/order',expressLayout,cookieJwtAuth,orderController.add)
 
 router.get('/blogdetail',expressLayout, blogDetail.show)
 
@@ -55,6 +62,8 @@ router.get('/userprofile',expressLayout,cookieJwtAuth, userProfileController.sho
 router.post('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.showWishLish)
 router.post('/userprofile',expressLayout,cookieJwtAuth, userProfileController.updateProfile)
 router.delete('/userprofile/wishlist',expressLayout,cookieJwtAuth, userProfileController.deleteWishItem)
+router.put('/userprofile/password',expressLayout,cookieJwtAuth, userProfileController.changePassword)
+
 
 router.get('/login',expressLayout, loginController.show)
 

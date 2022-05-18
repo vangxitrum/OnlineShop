@@ -504,3 +504,7 @@ hr.solid {
   .form-check .form-check-label {
     margin-left: .4rem;
     transform: translateY(-2px); }
+
+.validator-message {
+  color: #d11717;
+  margin-left: 10px; }

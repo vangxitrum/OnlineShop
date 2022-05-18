@@ -1,8 +1,18 @@
 const  provincesArray = async function () {
     return await JSON.parse(provincesString)
 }()
+deliveryAddressJSON = deliveryAddressJSON.replace(/\\n/g, "\\n")  
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f");
+// remove non-printable and other non-valid JSON chars
+deliveryAddressJSON = deliveryAddressJSON.replace(/[\u0000-\u0019]+/g,""); 
 
-let deliveryAddressArray = JSON.parse(deliveryAddressJSON)
+ let deliveryAddressArray = JSON.parse(deliveryAddressJSON)
 
 function fillAddressSelect(id, addressArray, firstValue) {
 
@@ -35,18 +45,19 @@ async function  fillAddressInfo  (provinceName, districtName, wardName)  {
                         k++
                         if (wardName.localeCompare(ward.name) == 0) {
                             $('#modified_ward_input').val(`${k}`)
-                            return;
+                            return true;
                         }
                     });
                     $('#modified_district_input').val(`${j}`)
-                    return;
+                    return true ;
                 }
             });
             $('#modified_province_input').val(`${i}`)
-            return;
+            return true;
         }
     });
-    alert(`${i} and ${j} and ${k}`)
+  
+
 }
 
 function getModifiedDeleveryObject() {
@@ -58,7 +69,6 @@ function getModifiedDeleveryObject() {
     if ($('#modified_name_input').val()) deliveryObject['name'] = $('#modified_name_input').val()
     if ($('#modified_phone_input').val()) deliveryObject['phone'] = $('#modified_phone_input').val()
     deliveryObject['default'] = $('#modifiedAddressCheckBox').is(":checked")
-    alert(deliveryObject)
     return deliveryObject
 }
 function getAddedDeleveryObject() {
@@ -154,8 +164,6 @@ $('.add_modify_button').on('click', function () {
     else {
         deliveryObject = getModifiedDeleveryObject()
     }
-    alert(JSON.stringify(deliveryObject))
-  
     if (Object.keys(deliveryObject).length != 7) {
         alert("Not Enought Infomation")
         return
@@ -177,7 +185,7 @@ $('.add_modify_button').on('click', function () {
     }
     $.post('/userprofile', { _id: "625a7df9f2aa2e293954e727", deliveryAddress: deliveryAddressArray }, function (view) {
         $('#address-area').html(view)
-        $('#addModal').modal('toggle')
+        $('#addAddressModal').modal('hide')
     })
 })
 
