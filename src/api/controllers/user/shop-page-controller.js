@@ -94,7 +94,7 @@ class ShopCategoryController {
 
             let countProduct= ProductDetail.find(queryObject)
             let loadedPhotos= Photo.find()
-            Promise.all([loadedPagination,countProduct,loadedPhotos,Cart.find(req.user._id)])
+            Promise.all([loadedPagination,countProduct,loadedPhotos,Cart.find({customerID:req.user._id})])
             .then(result => {
                 res.render('pages/user/ShopPage/shop-category.ejs', {
                                                 products:result[0], // sản phẩm trên một page
@@ -114,35 +114,6 @@ class ShopCategoryController {
                                                 cartList:result[3]
                                             });
             })
-
-        //    let paginationData= ProductDetail.find(queryObject)
-        //         .sort(sortQuery)
-        //         .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-        //         .limit(perPage)
-        //         .exec((err, products) => {
-        //             ProductDetail.find(queryObject).exec((err, count) => { // đếm để tính xem có bao nhiêu trang
-        //                 if (err) return next(err);
-        //                 Photo.find()
-        //                     .exec((err, photos) => {
-        //                         res.render('pages/user/ShopPage/shop-category.ejs', {
-        //                             products, // sản phẩm trên một page
-        //                             current: page,// page hiện tại
-        //                             perPage,
-        //                             pages: Math.ceil(count.length / perPage),// tổng số các page
-        //                             auth: false,
-        //                             photos,
-        //                             pageIndex: 0,pageName: "shopPage",
-        //                             count:count.length,
-        //                             categoryObject,
-        //                             manufacture,
-        //                             tag,
-        //                             color,
-        //                             sort,
-        //                             paramObject: req.query
-        //                         });
-        //                     })
-        //             });
-        //         })
         }
     }
     showPagination(req, res, next) {

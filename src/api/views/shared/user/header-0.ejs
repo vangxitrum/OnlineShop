@@ -67,11 +67,8 @@
 
                         </div>
                         <div class="cart_link">
-                            <a href="#"><i class="fa fa-shopping-basket"></i>2 item(s)</a>
                             <!--mini cart-->
-                            <div class="mini_cart">
                                 <%- include("mini-cart.ejs",{cartList})%> 
-                            </div>
                             <!--mini cart end-->
                         </div>
                     </div>
@@ -214,16 +211,16 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="cart_area">
-                            <div class="cart_link">
-                                <a href="#"><i class="fa-solid fa-basket-shopping"></i>2 item(s)</a>
-                                <!--mini cart-->
-                                 <div class="mini_cart">
-                                    <%- include("mini-cart.ejs",cartList)%> 
+                        <div class="cart_link">
+                            <div class="cart_area">
+                                <div class="cart_link">
+                                    <!--mini cart-->
+                                        <%- include("mini-cart.ejs",{cartList})%> 
+                                    <!--mini cart end-->
                                 </div>
-                                <!--mini cart end-->
                             </div>
                         </div>
+                       
                     </div>
                 </div>
             </div>
