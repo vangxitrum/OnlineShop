@@ -91,10 +91,13 @@ class ShopCategoryController {
                 .sort(sortQuery)
                 .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
                 .limit(perPage)
-
+                let  miniCartQuery={customerID:"undifineUser"}
+                if(req.user){
+                  miniCartQuery.customerID=req.user._id;
+                }
             let countProduct= ProductDetail.find(queryObject)
             let loadedPhotos= Photo.find()
-            Promise.all([loadedPagination,countProduct,loadedPhotos,Cart.find({customerID:req.user._id})])
+            Promise.all([loadedPagination,countProduct,loadedPhotos,Cart.find(miniCartQuery)])
             .then(result => {
                 res.render('pages/user/ShopPage/shop-category.ejs', {
                                                 products:result[0], // sản phẩm trên một page
