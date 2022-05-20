@@ -34,23 +34,39 @@ $("#add-to-cart-button").click(function () {
 })
 
 
-$('#add-review').click(
-    function () {
-        if ($('#author').val() && $('#email').val() && $('#comment').val() && $('#comment').val()) {
-            reviewObject = {
+$('#add-review').on("click",function () { 
+        let rate=0
+        for(let i=5;i>0;i--){
+            if ($(`#star${6-i}`).prop("checked")) {
+                rate=i
+             break 
+             }
+        }
+
+        if ($('#author').val() && $('#comment').val()) {
+          let  reviewObject = {
                 name: $('#author').val(),
-                email: $('#email').val(),
                 comment: $('#comment').val(),
-                productid: productid
+                productid: productid,
+                rate: rate
             }
+            alert(JSON.stringify(reviewObject))
             $.post("/productdetail",
                 reviewObject,
-                function (review, status) {
-                    if (status === 200)
-                    changeReviews(review)
-                    refreshInput()
-                    $('#reviewscontainer').animate({ scrollTop: 0 }, "smooth");;
+                function (data, status) {
+                    alert(data)
+                    if(data.status===404){
+                        $('.modal-body').html(data.message)
+                        $('#add-popup').modal('show')
+                    } else{
+                        $('#reviewscontainer').html(data)
+                        refreshInput()
+                        $('#reviewscontainer').animate({ scrollTop: 0 }, "smooth")
+                    }
                 });
+        } else{
+            $('.modal-body').html("Please add name and comment")
+            $('#add-popup').modal('show')
         }
     })
 
@@ -68,9 +84,6 @@ $('#add_to_wishlist').on('click', function () {
     })
 })
 
-function changeReviews(review) {
-    $('#reviewscontainer').html(review)
-}
 function refreshInput() {
     $('#comment').val('')
     $('#author').val('')

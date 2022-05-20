@@ -62,30 +62,7 @@ $( "#sort_select" ).change(function() {
     })
 });
 
-// function filtProduct(param, value,familyName){ 
-//     let link
-//     value===getValueOfParam(param)?link=deleteParam(param):link=addParam(param,value)
-//     rhef=`/shopcategory/?${link}`
-//     alert(rhef)
-//     $.post(rhef,
-//     {view:'1'},
-//     function (view) {
-//         let currentUrl= window.location.href.toString()
-//         let newUrl=currentUrl.slice(0,currentUrl.search('/shopcategory'))+rhef
-//         alert(newUrl)
-//         window.history.pushState({},"", newUrl);
-//         $('#product-category').html(view)
-//     });
-//     $.post(rhef,
-//         {view:'2'},
-//         function (view) {
-//             let currentUrl= window.location.href.toString()
-//             let newUrl=currentUrl.slice(0,currentUrl.search('/shopcategory'))+rhef
-//             alert(newUrl)
-//             window.history.pushState({},"", newUrl);
-//             $('#filter-list').html(view)
-//         });
-// }
+
 $('.filter-item').on('click',function(){
     let param=$(this).attr('data-param')
     let value=$(this).attr('data-key')

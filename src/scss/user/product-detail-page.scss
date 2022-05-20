@@ -694,7 +694,11 @@
   }
 
 
-
+.name-box{
+  margin-bottom: 3px;
+  font-size: large;
+  padding: 3px;
+}
 
   // review  star
 
@@ -747,4 +751,12 @@
     }
 
   }
+}
+//empty span 
+.empty_cotainer{
+  text-align: end;
+  width: 100px;
+  height: 50px;
+  font-size: large;
+  color: #F5AB35;
 }
