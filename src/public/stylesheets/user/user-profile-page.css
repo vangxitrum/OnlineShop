@@ -495,7 +495,6 @@ hr.solid {
     border-radius: none; }
   .list-group-item:last-child {
     border-radius: 0%; } }
-
 .validator-message {
   color: #d11717;
   margin-left: 10px; }

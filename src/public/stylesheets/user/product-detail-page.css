@@ -1332,6 +1332,153 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .modal-button {
   color: #ff6a28; }
 
+@media only screen and (max-width: 767px) {
+  .product_details {
+    margin-bottom: 42px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .product_details.gallery {
+    margin-bottom: 42px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_details.gallery {
+    margin-bottom: 42px; } }
+
+@media only screen and (max-width: 767px) {
+  .product-details-tab {
+    margin-bottom: 19px; } }
+
+@media only screen and (max-width: 767px) {
+  .variable_product .product-details-tab {
+    margin-bottom: 49px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_d_right h1 {
+    font-size: 20px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .product_d_right .product_desc p {
+    width: 100%; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .product_d_right .product_desc p {
+    width: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  .product_d_right .product_desc p {
+    width: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  .product_right_sidebar .product_d_right {
+    margin-bottom: 42px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .product_sidebar .product_variant.quantity button {
+    padding: 0 50px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .product_sidebar .product_variant.quantity button {
+    padding: 0 20px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_variant.quantity {
+    margin-bottom: 16px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_variant.quantity input {
+    height: 45px;
+    width: 60px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .product_variant.quantity button {
+    padding: 0 45px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_variant.quantity button {
+    padding: 0 27px;
+    font-size: 12px;
+    line-height: 45px;
+    height: 45px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_d_action ul li {
+    margin-right: 15px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_d_info {
+    margin-bottom: 54px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_info_button ul {
+    flex-direction: column; } }
+
+@media only screen and (max-width: 767px) {
+  .product_info_button ul li {
+    margin-bottom: 7px; } }
+
+@media only screen and (max-width: 767px) {
+  .product_info_button ul li:last-child {
+    margin-bottom: 0; } }
+
+@media only screen and (max-width: 767px) {
+  .product_info_button ul li a {
+    padding: 6px 17px;
+    margin-right: 0;
+    font-size: 13px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_reverse .tab-content .row {
+    flex-direction: row; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_reverse .tab-content .row {
+    flex-direction: row; } }
+
+@media only screen and (max-width: 767px) {
+  .related_product {
+    padding-bottom: 47px; } }
+
+@media only screen and (max-width: 479px) {
+  .hover_action a {
+    width: 38px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .product_sidebar .hover_action a {
+    width: 40px;
+    height: 35px;
+    line-height: 35px; } }
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .action_button ul li a {
+    height: 41px;
+    line-height: 41px; } }
+
+@media only screen and (max-width: 479px) {
+  .action_button ul li a {
+    width: 38px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px; } }
+
+@media only screen and (max-width: 479px) {
+  .action_button ul li a::before {
+    left: 7px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .grid_view .action_button ul li a {
+    width: 43px;
+    height: 40px;
+    line-height: 38px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .product_sidebar .action_button ul li a {
+    width: 40px;
+    height: 35px;
+    line-height: 35px; } }
+
 .related_product {
   padding-bottom: 44px; }
 

@@ -852,6 +852,19 @@
     
 })(jQuery);	
 
+$(window).on("load",function(){
+    $(".loader-wrapper").fadeOut("slow");
+    setTimeout(function(){
+        $('.message').addClass("show");
+        $('.message').removeClass("hide");
+        $('.message').addClass("showAlert");
+    },4000);
+    
+    setTimeout(function(){
+      $('.message').removeClass("show");
+      $('.message').addClass("hide");
+    },6000);
+})
 
 
 

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const {JWT_CODE} = require('../config')
 const User = require('../models/user/user')
-const loginController = require('../controllers/user/login-controller')
+
 exports.cookieJwtAuthWithoutRedirect = async (req,res,next) => {
     const token = req.signedCookies.token;
     if (!token){
@@ -14,7 +14,7 @@ exports.cookieJwtAuthWithoutRedirect = async (req,res,next) => {
             const payload = jwt.verify(token, JWT_CODE);
             const user = await User.findById(payload.sub)
             if (!user){
-                return loginController.show;
+                return res.redirect('/login')
             }
             req.user = user;
             req.auth = true;

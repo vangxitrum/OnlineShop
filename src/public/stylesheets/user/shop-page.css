@@ -1332,6 +1332,208 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .modal-button {
   color: #ff6a28; }
 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_area .list_view.active {
+    margin-bottom: 54px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_area .list_view.active {
+    margin-bottom: 54px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_reverse .shop_inner_area > .row {
+    flex-direction: column-reverse; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_reverse .shop_inner_area > .row {
+    flex-direction: column-reverse; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_reverse .tab-content .row {
+    flex-direction: row; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_reverse .tab-content .row {
+    flex-direction: row; } }
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .shop_inner_area {
+    padding-bottom: 74px;
+    margin-bottom: 74px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .shop_inner_area {
+    padding-bottom: 74px;
+    margin-bottom: 74px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_inner_area {
+    padding-bottom: 54px;
+    margin-bottom: 57px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_inner_area {
+    padding-bottom: 54px;
+    margin-bottom: 57px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_inner_area {
+    padding-bottom: 54px;
+    margin-bottom: 57px; } }
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .shop_fullwidth .shop_inner_area {
+    padding-bottom: 80px;
+    margin-bottom: 76px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .shop_fullwidth .shop_inner_area {
+    padding-bottom: 80px;
+    margin-bottom: 76px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_fullwidth .shop_inner_area {
+    padding-bottom: 60px;
+    margin-bottom: 57px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_fullwidth .shop_inner_area {
+    padding-bottom: 60px;
+    margin-bottom: 57px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .footer_widgets.sidebar_widgets .footer_top_inner {
+    padding: 56px 0 40px; } }
+
+@media only screen and (max-width: 767px) {
+  .footer_widgets.sidebar_widgets .footer_top_inner {
+    padding: 56px 0 35px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .sidebar_widget.tags_widget ul li a {
+    padding: 5px 17px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .blog_page .sidebar_widget.search_form {
+    margin-bottom: 60px; } }
+
+@media only screen and (max-width: 767px) {
+  .blog_page .sidebar_widget.search_form {
+    margin-bottom: 60px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .blog_page .sidebar_widget.widget_categories {
+    margin-bottom: 56px; } }
+
+@media only screen and (max-width: 767px) {
+  .blog_page .sidebar_widget.widget_categories {
+    margin-bottom: 56px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .blog_page .sidebar_widget.recent_post {
+    margin-bottom: 55px; } }
+
+@media only screen and (max-width: 767px) {
+  .blog_page .sidebar_widget.recent_post {
+    margin-bottom: 55px; } }
+
+@media only screen and (max-width: 767px) {
+  .blog_details .blog_sidebar .sidebar_widget h3.widget_title {
+    font-size: 17px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .widget_list {
+    margin-bottom: 55px; } }
+
+@media only screen and (max-width: 767px) {
+  .widget_list {
+    margin-bottom: 55px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .widget_list.widget_filter form input {
+    width: 65px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_toolbar_wrapper {
+    flex-direction: column;
+    padding: 15px 10px 5px; } }
+
+@media only screen and (max-width: 767px) {
+  .niceselect_option {
+    margin-bottom: 16px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .search_bar form .select_option {
+    height: 39px;
+    line-height: 39px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    margin-bottom: 25px; } }
+
+@media only screen and (max-width: 767px) {
+  .search_bar form .select_option {
+    height: 39px;
+    line-height: 39px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    margin-bottom: 25px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .search_bar form .select_option ul.list {
+    width: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  .search_bar form .select_option ul.list {
+    width: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  .select_option {
+    flex-direction: column; } }
+
+@media only screen and (max-width: 767px) {
+  .page_amount {
+    margin-bottom: 12px; } }
+
+@media only screen and (max-width: 767px) {
+  .page_amount p {
+    padding-left: 0;
+    margin-left: 0;
+    border-left: 0; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_toolbar {
+    flex-direction: column-reverse;
+    padding: 10px 10px 18px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_toolbar_btn {
+    margin-bottom: 20px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_fullwidth .shop_toolbar.t_bottom {
+    margin-bottom: 0; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_fullwidth .shop_toolbar.t_bottom {
+    margin-bottom: 0; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .shop_toolbar.t_bottom {
+    margin-bottom: 56px;
+    margin-top: 19px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_toolbar.t_bottom {
+    padding: 15px 10px 15px;
+    margin-top: 20px;
+    margin-bottom: 56px; } }
+
+@media only screen and (max-width: 767px) {
+  .shop_toolbar.t_bottom .pagination {
+    margin-top: 0; } }
+
 .shop_inner_area {
   padding-bottom: 94px;
   border-bottom: 1px solid #ddd;

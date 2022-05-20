@@ -83,8 +83,6 @@ router.post('/register',expressLayout, loginController.signUp)
 
 router.get('/secret',expressLayout,loginController.secret)
 
-router.get('/verify/:userID/:uniqueString',expressLayout,loginController.verify)
-
 router.get('/policy&term',expressLayout,(req,res,next) =>{
     res.render('pages/user/InfoPage/policy-page.ejs',{auth:false, pageIndex: 0,pageName: "policyPage"});
 })
