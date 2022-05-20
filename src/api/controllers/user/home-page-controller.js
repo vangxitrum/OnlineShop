@@ -3,8 +3,12 @@ const Photo = require('../../models/user/photo')
 const Cart = require('../../models/user/cart')
 class HomePageController {
   show(req, res, next) {
-    console.log(req.user._id)
-    Promise.all([ ProductDetail.find({}),Photo.find({}),Cart.find({customerID:req.user._id})])
+  let  miniCartQuery={customerID:"undifineUser"}
+  if(req.user){
+    miniCartQuery.customerID=req.user._id;
+  }
+ 
+    Promise.all([ ProductDetail.find({}),Photo.find({}),Cart.find(miniCartQuery)])
     .then((result)=>{
       console.log("check")
       res.render('pages/user/index.ejs', {

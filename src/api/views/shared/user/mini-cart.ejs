@@ -1,36 +1,42 @@
+<a><i class="fa fa-shopping-basket"></i><%= cartList.length %> item(s)</a>
+<% console.log(cartList) %> 
+<div class="mini_cart">
+    <div class="scrollbar-warning mini-cart-product-container">
+        <% let total=0 %>
+            <% cartList.forEach(function(item) { %>
+                <% total +=(item.quantity*item.price) -%>
+                    <div class="cart_item ">
+                        <div class="cart_img">
+                            <a href="#"><img src="<%= item.image %>" alt=""></a>
+                        </div>
+                        <div class="cart_info">
+                            <a href="#">
+                                <%= item.name%>
+                            </a>
+                            <span>
+                                <%= item.quantity%>x <%= formatPrice(item.price)%>
+                            </span>
+                        </div>
+                        <div class="cart_remove" data-id="<%= item._id %>">
+                            <a onclick="reFetchCartList('<%= item._id %>')"><i class="fa-solid fa-xmark"></i></a>
+                        </div>
+                    </div>
+                    <% })%>
+    </div>
+    <div class="cart__table">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="text-left"> TOTAL :</td>
+                    <td class="text-right">
+                        <%= formatPrice(total) %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-
-<div class="scrollbar-warning mini-cart-product-container">
-    <% let total= 0 %>
-
-   <%  cartList.forEach(function(item) { %> 
-    <%  total += (item.quantity*item.price) -%>
-        <div class="cart_item ">
-            <div class="cart_img">
-                <a href="#"><img src="<%= item.image %>" alt=""></a>
-            </div>
-             <div class="cart_info">
-                 <a href="#"><%= item.name%></a>
-                     <span><%= item.quantity%>x <%= formatPrice(item.price)%></span>
-             </div>
-             <div class="cart_remove" data-id="<%= item._id %>">
-                 <a onclick="reFetchCartList('<%= item._id %>')"><i class="fa-solid fa-xmark"></i></a>
-             </div>
-         </div>
-        <% })%>
+    <div class="cart_button view_cart">
+        <a href="/cart">View Cart</a>
+    </div>
 </div>
-<div class="cart__table">
-    <table>
-        <tbody>
-            <tr>
-                <td class="text-left"> TOTAL :</td>
-                <td class="text-right"><%= formatPrice(total) %></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="cart_button view_cart">
-    <a href="/cart">View Cart</a>
-</div>
-
