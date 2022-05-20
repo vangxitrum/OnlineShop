@@ -7,7 +7,7 @@ function reFetchCartList(cartID){
     type: "DELETE", 
     data: { cartID },
     success: function(data) {
-      $('.mini_cart').html(data)
+      $('.cart_link').html(data)
     },
     error: function() {
     }

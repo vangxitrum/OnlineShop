@@ -23,13 +23,20 @@ $("#add-to-cart-button").click(function () {
                 reFetchCartList({})
                 $( document ).ready(function() {
                     serverResponse= JSON.parse(data)
-                    $('.modal-body').html(serverResponse.msg)
-                    $('#add-popup').modal('show')
+                    let index=3
+                  switch(serverResponse.status) {
+                      case 200: index=3; break;
+                      case 300: index=1; break;
+                      case 400: index=0; 
+                  }
+                  $('.message_container').html(createAlertHtml(index,serverResponse.msg))
+                  alertSettimer()
                 });
             });
     } else {
-        $('.modal-body').html("Please select color and size !")
-        $('#add-popup').modal('show')
+        $('.message_container').html(createAlertHtml(1,"Please select size and color !"))
+        alertSettimer()
+      
     }
 })
 
@@ -54,19 +61,23 @@ $('#add-review').on("click",function () {
             $.post("/productdetail",
                 reviewObject,
                 function (data, status) {
-                    alert(data)
                     if(data.status===404){
-                        $('.modal-body').html(data.message)
-                        $('#add-popup').modal('show')
+                        $('.message_container').html(createAlertHtml(0,"Please add name and comment !"))
+                        alertSettimer()
                     } else{
+                        $('.message_container').html(createAlertHtml(3,"Add review successfully !"))
+                        alertSettimer()
                         $('#reviewscontainer').html(data)
                         refreshInput()
                         $('#reviewscontainer').animate({ scrollTop: 0 }, "smooth")
                     }
                 });
         } else{
-            $('.modal-body').html("Please add name and comment")
-            $('#add-popup').modal('show')
+            
+            $('.message_container').html(createAlertHtml(1,"Please add name and comment !"))
+            alertSettimer()
+            // $('.modal-body').html("Please add name and comment")
+            // $('#add-popup').modal('show')
         }
     })
 
@@ -79,8 +90,14 @@ $('#add_to_wishlist').on('click', function () {
     wantProduct['discount'] = parseInt(discount) 
     $.post('/userprofile', { wantProduct: wantProduct }, function (data) {
         serverResponse= JSON.parse(data)
-        $('.modal-body').html(serverResponse.msg)
-        $('#add-popup').modal('show')
+        let index=3
+      switch(serverResponse.status){
+          case 200: index=3;break
+          case 300: index=1;break
+          default: index=0
+      }
+        $('.message_container').html(createAlertHtml(index,serverResponse.msg))
+        alertSettimer()
     })
 })
 
@@ -88,6 +105,52 @@ function refreshInput() {
     $('#comment').val('')
     $('#author').val('')
     $('#email').val('')
+}
+
+function createAlertHtml(type,msg){
+    let alert_message
+    if(type == 1){
+       alert_message= ` <div id="alert_message">
+        <div>
+            <div class="message alert hide">
+                <span class="fas fa-exclamation-circle"></span>
+                <span class="msg">${msg}</span>
+            </div> 
+        </div>
+    </div>`
+    }else if(type==0){
+        alert_message= `<div id="alert_message">
+        <div>
+            <div class="message fail hide">
+                <span class="fas fa-circle-xmark"></span>
+                <span class="msg">${msg}</span>
+            </div> 
+        </div>
+    </div>`
+    } else{
+        alert_message= `<div id="alert_message">
+        <div>
+            <div class="message success hide">
+                <span class="fas fa-circle-check"></span>
+                <span class="msg">${msg}</span>
+            </div> 
+        </div>
+    </div>`
+    }
+    return alert_message
+
+}
+function alertSettimer(){
+    setTimeout(function(){
+        $('.message').addClass("show");
+        $('.message').removeClass("hide");
+        $('.message').addClass("showAlert");
+    },200);
+    
+    setTimeout(function(){
+      $('.message').removeClass("show");
+      $('.message').addClass("hide");
+    },2000);
 }
 
   

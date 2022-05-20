@@ -5,8 +5,12 @@ class HomePageController {
       
       let searchText = req.body.searchText
       if(searchText){
-        console.log(searchText)
-        ProductDetail.find({name:{$regex: new RegExp(`.*${searchText}.*`,'i')}})
+        let searchObject={name:{$regex: new RegExp(`.*${searchText}.*`,'i')}}
+        if(req.body.type!=="0"){
+          searchObject['type']=req.body.type
+        }
+        ProductDetail.find(searchObject)
+        .limit(5)
         .then((products) => {
           console.log(products)
             let suggestionObject={}

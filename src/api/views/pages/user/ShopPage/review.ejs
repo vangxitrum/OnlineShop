@@ -2,11 +2,11 @@
     <div class="empty_cotainer">empty</div>
     <% } %> 
   <% reviews.forEach(function(item){ -%>
-<div class="product_info_inner border-light border-bottom">
+<div class="product_info_inner ">
     <div class="product_demo name-box">
-        <strong><%= item.name %></strong>
+        <h4><%= item.name %></h4>
     </div>
-    <div class="product_ratting mb-10 ">
+    <div class="product_ratting">
         <ul>
             <% let i=0 %>
             <% while( i < item.rate){ %>
@@ -14,9 +14,12 @@
             <li><a href=""><i class="fa fa-star"></i></a></li>
             <% }  %>
         </ul>
-        <p><%= item.review %></p>
-        <p><%= moment(item.date).format('DD-MMM-YYYY') %></p>
+        
     </div>
-   
+    <small><%= moment(item.date).format('DD-MMM-YYYY') %></small>
+    <p class="review-text"><%= item.review %></p>
+    
 </div>
+<hr class="solid">
 <% }) -%>
+

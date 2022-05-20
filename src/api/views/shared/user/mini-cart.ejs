@@ -1,3 +1,4 @@
+<%if(cartList){%>
 <a><i class="fa fa-shopping-basket"></i><%= cartList.length %> item(s)</a>
 <% console.log(cartList) %> 
 <div class="mini_cart">
@@ -40,3 +41,4 @@
         <a href="/cart">View Cart</a>
     </div>
 </div>
+<% } %>

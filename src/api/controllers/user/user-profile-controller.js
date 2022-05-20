@@ -98,7 +98,7 @@ class ShopCategoryController {
                 req.user.wishlist.push(req.body.wantProduct)
                 modifyObject['wishlist'] = req.user.wishlist
             } else {
-                res.end(Shared.jsonResponse(200, 'The Product has been added to your wishlist.'))
+                res.end(Shared.jsonResponse(300, 'The Product has been added to your wishlist.'))
                 return;
             }
 

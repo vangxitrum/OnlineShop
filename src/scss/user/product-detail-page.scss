@@ -148,7 +148,7 @@
 }
 
 .product_info_inner .product_ratting {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .product_info_inner .product_ratting p {
@@ -482,7 +482,7 @@
     scrollbar-color: #FF8800 #F5F5F5;
   }
   .product_demo{
-    margin-left: 4px;
+    margin-left: 0px;
   }
 
 
@@ -695,9 +695,7 @@
 
 
 .name-box{
-  margin-bottom: 3px;
   font-size: large;
-  padding: 3px;
 }
 
   // review  star
@@ -759,4 +757,18 @@
   height: 50px;
   font-size: large;
   color: #F5AB35;
+}
+
+.product_info_inner{
+  flex-direction: column;
+}
+.review-text{
+  color: $black_color;
+  margin-top: 2.5px;
+
+}
+
+hr.solid {
+  border-top: 1px solid $gray_color;
+  margin-right: 1.5rem;
 }
