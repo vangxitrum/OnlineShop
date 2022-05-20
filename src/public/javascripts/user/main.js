@@ -853,6 +853,8 @@
 })(jQuery);	
 
 
+$(document).ready(() =>{
+    $(".loader-wrapper").css('display', 'none');
+})
 
 
-console.log(document.cookie)

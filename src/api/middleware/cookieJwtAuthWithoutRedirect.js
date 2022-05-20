@@ -14,7 +14,7 @@ exports.cookieJwtAuthWithoutRedirect = async (req,res,next) => {
             const payload = jwt.verify(token, JWT_CODE);
             const user = await User.findById(payload.sub)
             if (!user){
-                return loginController.show;
+                return res.redirect('/login')
             }
             req.user = user;
             req.auth = true;

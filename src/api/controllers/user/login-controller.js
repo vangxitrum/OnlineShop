@@ -22,7 +22,6 @@ transporter.verify((error, success) =>{
   if (error){
     console.log(error)
   } else{
-    console.log("success")
   }
 })
 const bcrypt = require('bcryptjs')

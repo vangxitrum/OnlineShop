@@ -3,9 +3,10 @@ const Photo = require('../../models/user/photo')
 const Cart = require('../../models/user/cart')
 class HomePageController {
   show(req, res, next) {
+    console.log(req.user._id)
     Promise.all([ ProductDetail.find({}),Photo.find({}),Cart.find({customerID:req.user._id})])
     .then((result)=>{
-      console.log(result[2])
+      console.log("check")
       res.render('pages/user/index.ejs', {
         products:result[0], photos:result[1], auth: req.auth, pageIndex: 0,pageName: "homePage",user :req.user,cartList:result[2]
       })
