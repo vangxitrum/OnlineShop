@@ -77,13 +77,14 @@ class LoginController{
     
     show(req,res,next){
       var type;
-      
+      console.log(req.query.currentUrl)
       if (req.flash("messageFailure").length > 0){
         console.log(req.flash("messageFailure").length);
         type = 0;
       }
       else{
-        type = 1;
+        type = -1;
+        res.cookie('redirectUrl', req.query.currentUrl);
       }
       res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage", type: type});
     }
@@ -93,15 +94,23 @@ class LoginController{
     }
 
     async signIn(req,res,next){
-      console.log(req.flash('messageSuccess'));
-      const token = encodedToken(req.user._id)
-      res.cookie('token', token, {
-        httpOnly: true,
-        sameSite: true,
-        signed: true,
-        secure: true
-      });
-      return res.redirect('/');
+      console.log(req.user.verified);
+      if (req.user.verified){
+        console.log(req.flash('messageSuccess'));
+        const token = encodedToken(req.user._id)
+        res.cookie('token', token, {
+          httpOnly: true,
+          sameSite: true,
+          signed: true,
+          secure: true
+        });
+        console.log()
+        return res.redirect(req.cookies.redirectUrl);
+      }
+      else{
+        res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage", type: 3});
+      }
+      
     }
 
     async signUp(req,res,next){
@@ -109,20 +118,16 @@ class LoginController{
         const {username,password,email} = req.body
         const foundUser = await User.findOne({email})
         if (foundUser){
-            return res.status(403).json({
-                message: "Duplicate email"
-            })
+            return res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage", type: 2});
         }
         const newUser = new User({username,password,email})
         newUser
         .save()
         .then((result)=>{
           sendVerificationEmail(result,res);
-          res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage", type: 3});
+          res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage", type: 1});
         }
-        ).catch(() =>{
-          res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage", type: 0});
-        })
+        )
         
     }
 
@@ -178,7 +183,6 @@ class LoginController{
                     UserVerification
                       .deleteOne({userID})
                       .then(()=>{
-                        
                         res.render('pages/user/AccountPage/verify.ejs', {
                           pageIndex: -1,pageName: "homePage", verify: true
                         })

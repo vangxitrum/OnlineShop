@@ -36,7 +36,12 @@
                                </ul>
                                <% } else{ %>
                                    <ul> 
-                                          <li class="top_links"><a href="/login">Login/Register</i></a>
+                                    <li class="top_links">
+                                        <form action="/login" method="get" class = "login-form">
+                                            <input type="hidden" class="current-url" name="currentUrl">
+                                            <input type="button" class="login-btn" value="Login/Register">
+                                        </form>
+                                   </li>
                                    </ul>
                                <% } %>
                         </div> 
@@ -140,7 +145,12 @@
                                </ul>
                                <% } else{ %>
                                    <ul> 
-                                          <li class="top_links"><a href="/login">Login/Register</i></a>
+                                        <li class="top_links">
+                                            <form action="/login" method="get" class = "login-form">
+                                                <input type="hidden" class="current-url" name="currentUrl">
+                                                <input type="button" class="login-btn" value="Login/Register">
+                                            </form>
+                                       </li>
                                    </ul>
                                <% } %>
                         </div>   

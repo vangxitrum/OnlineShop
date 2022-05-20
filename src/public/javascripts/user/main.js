@@ -854,7 +854,15 @@
 
 
 $(document).ready(() =>{
-    $(".loader-wrapper").css('display', 'none');
+    $(".loader-wrapper").fadeOut("slow");
 })
 
 
+var loginForm = $(".login-form");
+var loginButton = $(".login-btn");
+var currentUrl = $(".current-url");
+
+loginButton.on("click",()=>{
+    $(".current-url").val(window.location.pathname);
+    loginForm.submit();
+})

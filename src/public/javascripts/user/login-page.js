@@ -10,8 +10,7 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 $(window).on("load",function(){
-  $(".loader-wrapper").fadeOut("slow");
-  setTimeout(function(){
+ setTimeout(function(){
       $('.message').addClass("show");
       $('.message').removeClass("hide");
       $('.message').addClass("showAlert");
