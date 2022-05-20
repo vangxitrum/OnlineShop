@@ -9,3 +9,15 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
+$(window).on("load",function(){
+ setTimeout(function(){
+      $('.message').addClass("show");
+      $('.message').removeClass("hide");
+      $('.message').addClass("showAlert");
+  },1000);
+  
+  setTimeout(function(){
+    $('.message').removeClass("show");
+    $('.message').addClass("hide");
+  },3000);
+})

@@ -10,7 +10,7 @@ class HomePageController {
  
     Promise.all([ ProductDetail.find({}),Photo.find({}),Cart.find(miniCartQuery)])
     .then((result)=>{
-      console.log(result[2])
+      console.log("check")
       res.render('pages/user/index.ejs', {
         products:result[0], photos:result[1], auth: req.auth, pageIndex: 0,pageName: "homePage",user :req.user,cartList:result[2]
       })

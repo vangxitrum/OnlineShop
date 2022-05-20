@@ -11,7 +11,7 @@ exports.cookieJwtAuth = async (req,res,next) => {
             return res.redirect('/login')
         }
         req.user = user;
-        req.auth = true;
+        req.auth = true;  
         next();
     }
     catch(err){

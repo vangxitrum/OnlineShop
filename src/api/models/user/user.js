@@ -11,7 +11,8 @@ const User = new Schema(
         ,
         name:{
            type: String,
-           default: null
+           default: null,
+          
         },
         birthday:{
             type:Date,
@@ -27,6 +28,7 @@ const User = new Schema(
         },
         username:{
             type:String,
+            unique: true
         },
         password:{
             type:String,
@@ -63,8 +65,11 @@ const User = new Schema(
         imageID:{
             type:String,
             default: null
+        },
+        verified: {
+            type: Boolean,
+            default: false
         }
-
     }
 )
 

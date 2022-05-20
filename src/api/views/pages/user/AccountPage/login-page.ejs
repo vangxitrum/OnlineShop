@@ -97,6 +97,47 @@
       </div>
     </div>
   </div>
+
+  <% if(type == 0){ %>
+    <div id="alert_message">
+      <div>
+        <div class="message fail hide">
+            <span class="fas fa-circle-xmark"></span>
+            <span class="msg">Failed!!! Invalid email and/ or password.</span>
+        </div> 
+      </div>
+    </div>
+   <% } else if(type == 1){ %>
+    <div id="alert_message">
+      <div>
+        <div class="message success hide">
+            <span class="fas .fa-circle-check"></span>
+            <span class="msg">Sign up successfully.</span>
+            <span class="msg">Please verify your account before log in.</span>
+        </div> 
+      </div>
+    </div>
+   <% } else if(type == 2){ %>
+    <div id="alert_message">
+      <div>
+        <div class="message fail hide">
+            <span class="fas fa-circle-xmark"></span>
+            <span class="msg">Duplicated Email / Username.</span>
+        </div> 
+      </div>
+    </div>
+    <% } else if(type == 3){ %>
+      <div id="alert_message">
+        <div>
+          <div class="message fail hide">
+              <span class="fas fa-circle-xmark"></span>
+              <span class="msg">Please verify your account before log in.</span>
+          </div> 
+        </div>
+      </div>
+     <% } %>
+  
+  
   <%- contentFor("end") %>
   <script src="/public/javascripts/user/login-page.js"></script>
 

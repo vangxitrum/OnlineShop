@@ -5932,3 +5932,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   padding: 3%;
   height: 250px;
   overflow-y: scroll; }
+
+.login-btn {
+  border: none;
+  background-color: transparent;
+  color: white; }
+  .login-btn:hover {
+    color: #ff6a28; }

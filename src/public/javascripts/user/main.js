@@ -852,20 +852,17 @@
     
 })(jQuery);	
 
-$(window).on("load",function(){
+
+$(document).ready(() =>{
     $(".loader-wrapper").fadeOut("slow");
-        setTimeout(function(){
-            $('.message').addClass("show");
-            $('.message').removeClass("hide");
-            $('.message').addClass("showAlert");
-        },2000);
-        
-        setTimeout(function(){
-        $('.message').removeClass("show");
-        $('.message').addClass("hide");
-        },4000);
 })
 
 
+var loginForm = $(".login-form");
+var loginButton = $(".login-btn");
+var currentUrl = $(".current-url");
 
-console.log(document.cookie)
+loginButton.on("click",()=>{
+    $(".current-url").val(window.location.pathname);
+    loginForm.submit();
+})
