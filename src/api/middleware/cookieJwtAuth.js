@@ -10,8 +10,13 @@ exports.cookieJwtAuth = async (req,res,next) => {
         if (!user){
             return res.redirect('/login')
         }
-        req.user = user;
-        req.auth = true;
+        if (user[0].verify){
+            req.user = user;
+            req.auth = true;
+        }
+        else{
+            return res.redirect('/login')
+        }
         next();
     }
     catch(err){
