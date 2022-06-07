@@ -1,4 +1,9 @@
 <div class="table-container">
+  <%- include('../../../../shared/user/function.ejs') %>
+
+  <% if(orderList.length==0){ %>
+    <button class="more-btn">You have not any order yet !!!</button>
+    <% } else { %>
   <table class="data-table">
     <thead>
       <tr>
@@ -10,9 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <% if(orderList.length==0){ %>
-        <button class="more-btn">Load more</button>
-        <% } %>
+
           <% orderList.forEach(function(order) { %>
             <tr>
               <td id="orderDate">
@@ -22,12 +25,13 @@
                 <%= order._id %>
               </td>
               <td id="orderSum">
-                <%= order.price %>
+                <%= formatPrice(order.price)  %>
               </td>
               <td id="orderStatus">Shipping</td>
-              <td><a href="/userprofile/order-detail">detail</a></td>
+              <td><a href="<%= `/userprofile/order-detail/?orderID=${order._id}` %>">detail</a></td>
             </tr>
             <%})%>
     </tbody>
   </table>
+  <% } %> 
 </div>

@@ -2,6 +2,8 @@
   <h2 class="tag_title">Wishlist</h2>
   <p class="tag_explaint">Your favorite items</p>
   <hr class="solid">
+  <%- include('../../../../shared/user/function.ejs') %>
+
   <div class="table-container">
     <div class="table_desc">
       <div class="cart_page table-responsive">
@@ -23,7 +25,7 @@
                 <td class="product_remove" data-id="<%= wishItem.productid %>"><a><i class="fa-solid fa-trash-can"></i></a></td>
                 <td class="product_thumb"><a href="#"><img src="<%= wishItem.image%>" alt=""></a></td>
                 <td class="product_name"><a href="#"><%= wishItem.name %></a></td>
-                <td class="product-price"><%= wishItem.price %></td>
+                <td class="product-price"><%=  formatPrice(wishItem.price) %></td>
                 <td class="product_total"><%= wishItem.discount==="0" ? 'NO SALE' : wishItem.discount+"%" %></td>
               </tr>
               <% } -%>
@@ -38,11 +40,12 @@
     <div class="pagination">
       <ul id="wishlish-pagination">
         <% if(currentPage>user.wishlist.length/4) { %>
-          <% currentPage = user.wishlist.length/4%> 
+
+          <% currentPage =Math.round(user.wishlist.length/4)%> 
           <% } %> 
         <% for( let j=0;j< user.wishlist.length/4;j++ ) { %>
          <% if(currentPage==j+1){ %>
-            <li class="current"  ><%= j+1%></li>
+            <li class="current"><%= j+1%></li>
          <% } else { %>
           <li><a class="pagination_button" data-index="<%= j+1%>" ><%= j+1%></a></li>
           <% } %>
@@ -50,5 +53,6 @@
       </ul>
     </div>
   </div>
+
 </div>
 <script> var _currentPage = parseInt('<%= currentPage %>');</script>

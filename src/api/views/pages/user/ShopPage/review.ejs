@@ -1,7 +1,8 @@
-<%  if(reviews.length==0){ %>
-    <div class="empty_cotainer">There are no reviews on this product</div>
-    <% } %> 
+<% let totalRate=0 %> 
+
+   
   <% reviews.forEach(function(item){ -%>
+    <% totalRate += item.rate%> 
 <div class="product_info_inner ">
     <div class="product_demo name-box">
         <h4><%= item.name %></h4>
@@ -22,4 +23,20 @@
 </div>
 <hr class="solid">
 <% }) -%>
+<script>
+    let rateAmount= +"<%=reviews.length %>"
+    let sum= +"<%=totalRate %>"
+    let rate= sum/rateAmount
+    let htmlProductRating="<ul>"
+    for(let i=0; i < rate; i++){
+        htmlProductRating+=`<li><a ><i class="fa fa-star"></i></a></li>`
+    }
+    htmlProductRating+=`<li class="review"><a> ${rateAmount}  </a></li>
+        <li class="review"><a id="write-review"> Write a review </a></li>
+    </ul>`
+  
+    const collection = document.getElementsByClassName("product_ratting");
+collection[0].innerHTML = htmlProductRating;
+</script>
+
 

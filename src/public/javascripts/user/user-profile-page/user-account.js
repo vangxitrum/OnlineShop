@@ -11,11 +11,23 @@ function readURL(input) {
 }
 
 $("#imageUpload").change(function () {
-    alert('modify image')
+    $('.message_container').html(createAlertHtml(3,"Change avarta"))
+    alertSettimer()
     readURL(this)
 });
 
-$('#save_profile').on('click', function () {
+
+
+Validator({
+    form: '#profile-form', // id của cái form cần validate
+    errorSelector: '.form-message', // tên class để hiện cái lỗi
+    rules: [
+        Validator.isRequire('#name_input', '* Please enter your name'),
+        Validator.isRequire('#phone_input', '* Please enter your phone'),
+        Validator.isRequire('#cmnd_input', '* Please enter your citizenID'),
+        Validator.isNumber('#phone_input', '* Phone number must contain only numbers')
+    ],
+    onSubmit: function() {
     let bg = $('#imagePreview').css('background-image')
     bg = bg.replace('url(', '').replace(')', '').replace(/\"/gi, "");
     modifyObject = {}
@@ -35,16 +47,21 @@ $('#save_profile').on('click', function () {
         modifyObject['gender'] = $('#gender_input').val()
     }
     if (JSON.stringify(modifyObject) == "{}") {
-        alert("Nothing Has Changed")
+        $('.message_container').html(createAlertHtml(1,"Nothing Has Changed"))
+        alertSettimer()
         return
     }
-    modifyObject['_id'] = "625a7df9f2aa2e293954e727"
     $.post('/userprofile', modifyObject, function (data, status) {
         let msg = data
+       
         if (!data.includes('div')) {
-            alert(msg)
+            let dataObject= JSON.parse(data)
+            $('.message_container').html(createAlertHtml(3,dataObject.msg))
+            alertSettimer()
+            
         } else {
             $('#list-profile').html(data)
         }
+    }) 
+      }
     })
-})

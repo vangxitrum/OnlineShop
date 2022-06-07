@@ -1,4 +1,9 @@
-    <div class="account-info-container">
+<%- include('../../../../shared/user/function.ejs') %> 
+   <% let totalOrderPrice =0 %>
+   <% orderList.forEach(function(order){
+     totalOrderPrice+=order.price
+   }) %>  
+   <div class="account-info-container">
       <h2 class = "tag_title">General</h2>
     <ul class = "inform-list">
       <li class = "inform-item">
@@ -15,11 +20,17 @@
       </li>
       <li class = "inform-item">
         <p>Custumer Tie</p>
-        <p class = "content">Gold</p>
+        <% let customerTie= "Brozen" %> 
+        <% switch(true){  
+          case totalOrderPrice>100000000: customerTie = "Platinum "; break; 
+          case totalOrderPrice>10000000 : customerTie = "Gold"; break; 
+          case totalOrderPrice>1000000: customerTie = "Silver"; break; 
+          } %> 
+        <p class = "content"><%= customerTie %> </p>
       </li>
       <li class = "inform-item">
         <p class = "tag">Đã tích lũy</p>
-        <p class = "content">10.000.000VND</p>
+        <p class = "content"><%=formatPrice(totalOrderPrice) %></p>
       </li>
       <li class = "inform-item">
         <p class = "tag">Joint Date</p>
@@ -43,29 +54,37 @@
     <hr class="solid">
     <h2 class = "tag_title">Personal</h2>
     <div class = "modified-inform-container">
-      <div>
-        <div class = "input-container">
-          <input type="text" class = "form-input" id="name_input" placeholder=" " value="<%= user.name%>" data-initial="<%= user.name%>">
-          <label for = "name" class = "form-label">Name</label>
+      <form class="profile-container"  id="profile-form" >
+        <div>
+          <div class = "input-container">
+            <input type="text" class = "form-input" id="name_input" placeholder=" " value="<%= user.name%>" data-initial="<%= user.name%>">
+            <label for = "name" class = "form-label">Name</label>
+            <span class="form-message validator-message" ></span>
+          </div>
+          <div class = "input-container">
+            <input type="text" class = "form-input"  id="phone_input" placeholder=" " value="<%= user.phone%>" data-initial="<%= user.phone%>">
+            <label for = "name" class = "form-label">Phone number</label>
+            <span class="form-message validator-message" ></span>
+
+          </div>
+          <div class = "input-container">
+            <input type="text" class = "form-input" id="cmnd_input" placeholder=" " value="<%= user.citizenID%>" data-initial="<%= user.citizenID%>">
+            <label for = "name" class = "form-label">CMND</label>
+            <span class="form-message validator-message" ></span>
+
+          </div>
+          <div class = "input-container">
+            <select name="sex" id="gender_input" class = "form-input" data-initial="<%= user.gender %>">
+              <option value="" >Other</option>
+              <option value="true" <%= user.gender==true?"selected":"" %>  >Male</option>
+              <option value="false"<%= user.gender==false?"selected":"" %> >Female</option>
+            </select>
+            <label for = "name" class = "select-label">Sex</label>
+          </div>
+          <button class ="btn btn-primary" type="submit" id="save_profile">Save</button>
         </div>
-        <div class = "input-container">
-          <input type="text" class = "form-input"  id="phone_input" placeholder=" " value="<%= user.phone%>" data-initial="<%= user.phone%>">
-          <label for = "name" class = "form-label">Phone number</label>
-        </div>
-        <div class = "input-container">
-          <input type="text" class = "form-input" id="cmnd_input" placeholder=" " value="<%= user.citizenID%>" data-initial="<%= user.citizenID%>">
-          <label for = "name" class = "form-label">CMND</label>
-        </div>
-        <div class = "input-container">
-          <select name="sex" id="gender_input" class = "form-input" data-initial="<%= user.gender %>">
-            <option value="" >Other</option>
-            <option value="true" <%= user.gender==true?"selected":"" %>  >Male</option>
-            <option value="false"<%= user.gender==false?"selected":"" %> >Female</option>
-          </select>
-          <label for = "name" class = "select-label">Sex</label>
-        </div>
-        <button class ="btn btn-primary" id="save_profile">Save</button>
-      </div>
+      </form>
+      
     </div>
     </div>
 

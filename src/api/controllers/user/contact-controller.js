@@ -16,18 +16,19 @@ let transporter = nodemailer.createTransport({
     }
   })
 
+const ProductDetail = require('../../models/user/productDetail')
 class ContactController{
     show(req,res,next){
         let miniCartQuery = { customerID: "undifineUser" }
         if (req.user) {
             miniCartQuery.customerID = req.user._id;
         }
-        Cart.find(miniCartQuery).then(result=>{
-            res.render('pages/user/InfoPage/contact-page.ejs',{auth:req.auth, pageIndex: 0,pageName: "contactPage",cartList:result});
-
-
+        Promise.all([ Cart.find(miniCartQuery),ProductDetail.find({})])
+        .then(results=>{
+            res.render('pages/user/InfoPage/contact-page.ejs', { auth: req.auth, pageIndex: 0, pageName: "aboutPage",cartList:results[0],allProducts:results[1] });
 
         })
+       
     }
 
     sendMail(req,res,next){

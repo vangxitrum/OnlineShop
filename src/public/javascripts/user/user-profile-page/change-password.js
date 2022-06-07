@@ -17,11 +17,22 @@ Validator({
             type: "PUT", 
             data: { currentPassword: currentPassword, newPassword: newpassword },
             success: function(data) {
-             alert(data)
+                let dataObject =JSON.parse(data)
+                if(dataObject.status===200){
+                    $('.message_container').html(createAlertHtml(3,dataObject.msg))
+                    alertSettimer()
+                } else{
+                    $('.message_container').html(createAlertHtml(1,dataObject.msg))
+                    alertSettimer()
+                }
+                $('#new-password').val("");
+                $('#re-password').val("");
+                $('#current-password').val("")
             },
             error: function() {
             }
         });
+     
 
       }
     })
@@ -31,6 +42,7 @@ function ajaxCallToReassignPassword(){
     var newpassword= $('#new-password').val();
     var newpasswordConfirm= $('#re-password').val();
     alert(`current password: ${currentPassword} new password: ${newpassword} confirmation: ${newpasswordConfirm}`);
+    $('#current-password').html("")
 }
 function check() {
         $("#current-password-error").html($('#password-temp').text())

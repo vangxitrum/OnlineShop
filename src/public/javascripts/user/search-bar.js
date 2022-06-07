@@ -19,7 +19,6 @@ $(document).ready(function () {
         let typeIndex = $(this).attr('data-index')
         if (typeIndex) {
             searchObject[type] = typeIndex
-            alert(typeIndex)
 
         }
         if (searchString != "") {

@@ -19,7 +19,9 @@ const { cookieJwtAuth } = require('../middleware/cookieJwtAuth')
 const { cookieJwtAuthWithoutRedirect } = require('../middleware/cookieJwtAuthWithoutRedirect')
 const searchController = require('../controllers/user/search-controller')
 const orderDetailController = require('../controllers/user/order-detail-controller')
-const order = require('../models/user/order')
+const zalopaymentController = require('../controllers/user/zalo-payment')
+
+
 require('../middleware/passport')
 router.use((req, res, next) => {
     // changing layout for my admin panel
@@ -29,6 +31,9 @@ router.use((req, res, next) => {
     next();
 });
 //index router
+
+router.post('/zalopayemt',expressLayout,cookieJwtAuth,zalopaymentController.payment )
+
 router.get('/shopcategory/:page', expressLayout,cookieJwtAuthWithoutRedirect, ShopCategoryController.show)
 router.get('/shopcategory', expressLayout,cookieJwtAuthWithoutRedirect, ShopCategoryController.show)
 router.post('/shopcategory/:page', expressLayout,cookieJwtAuthWithoutRedirect, ShopCategoryController.showPagination)
@@ -90,6 +95,7 @@ router.get('/policy&term',expressLayout,(req,res,next) =>{
     res.render('pages/user/InfoPage/policy-page.ejs',{auth:false, pageIndex: 0,pageName: "policyPage"});
 })
 router.get('/return-policy',expressLayout,(req,res,next) =>{
+  
     res.render('pages/user/InfoPage/return-policy-page.ejs',{auth:false, pageIndex: 0,pageName: "policyPage"});
 })
 //router.get('/secret',expressLayout,passport.authenticate('jwt',{session: false}),loginController.secret)

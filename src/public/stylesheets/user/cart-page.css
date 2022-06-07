@@ -2741,3 +2741,37 @@ span:not(.name-wrapper) {
   font-size: 11px;
   margin-left: 1rem;
   color: #26BC4E; }
+
+.empty-cart {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: white;
+  font-size: 28px;
+  font-weight: 500;
+  color: #ff6a28;
+  margin: 1rem auto;
+  padding: 1rem; }
+
+.order-item-image {
+  width: 275px;
+  height: 275px; }
+
+.order-item-quantity {
+  color: #747474;
+  font-size: 18px;
+  font-weight: 600; }
+
+.order-item-total {
+  color: #747474;
+  font-size: 18px;
+  font-weight: 600; }
+
+.warning-text {
+  color: #ff6a28 !important; }
+
+.erro-text {
+  color: rgba(209, 101, 101, 0.884) !important; }
+
+.success-text {
+  color: #26BC4E !important; }

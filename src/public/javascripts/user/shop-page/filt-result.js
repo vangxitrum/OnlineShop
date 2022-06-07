@@ -1,6 +1,5 @@
 
 function refreshResultFilt(current, pages, perPage, count){
-    alert("nothing");
     current= +current;
     pages= +pages;
     perPage= +perPage

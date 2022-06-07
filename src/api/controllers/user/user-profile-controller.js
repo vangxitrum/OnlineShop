@@ -3,6 +3,8 @@ const Cart = require('../../models/user/cart')
 const Order = require('../../models/user/order')
 const Shared = require('../../controllers/user/_shared')
 const fetch = require('node-fetch');
+const ProductDetail = require('../../models/user/productDetail')
+
 const Cloudinary = require('../../../../util/cloudinary')
 
 const moment = require('moment');
@@ -11,10 +13,10 @@ class ShopCategoryController {
     show(req, res, next) {
         console.log(req.user)
         if (req.user) {
-            Promise.all([fetch('https://provinces.open-api.vn/api/?depth=3'),Cart.find({customerID:req.user._id}),Order.find({customerID:req.user._id})]).then(async result => {
+            Promise.all([fetch('https://provinces.open-api.vn/api/?depth=3'),Cart.find({customerID:req.user._id}),Order.find({customerID:req.user._id}),ProductDetail.find({})]).then(async result => {
                 let provincesRes = await result[0].json()
                 let provincesJSON = JSON.stringify(provincesRes)
-                res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: req.auth, pageIndex: 1, user: req.user, provinces: provincesRes, moment: moment, provincesJSON, cartList:result[1],orderList:result[2] });
+                res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: req.auth, pageIndex: 1, user: req.user, provinces: provincesRes, moment: moment, provincesJSON, cartList:result[1],orderList:result[2],allProducts:result[3] });
             })
         }
         else {
@@ -50,9 +52,9 @@ class ShopCategoryController {
     }
     showWishLish(req, res, next) {
         console.log('AJAX wishlist')
-        let currentPage = req.body.currentPage || 1
+        let currentPage = + req.body.currentPage || 1
         let queryObject = {}
-        console.log(`my usre${req.user}`)
+        console.log(typeof currentPage)
         if (req.user) {
             User.findOne({ _id: req.user._id })
                 .then(user => {
@@ -61,7 +63,7 @@ class ShopCategoryController {
                         return
                     }
                     console.log(`user: ${user}`)
-                    res.render("pages/user/AccountPage/partial/user-wishlist.ejs", { layout: false, user, currentPage })
+                    res.render("pages/user/AccountPage/partial/user-wishlist.ejs", { layout: false, user,currentPage  })
                 })
 
         } else {
@@ -83,6 +85,9 @@ class ShopCategoryController {
         if (req.body.gender) modifyObject['gender'] = req.body.gender
         if (req.body.deliveryAddress) {
             modifyObject['deliveryAddress'] = req.body.deliveryAddress
+        }
+        if (req.body.deliveryAddress=="EMPTY") {
+            modifyObject['deliveryAddress'] = []
         }
         if (req.body.wantProduct) {
             let wantProductJSON = JSON.stringify(req.body.wantProduct)
@@ -113,7 +118,7 @@ class ShopCategoryController {
             try {
                 var fileStr = req.body.avarta
                 var uploadRes = await Cloudinary.uploader.upload(fileStr, { folder: 'UserAvatar' })
-                // Cloudinary.uploader.destroy(req.user.imageID)
+                 Cloudinary.uploader.destroy(req.user.imageID)
                 if (uploadRes.url) {
                     modifyObject['avatar'] = uploadRes.url
                     modifyObject['imageID'] = uploadRes.public_id

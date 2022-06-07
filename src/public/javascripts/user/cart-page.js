@@ -1,6 +1,32 @@
-
+var indexAddress=0
 const quantityInput = document.querySelectorAll(".input_quantity")
 let discountCode = ""
+function setAddressDelivery( isSet){
+    if(deliveryAddress){
+        $('#delivery_name').html(`Name: ${deliveryAddress[indexAddress].address}`)
+        $('#delivery_phone').html(`<span>Address:</span>${deliveryAddress[indexAddress].phone}`)
+        $('#delivery_address').html(`<span>Phone number:</span> ${deliveryAddress[indexAddress].address}, ${deliveryAddress[indexAddress].ward}, ${deliveryAddress[indexAddress].district}, ${deliveryAddress[indexAddress].province}.`)
+       
+    }
+
+    if(isSet){
+        let index=0
+        deliveryAddress.forEach(function(delivery){
+            if(delivery.default==='true'){
+                indexAddress=index
+                $('#delivery_name').html(`Name: ${delivery.address}`)
+                $('#delivery_phone').html(`<span>Address:</span>${delivery.phone}`)
+                $('#delivery_address').html(`<span>Phone number:</span> ${delivery.address}, ${delivery.ward}, ${delivery.district}, ${delivery.province}.`)
+            }
+            index++
+            
+        })
+       
+    }
+   
+  
+}
+setAddressDelivery(true)
 loadCartTotal()
 $('.remove-product').on('click', function () {
     $(`#item${$(this).attr('data-id')}`).remove()
@@ -52,7 +78,15 @@ $('#update-button').on('click', function () {
         //   dataType:JSON,
         data: { products: cartArray },
         success: function (data, result) {
-            alert(data)
+            let dataObject = JSON.parse(data)
+            if(dataObject.status === 200) {
+                $('.message_container').html(createAlertHtml(3, dataObject.msg))
+                alertSettimer()
+            } else{
+                $('.message_container').html(createAlertHtml(0, dataObject.msg))
+                alertSettimer()
+            }
+        
         }
     });
     reFetchCartList()
@@ -66,7 +100,14 @@ $('#coupon-button').on('click', function () {
     if (code) {
         $.post(`/cart/${code}`, {},
             function (data, status) {
-                alert(data)
+                dataObject= JSON.parse(data)
+                if(dataObject.status === 200) {
+                    $('.message_container').html(createAlertHtml(3, dataObject.msg))
+                    alertSettimer()
+                } else{
+                    $('.message_container').html(createAlertHtml(0, dataObject.msg))
+                    alertSettimer()
+                }
                 let coupon = JSON.parse(data).dataObject
                 let price = parseInt($('#cart-total').attr('data-price'))
                 let discount = 0
@@ -74,7 +115,9 @@ $('#coupon-button').on('click', function () {
                 expire = Date.parse(coupon.expire)
                 current = Date.now()
                 if (expire < current || startday > current) {
-                    alert("Your coupon is expired")
+                    $('.message_container').html(createAlertHtml(0, "Your coupon is expired!"))
+                    alertSettimer()
+                   
                     return
                 }
 
@@ -93,22 +136,53 @@ $('#coupon-button').on('click', function () {
             });
     } else {
         discountCode = ""
-        alert("Is empty")
+        $('.message_container').html(createAlertHtml(1, "Please fill the coupon box!"))
+        alertSettimer()
     }
 
 })
 $('#place_order_btn').on('click', function () {
+    let paymethod = 2
+    if ($('#flexRadioDefault1').prop('checked')) {
+        paymethod = 1
+    }
     let orderObject = {}
     orderObject['price'] = parseInt($('#price-total').attr('data-price'))
     orderObject['code'] = discountCode
+    orderObject['paymethod'] = paymethod
+    orderObject['address'] = deliveryAddress[indexAddress]
     discountCode = ""
     $.ajax({
         url: '/order',
-        type: 'PUT',
+        type: 'put',
         data: orderObject,
         success: function (data, result) {
             reFetchCartList()
-            alert(data)
+            let ObjectOrderPayment = JSON.parse(data)
+            if (ObjectOrderPayment.orderUrl) {
+                $('.message_container').html(createAlertHtml(3, ObjectOrderPayment.msg))
+                alertSettimer()
+                window.open(ObjectOrderPayment.orderUrl)
+            } else {
+                if (ObjectOrderPayment.status === 300) {
+                    $('.message_container').html(createAlertHtml(1, ObjectOrderPayment.msg))
+                    alertSettimer()
+                }else if(ObjectOrderPayment.status === 200) {
+                    $('.cart-button').remove()
+                    $('#place_order_btn').remove()
+                    $('.message_container').html(createAlertHtml(3, ObjectOrderPayment.msg))
+                    alertSettimer()
+                } else {
+                    $('.message_container').html(createAlertHtml(0, ObjectOrderPayment.msg | "Can not place your order. Please try again!"))
+                    alertSettimer()
+                }
+            }
+
         }
     });
+})
+$('.modify-address').on('click', function () {
+    indexAddress= parseInt($(this).attr('data-index'))
+    setAddressDelivery(false)
+
 })

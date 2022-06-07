@@ -24,6 +24,7 @@
 <div class="shopping_cart_area">
     <div class="container">  
         <div > 
+            <div id ="cart_table">
             <div class="row">
                 <div class="col-12">
                     <div class="table_desc">
@@ -39,18 +40,20 @@
                                         <th class="product_total">Total</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody >
                                     <%- include('partial/cart-container.ejs',{items:cartList}) %> 
-                                    </tr>
                                 </tbody>
                             </table>   
                         </div>  
+                        <% if(cartList.length > 0) { %> 
                         <div class="cart_submit">
-                            <button id="update-button">update cart</button>
-                        </div>      
+                            <button id="update-button" class="cart-button">update cart</button>
+                        </div>    
+                        <% } %>   
                     </div>
                 </div>
             </div>
+        </div>
             <div class="coupon_area">
                 <div class="coupon_code">
                     <h3><i class="fa-solid fa-location-dot"></i> Choose your address</h3>
@@ -58,13 +61,13 @@
                         
                         <div class = "info-container">
                           <span class = "name-wrapper">
-                            <h5 class = "user-name">Name: Trần Quang Tuấn</h5>
+                            <h5 class = "user-name" id="delivery_name">Name: Empty</h5>
                           </span>
-                          <p class="user-info"><span>Address:</span> 670/2 TNV, Tp.Thu Duc, Ho Chi Minh</p>
-                          <p class="user-info"><span>Phone number:</span> (+84) 0823 *** ***</p>
+                          <p class="user-info" id="delivery_address"><span>Address:</span> Empty</p>
+                          <p class="user-info" id="delivery_phone"><span>Phone number:</span> Empty</p>
                         </div>
                         <div class="cart_submit">
-                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter">CHANGE</button>
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="cart-button">CHANGE</button>
                         </div>
                       </div>    
                 </div>
@@ -79,14 +82,9 @@
                             <img class = "icon cod" src="public/assets/img/payment/COD.png" alt="#"> COD
                         </label>
                     </div>
+                
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            <img class = "icon" src="public/assets/img/payment/momo.png" alt="#"> Payment throw MOMO
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
                         <label class="form-check-label" for="flexRadioDefault3">
                             <img class = "icon" src="public/assets/img/payment/zalopay.png" alt="#"> Payment throw Zalo Pay
                         </label>
@@ -102,7 +100,7 @@
                             <div class="coupon_inner">   
                                 <p>Enter your coupon code if you have one.</p>                                
                                 <input placeholder="Coupon code" id="code-input" type="text">
-                                <button id="coupon-button">Apply coupon</button>
+                                <button id="coupon-button" class ="cart-button">Apply coupon</button>
                             </div>    
                         </div>
                     </div>
@@ -123,7 +121,7 @@
                                    <p>Total</p>
                                    <p class="cart_amount" id="price-total" data-price="0">0</p>
                                </div>
-                               <div class="checkout_btn" id="place_order_btn">
+                               <div class="checkout_btn cart-button" id="place_order_btn">
                                    <a>Place order</a>
                                </div>
                             </div>
@@ -147,50 +145,44 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="address-item-container ">
-                <div class="info-container">
-                  <span class="name-wrapper">
-                    <h5 class="user-name">
-                      vuong123
-                    </h5>
-                    
-                  </span>
-                  <p class="user-info"><span>Address:</span>
-                    213123123, Tỉnh Bắc Ninh, Huyện Yên Phong, Xã Đông Thọ 
-                  </p>
-                  <p class="user-info"><span>Phone number:</span>
-                    123123123
-                  </p>
-                </div>
-                <button class="delete-btn btn btn-danger open-delete-modal" data-index="0" data-bs-toggle="modal" data-bs-target="#deleteAddressModal"><i class="fa-solid fa-trash"></i></button>
-                <button class="modified-btn btn btn-primary " data-index="0  " data-default="false" data-bs-toggle="modal" data-bs-target="#modifiedAddressModal"><i class="fa-solid fa-pen"></i></button>
-              </div>
-              <div class="address-item-container ">
-                <div class="info-container">
-                  <span class="name-wrapper">
-                    <h5 class="user-name">
-                      vuong123
-                    </h5>
-                    
-                  </span>
-                  <p class="user-info"><span>Address:</span>
-                    213123123, Tỉnh Bắc Ninh, Huyện Yên Phong, Xã Đông Thọ 
-                  </p>
-                  <p class="user-info"><span>Phone number:</span>
-                    123123123
-                  </p>
-                </div>
-                <button class="delete-btn btn btn-danger open-delete-modal" data-index="0" data-bs-toggle="modal" data-bs-target="#deleteAddressModal"><i class="fa-solid fa-trash"></i></button>
-                <button class="modified-btn btn btn-primary " data-index="0  " data-default="false" data-bs-toggle="modal" data-bs-target="#modifiedAddressModal"><i class="fa-solid fa-pen"></i></button>
-              </div>
+            <% if(userAddress.length==0){ %>
+                <span>Add your new address in profile page !!!</span>
+          <%  } else {%>
+            <% let i=0 %> 
+            <% userAddress.forEach(function(address){ %> 
+                <div class="address-item-container ">
+                    <div class="info-container">
+                      <span class="name-wrapper">
+                        <h5 class="user-name">
+                            <% address.name %> 
+                        </h5>
+                        
+                      </span>
+                      <p class="user-info"><span>Address:</span>
+                        <%= `${address.address}, ${address.ward}, ${address.district}, ${address.province}.` %>
+                      </p>
+                      <p class="user-info"><span>Phone number:</span>
+                        <% address.phone %> 
+                      </p>
+                    </div>
+                    <button class="modified-btn btn btn-primary modify-address" data-index="<%= i %>" data-default="false" data-bs-toggle="modal" data-bs-target="#modifiedAddressModal"><i class="fa-solid fa-pen"></i></button>
+                  </div>
+                  <% i++ -%> 
+        <% }) %> 
+                <% } %> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <% if(userAddress.length!=0){ %>
+            <button type="button" class="btn btn-primary cart-button">Save changes</button>
+      <%  } %>
+        
         </div>
       </div>
     </div>
   </div>
+  <div class="message_container"></div>
 <%- contentFor("end") %> 
+<script>let deliveryAddress= JSON.parse(`<%- JSON.stringify(userAddress)%>`);</script>
 <script src="/public/javascripts/user/function.js"></script>
 <script src="/public/javascripts/user/cart-page.js"></script>

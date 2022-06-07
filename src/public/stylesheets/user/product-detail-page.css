@@ -1969,3 +1969,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 hr.solid {
   border-top: 1px solid #999;
   margin-right: 1.5rem; }
+
+.empty-review {
+  width: 100%;
+  text-align: center;
+  color: #999;
+  font-weight: 500;
+  font-size: xx-large; }

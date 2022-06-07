@@ -5,15 +5,15 @@ const ObjectId = mongoose.Types.ObjectId;
 const Shared = require('../user/_shared')
 const Cart = require('../../models/user/cart')
 const productQuantity = require('../../models/user/productQuantity');
+const ProductDetail = require('../../models/user/productDetail')
 const { deleteMany } = require('../../models/user/coupon');
 
 class CartPageController {
     show(req, res, next) {
-        console.log(` my user${req.user._id}`)
-        Cart.find({ customerID: ObjectId(req.user._id) })
-            .then(items => {
-                console.log(items)
-                res.render('pages/user/CartPage/cart.ejs', { cartList: items, pageIndex: 0, pageName: "cartPage", auth: req.auth });
+        console.log(` my user${req.user}`)
+        Promise.all([ProductDetail.find({}), Cart.find({ customerID: ObjectId(req.user._id) })])
+        .then(result => {
+                res.render('pages/user/CartPage/cart.ejs', { cartList: result[1], pageIndex: 0, pageName: "cartPage", auth: req.auth, userAddress: req.user.deliveryAddress,allProducts:result[0] });
             })
     }
 
@@ -98,7 +98,7 @@ class CartPageController {
                 });
                 console.log(`cartList:${cartList}`)
                 Cart.insertMany(cartList).then(result => {
-                    
+
                     res.end(Shared.jsonResponse(200, "Update Successfully"))
                     return
                 })
