@@ -46,19 +46,20 @@
                            <% } %>
                     </div> 
                     <div class="search_bar">
-                        <form action="#">
+                        <form>
                             <select class="select_option" name="select" id="categori">
                                 <option selected value="1">All Categories</option>
-                                <option  value="2">Accessories</option>
-                                <option  value="3">Bridge</option>
-                                <option  value="4">Hub</option>
-                                <option  value="5">Repeater</option>
-                                <option  value="6">Switch</option>
-                                <option  value="7">Video Games</option>
-                                <option  value="8">PlayStation 3</option>
-                                <option  value="9">PlayStation 4</option>
-                                <option  value="10">Xbox 360</option>
-                                <option  value="11">Xbox One</option>
+                                <% let tempArray1=[]%>
+                                <% let indexType1=0%>
+                               <% allProducts.forEach(function(product){ -%>
+                            <%  if(!tempArray1.includes(product.type)){  -%>
+                                 <%   tempArray1.push(product.type) -%>
+                                 <%   indexType1++  -%> 
+                                 <option  value="<%= indexType1 %>"><%= product.type %> </option>
+
+                             <%  } -%>
+
+                             <%  }) -%> 
                             </select>
                             <input placeholder="Search entire store here..." type="text" class="search-input">
                            

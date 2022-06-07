@@ -97,7 +97,8 @@ class ShopCategoryController {
                 }
             let countProduct= ProductDetail.find(queryObject)
             let loadedPhotos= Photo.find()
-            Promise.all([loadedPagination,countProduct,loadedPhotos,Cart.find(miniCartQuery)])
+            let allProducts=ProductDetail.find({})
+            Promise.all([loadedPagination,countProduct,loadedPhotos,Cart.find(miniCartQuery),allProducts])
             .then(result => {
                 res.render('pages/user/ShopPage/shop-category.ejs', {
                                                 products:result[0], // sản phẩm trên một page
@@ -114,7 +115,8 @@ class ShopCategoryController {
                                                 color,
                                                 sort,
                                                 paramObject: req.query,
-                                                cartList:result[3]
+                                                cartList:result[3],
+                                                allProducts:result[4],
                                             });
             })
         }

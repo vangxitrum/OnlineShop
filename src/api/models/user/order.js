@@ -10,7 +10,8 @@ const Order = new Schema(
         price:{type:Number ,required: true},
         items:{type:Array,required:true},
         address:{type:Object,required: true},
-        paymethot:{type:Object,required: true},
+        paymethod:{type:Object,required: true},
+        payment:{type:Object},
         status:Object        
     }
 )

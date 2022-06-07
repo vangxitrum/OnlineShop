@@ -267,11 +267,13 @@
         </div>
       </div>
     </div>
+    <div class="message_container"></div>
     <!-- Address modal  end -->
     <%- contentFor("end") %>
     <script> src="/public/shared"</script>
       <script> const provincesString = `<%- provincesJSON %>` </script>
       <script> var deliveryAddressJSON = `<%- JSON.stringify(user.deliveryAddress) %>`  </script>
+    
       <script src="/public/validator/validator.js"></script>
       <script src="/public/javascripts/user/user-profile-page/change-password.js"></script>
       <script src="/public/javascripts/user/user-profile-page/delivery-address.js"></script>

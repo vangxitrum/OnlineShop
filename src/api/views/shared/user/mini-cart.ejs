@@ -2,8 +2,10 @@
 <a><i class="fa fa-shopping-basket"></i><%= cartList.length %> item(s)</a>
 <% console.log(cartList) %> 
 <div class="mini_cart">
+    <% let total=0 %>
+    <% if(cartList.length>0){ %> 
     <div class="scrollbar-warning mini-cart-product-container">
-        <% let total=0 %>
+           
             <% cartList.forEach(function(item) { %>
                 <% total +=(item.quantity*item.price) -%>
                     <div class="cart_item ">
@@ -23,7 +25,11 @@
                         </div>
                     </div>
                     <% })%>
+
     </div>
+    <% } else { %> 
+       <img src="public/assets/img/cart/empty-cart.png" alt="">
+        <% } %> 
     <div class="cart__table">
         <table>
             <tbody>

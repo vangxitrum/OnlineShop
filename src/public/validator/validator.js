@@ -127,7 +127,7 @@ Validator.isNumber = function (selector, errorMessage) {
         test: function (value) {
             var regex = /^[0-9]+$/;
             
-            return regex.test(value) ? undefined : 'Trường này chỉ nhập số từ 0 - 9'
+            return regex.test(value) ? undefined : errorMessage||'Trường này chỉ nhập số từ 0 - 9'
         },
     }
 }

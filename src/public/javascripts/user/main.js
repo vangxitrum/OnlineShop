@@ -866,3 +866,49 @@ loginButton.on("click",()=>{
     $(".current-url").val(window.location.pathname);
     loginForm.submit();
 })
+// -----------------------------------
+function createAlertHtml(type,msg){
+    let alert_message
+    if(type == 1){
+       alert_message= ` <div id="alert_message">
+        <div>
+            <div class="message alert hide">
+                <span class="fas fa-exclamation-circle"></span>
+                <span class="msg">${msg}</span>
+            </div> 
+        </div>
+    </div>`
+    }else if(type==0){
+        alert_message= `<div id="alert_message">
+        <div>
+            <div class="message fail hide">
+                <span class="fas fa-circle-xmark"></span>
+                <span class="msg">${msg}</span>
+            </div> 
+        </div>
+    </div>`
+    } else{
+        alert_message= `<div id="alert_message">
+        <div>
+            <div class="message success hide">
+                <span class="fas fa-circle-check"></span>
+                <span class="msg">${msg}</span>
+            </div> 
+        </div>
+    </div>`
+    }
+    return alert_message
+
+}
+function alertSettimer(){
+    setTimeout(function(){
+        $('.message').addClass("show");
+        $('.message').removeClass("hide");
+        $('.message').addClass("showAlert");
+    },200);
+    
+    setTimeout(function(){
+      $('.message').removeClass("show");
+      $('.message').addClass("hide");
+    },2000);
+}

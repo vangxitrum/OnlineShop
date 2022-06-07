@@ -165,7 +165,8 @@ $('.add_modify_button').on('click', function () {
         deliveryObject = getModifiedDeleveryObject()
     }
     if (Object.keys(deliveryObject).length != 7) {
-        alert("Not Enought Infomation")
+        $('.message_container').html(createAlertHtml(1,"Not Enought Infomation"))
+        alertSettimer()
         return
     }
     if (deliveryObject.default==true)
@@ -174,7 +175,8 @@ $('.add_modify_button').on('click', function () {
         })
 
     if(checkDeliveryHasExisted(deliveryObject,index)) {
-        alert("Delivery Address has already been registered ")
+        $('.message_container').html(createAlertHtml(1,"Delivery Address has already been registered"))
+        alertSettimer()
         return
     }
 
@@ -185,7 +187,10 @@ $('.add_modify_button').on('click', function () {
     }
     $.post('/userprofile', { _id: "625a7df9f2aa2e293954e727", deliveryAddress: deliveryAddressArray }, function (view) {
         $('#address-area').html(view)
+        $('.message_container').html(createAlertHtml(2,"Successfully registered address"))
+        alertSettimer()
         $('#addAddressModal').modal('hide')
+        $('#modifiedAddressModal').modal('hide')
     })
 })
 
@@ -193,8 +198,18 @@ $('#access-delete-button').on('click', function () {
     var removeIndex = parseInt($(this).attr('data-index'))
     if (removeIndex == -1) return
     deliveryAddressArray.splice(removeIndex, 1)
-    $.post('/userprofile', { _id: "625a7df9f2aa2e293954e727", deliveryAddress: deliveryAddressArray }, function (view) {
+    if(deliveryAddressArray.length==0){
+        $.post('/userprofile', { deliveryAddress: "EMPTY" }, function (view) {
+            $('#address-area').html(view)
+            $('.message_container').html(createAlertHtml(1,"Your has not registered delivery Address"))
+            alertSettimer()
+        })
+        return
+    }
+    $.post('/userprofile', {  deliveryAddress: deliveryAddressArray }, function (view) {
         $('#address-area').html(view)
+        $('.message_container').html(createAlertHtml(2,"Successfully remove address"))
+        alertSettimer()
     })
 })
 

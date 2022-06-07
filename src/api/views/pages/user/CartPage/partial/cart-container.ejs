@@ -1,6 +1,7 @@
 <% include ('../../../../shared/user/function.ejs') %>
 <% let i=0%> 
-<% console.log(items) %>
+
+<%if(items.length>0){%>
 <% items.forEach(function(item){ -%>
 <tr id="item<%= i %>" >
     <td class="product_remove"><a  ><i class="fa-solid fa-trash-can remove-product"
@@ -21,3 +22,9 @@
  </tr>
  <% i++%>
  <% } )%>
+<%} else {%>
+    <tr >
+        <td colspan="6" rowspan="2" class="empty-cart"> Go to shop category to add !!!</td>
+    </tr>
+   
+    <% } %> 

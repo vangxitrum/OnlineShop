@@ -62,15 +62,24 @@
                                 <h1 id="product-name" data-name="<%= product[0].name %>">
                                     <%= product[0].name %>
                                 </h1>
-                                <div class=" product_ratting">
+                                <div class="product_ratting">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li class="review"><a href="#"> 1 review </a></li>
-                                        <li class="review"><a href="#"> Write a review </a></li>
+                                        <%  let rate= 0 %>
+                                        <% reviews.forEach( (review) => { 
+                                            rate+= review.rate
+                                        })
+                                        if(reviews.length==0) { rate=0
+                                        } else{
+                                            rate= rate/reviews.length
+                                        }
+                                        %> 
+                                          <% let j=0 %>
+                                          <% while( j < rate){ %>
+                                              <% j++ -%>
+                                          <li><a href=""><i class="fa fa-star"></i></a></li>
+                                          <% }  %>
+                                        <li class="review"><a href="#" > <%= reviews.length %>  </a></li>
+                                        <li class="review"><a id="write-review"> Write a review </a></li>
                                     </ul>
                                 </div>
                                 <div class="product_price" data-price="<%= calPrice(product[0].price,product[0].discount) %> ">
@@ -180,10 +189,14 @@
 
                                 
                                 <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                    <%  if(reviews.length==0){ %>
+                                       <div class="empty-review">Nobody Reviewed !!</div>
+                                      
+                                        <% } else{%>
                                     <div id="reviewscontainer"  class="scrollbar-warning product_review_container" >
                                         <%- include('review.ejs',{reviews: reviews,moment:moment}); %>
                                     </div>
-                                           
+                                           <% } %> 
                                   
                                     <div class="product_review_form">
                                         <div >

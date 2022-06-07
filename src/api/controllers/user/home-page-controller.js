@@ -12,6 +12,7 @@ class HomePageController {
     .then((result)=>{
       console.log("check")
       res.render('pages/user/index.ejs', {
+        allProducts:result[0],
         products:result[0], photos:result[1], auth: req.auth, pageIndex: 0,pageName: "homePage",user :req.user,cartList:result[2]
       })
     })

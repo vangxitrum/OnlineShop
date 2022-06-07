@@ -1,138 +1,195 @@
-<%- contentFor("head") %> 
+<%- contentFor("head") %>
 
-<% include ('../../../shared/user/function') %> 
-<link rel="stylesheet" href="/public/stylesheets/user/cart-page.css">
-<%- contentFor("body") %> 
+    <% include ('../../../shared/user/function') %>
+        <link rel="stylesheet" href="/public/stylesheets/user/cart-page.css">
+        <%- contentFor("body") %>
 
-<div class="breadcrumbs_area other_bread">
-    <div class="container">   
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb_content">
-                    <ul>
-                        <li><a href="/">home</a></li>
-                        <li><a href="/userprofile">userprofile</a></li>
-                        <li>/</li>
-                        <li>order-detail</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>         
-</div>
-<!--breadcrumbs area end-->
-
-<!-- shopping cart area start -->
-<div class="shopping_cart_area">
-    <div class="container">  
-        <div > 
-            <div class="row">
-                <div class="col-12">
-                    <div class="table_desc">
-                        <div class="cart_page table-responsive">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th class="product_remove">Delete</th>
-                                        <th class="product_thumb">Image</th>
-                                        <th class="product_name">Product</th>
-                                        <th class="product-price">Price</th>
-                                        <th class="product_quantity">Quantity</th>
-                                        <th class="product_total">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   
-                                    <tr>
-                                       <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="/assets/img/s-product/product.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                        <td class="product-price">£65.00</td>
-                                        <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£130.00</td>
-                                    </tr>
-                                   
-                                    <tr>
-                                       <td class="product_remove"><a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="/assets/img/s-product/product3.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag elit</a></td>
-                                        <td class="product-price">£80.00</td>
-                                        <td class="product_quantity"><input min="1" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£160.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>   
-                        </div>     
-                    </div>
-                </div>
-            </div>
-            <div class="coupon_area">
-                <div class="coupon_code">
-                    <h3><i class="fa-solid fa-location-dot"></i> Order address</h3>
-                    <div class="address-item-container">
-                        
-                        <div class = "info-container">
-                          <span class = "name-wrapper">
-                            <h5 class = "user-name">Name: Trần Quang Tuấn</h5>
-                          </span>
-                          <p class="user-info"><span>Address:</span> 670/2 TNV, Tp.Thu Duc, Ho Chi Minh</p>
-                          <p class="user-info"><span>Phone number:</span> (+84) 0823 *** ***</p>
-                        </div>
-                      </div>    
-                </div>
-            </div>
-
-            <div class="coupon_area">
-                <div class="coupon_code">
-                    <h3><i class="fa-solid fa-credit-card"></i> Order payment method</h3>
-                    <div class="form-check">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            <img class = "icon cod" src="/assets/img/payment/COD.png" alt="#"> COD
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            <img class = "icon" src="/assets/img/payment/momo.png" alt="#"> Payment throw MOMO
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label" for="flexRadioDefault3">
-                            <img class = "icon" src="/assets/img/payment/zalopay.png" alt="#"> Payment throw Zalo Pay
-                        </label>
-                    </div>   
-                </div>
-            </div>
-            <!--coupon code area start-->
-            <div class="coupon_area">
-                <div class="row">
-                   
-                    <div class="col-lg-12 col-md-12">
-                        <div class="coupon_code right">
-                            <h3><i class="fa-solid fa-money-bill"></i> Cart Totals</h3>
-                            <div class="coupon_inner">
-                               <div class="cart_subtotal">
-                                   <p>Subtotal</p>
-                                   <p class="cart_amount" id="cart-total" data-price="0">£215.00</p>
-                               </div>
-                               <div class="cart_subtotal ">
-                                   <p>Discount</p>
-                                   <p class="cart_amount text-danger" id="discount"> <%= formatPrice(0) %></p>
-                               </div>
-                             
-                               <div class="cart_subtotal">
-                                   <p>Total</p>
-                                   <p class="cart_amount" id="price-total" data-price="0">£215.00</p>
-                               </div>
+            <div class="breadcrumbs_area other_bread">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="breadcrumb_content">
+                                <ul>
+                                    <li><a href="/">home</a></li>
+                                    <li><a href="/userprofile">userprofile</a></li>
+                                    <li>/</li>
+                                    <li>order-detail</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--coupon code area end-->
-            
-        </div> 
-    </div>     
-</div>
-<%- contentFor("end") %> 
-<script src="/public/javascripts/user/function.js"></script>
-<script src="/public/javascripts/user/cart-page.js"></script>
+            <!--breadcrumbs area end-->
+
+            <!-- shopping cart area start -->
+     
+                <div class="shopping_cart_area">
+                    <div class="container">
+                        <div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table_desc">
+                                        <div class="cart_page table-responsive">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="product_thumb">Image</th>
+                                                        <th class="product_name">Product</th>
+                                                        <th class="product-price">Price</th>
+                                                        <th class="product_quantity">Quantity</th>
+                                                        <th class="product_total">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% orderDetail.items.forEach(function(item){ -%>
+                                                        <tr>
+                                                            <td class="product_thumb order-item-image"><a><img src="<%= item.image %> "
+                                                                        alt=""></a>
+                                                            </td>
+                                                            <td class="product_name"><a>
+                                                                    <%= item.name%>
+                                                                </a></td>
+                                                            <td class="product-price">
+                                                                <%= formatPrice(item.price)%>
+                                                            </td>
+                                                            <td class="product_quantity order-item-quantity ">
+                                                                <%= item.quantity %>
+                                                            </td>
+                                                            <td class="order-item-total">
+                                                                <%= formatPrice(item.quantity*item.price) %>
+                                                            </td>
+                                                        </tr>
+                                                        <% } )%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coupon_area">
+                                <div class="coupon_code">
+                                    <h3><i class="fa-solid fa-location-dot"></i> Order address</h3>
+                                    <div class="address-item-container">
+
+                                        <div class="info-container">
+                                            <span class="name-wrapper">
+                                                <h5 class="user-name">Name:<%= orderDetail.address.name %>
+                                                </h5>
+                                            </span>
+                                            <p class="user-info"><span>Address:</span>
+                                                <%=`${orderDetail.address.address}, ${orderDetail.address.ward},
+                                                    ${orderDetail.address.district}, ${orderDetail.address.province}.`
+                                                    %>
+                                            </p>
+                                            <p class="user-info"><span>Phone number:</span>
+                                                <%= orderDetail.address.phone %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="coupon_area">
+                                <div class="coupon_code">
+                                    <h3><i class="fa-solid fa-credit-card"></i> Order payment method</h3>
+                                    <% if( orderDetail.paymethod==='1' ) {%>
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                <img class="icon cod" src="/assets/img/payment/COD.png" alt="#"> COD
+                                            </label>
+                                        </div>
+                                        <% } else{%>
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="flexRadioDefault3">
+                                                    <img class="icon" src="/assets/img/payment/zalopay.png" alt="#">
+                                                    Payment throw Zalo Pay
+                                                </label>
+                                            </div>
+                                            <% } %>
+                                </div>
+                            </div>
+
+
+                            <!-- status -->
+                                     
+                            <div class="coupon_area">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="coupon_code right">
+                                            <h3><i class="fa-solid fa-money-bill"></i>Order Status</h3>
+                                            <div class="coupon_inner">
+                                                <div class="cart_subtotal">
+                                                    <p>Delivery</p>
+                                                    <p class="cart_amount" id="price-total" data-price="0">
+                                                        <%= deliveryStatus %> 
+                                                    </p>
+                                                </div>
+                                                <div class="cart_subtotal">
+                                                    <p>Payment</p>
+                                                    <% console.log(` payment status ${JSON.stringify(paymentStatus) }`) %>
+                                                    <% if(paymentStatus.return_code==3) {%>
+                                                        <p class="cart_amount warning-text" >
+                                                           Waitting
+                                                        </p>
+                                                        <% } else if(paymentStatus.return_code==2) { %>
+                                                            <p class="cart_amount text-danger" >
+                                                             Canceled
+                                                            </p>
+                                                           <%} else{%>
+                                                            <p class="cart_amount success-text" >
+                                                                Done
+                                                               </p>
+                                                            <% } %>   
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--coupon code area end-->
+                            <!--coupon code area start-->
+                                
+                            <div class="coupon_area">
+                                <div class="row">
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="coupon_code right">
+                                            <h3><i class="fa-solid fa-money-bill"></i> Cart Totals</h3>
+                                            <div class="coupon_inner">
+                                                <div class="cart_subtotal">
+                                                    <p>Subtotal</p>
+                                                    <% let subtotal=0%>
+                                                        <% orderDetail.items.forEach(function(item){
+                                                            subtotal+=item.price*item.quantity }) %>
+                                                            <p class="cart_amount" id="cart-total" data-price="0">
+                                                                <%= formatPrice(subtotal) %>
+                                                            </p>
+                                                </div>
+                                                <div class="cart_subtotal ">
+                                                    <p>Discount</p>
+                                                    <p class="cart_amount text-danger" id="discount">
+                                                        <%= formatPrice(subtotal-orderDetail.price) %>
+                                                    </p>
+                                                </div>
+
+                                                <div class="cart_subtotal">
+                                                    <p>Total</p>
+                                                    <p class="cart_amount" id="price-total" data-price="0">
+                                                        <%= formatPrice(orderDetail.price) %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--coupon code area end-->
+
+                        </div>
+                    </div>
+                </div>
+                <%- contentFor("end") %>
+                    <script src="/public/javascripts/user/function.js"></script>
+                    <script src="/public/javascripts/user/cart-page.js"></script>

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://admin:zxcasdqwe123@onlineshop.1nqty.mongodb.net/onlineshop?retryWrites=true&w=majority'
+const url = process.env.MONGODB_LINK
 const connectionParams={
     useNewUrlParser: true,
     useUnifiedTopology: true 
