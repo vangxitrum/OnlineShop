@@ -262,17 +262,22 @@
     padding: 20px 30px 22px;
   }
 
-  .product_info_button ul li a {
-    display: block;
-    padding: 10px 30px;
-    float: left;
-    text-transform: uppercase;
-    font-size: 16px;
-    background: #ddd;
-    color: #242424;
-    font-weight: 600;
-    margin-right: 10px;
-  }
+  .product_info_button ul li{
+    width: 20%;
+
+    a {
+      display: block;
+      padding: 10px 30px;
+      float: left;
+      text-transform: uppercase;
+      font-size: 16px;
+      background: #ddd;
+      color: #242424;
+      font-weight: 600;
+      margin-right: 10px;
+      width: 100%;
+    }
+  } 
   
   .product_info_button ul li a.active {
     background: #ff6a28;
@@ -600,13 +605,18 @@
   
   @media only screen and (max-width: 767px) {
     .product_info_button ul {
-      flex-direction: column;
+      flex-direction: row;
     }
   }
   @media only screen and (max-width: 767px) {
     .product_info_button ul li {
       margin-bottom: 7px;
+      width: 50%;
+      a{
+        width: 100%;
+      }
     }
+    
   }
   @media only screen and (max-width: 767px) {
     .product_info_button ul li:last-child {
@@ -631,14 +641,33 @@
     .shop_reverse .tab-content .row {
       flex-direction: row;
     }
+    
   }
-
+  @media only screen and (max-width: 1080px){
+    .product_review_form{
+      .rating{
+        transform: translate(-84%) rotateY(180deg);
+      }
+    }
+  }
+  @media only screen and (max-width: 892px){
+    .product_review_form{
+      .rating{
+        transform: translate(-82%) rotateY(180deg);
+      }
+    }
+  }
   @media only screen and (max-width: 767px) {
     .related_product {
       padding-bottom: 47px;
     }
+    .product_review_form{
+      .rating{
+        transform: translate(-64%) rotateY(180deg);
+      }
+    }
   }
-
+  
   @media only screen and (max-width: 479px) {
     .hover_action a {
       width: 38px;
@@ -752,11 +781,10 @@
 }
 //empty span 
 .empty_cotainer{
-  text-align: end;
-  width: 100px;
+  text-align: center;
+  width: 80%;
   height: 50px;
-  font-size: large;
-  color: #F5AB35;
+  font-size: 15px;
 }
 
 .product_info_inner{

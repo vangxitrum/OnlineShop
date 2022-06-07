@@ -482,24 +482,7 @@
     
     
      /*---MailChimp---*/
-    $('#mc-form').ajaxChimp({
-        language: 'en',
-        callback: mailChimpResponse,
-        // ADD YOUR MAILCHIMP URL BELOW HERE!
-        url: 'http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef'
-
-    });
-    function mailChimpResponse(resp) {
-
-        if (resp.result === 'success') {
-            $('.mailchimp-success').addClass('active')
-            $('.mailchimp-success').html('' + resp.msg).fadeIn(900);
-            $('.mailchimp-error').fadeOut(400);
-
-        } else if(resp.result === 'error') {
-            $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-        }  
-    }
+    
     
     /*--
         Magnific Popup
@@ -717,32 +700,6 @@
     
 
     // Newsletter Popup
-    setTimeout(function() {
-        if($.cookie('shownewsletter')==1) $('.newletter-popup').hide();
-        $('#subscribe_pemail').keypress(function(e) {
-            if(e.which == 13) {
-                e.preventDefault();
-                email_subscribepopup();
-            }
-            var name= $(this).val();
-              $('#subscribe_pname').val(name);
-        });
-        $('#subscribe_pemail').change(function() {
-         var name= $(this).val();
-                  $('#subscribe_pname').val(name);
-        });
-        //transition effect
-        if($.cookie("shownewsletter") != 1){
-            $('.newletter-popup').bPopup();
-        }
-        $('#newsletter_popup_dont_show_again').on('change', function(){
-            if($.cookie("shownewsletter") != 1){   
-                $.cookie("shownewsletter",'1')
-            }else{
-                $.cookie("shownewsletter",'0')
-            }
-        }); 
-    }, 2000);
     
     
     /*shop grid activation*/

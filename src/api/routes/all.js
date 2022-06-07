@@ -59,6 +59,7 @@ router.get('/blogcategory',expressLayout,cookieJwtAuthWithoutRedirect, blogCateg
 router.get('/about',expressLayout,cookieJwtAuthWithoutRedirect, aboutController.show)
         
 router.get('/contact',expressLayout,cookieJwtAuthWithoutRedirect, contactController.show)
+router.post('/contact/sendMail',expressLayout,cookieJwtAuthWithoutRedirect, contactController.sendMail)
 
 router.get('/userprofile',expressLayout,cookieJwtAuth, userProfileController.show)
 router.get('/userprofile/order-detail',expressLayout,cookieJwtAuth, orderDetailController.show)
