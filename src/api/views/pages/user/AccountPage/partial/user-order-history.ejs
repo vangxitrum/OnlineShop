@@ -27,7 +27,6 @@
               <td id="orderSum">
                 <%= formatPrice(order.price)  %>
               </td>
-              <td id="orderStatus">Shipping</td>
               <td><a href="<%= `/userprofile/order-detail/?orderID=${order._id}` %>">detail</a></td>
             </tr>
             <%})%>

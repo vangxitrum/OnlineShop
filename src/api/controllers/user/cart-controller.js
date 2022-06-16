@@ -80,7 +80,6 @@ class CartPageController {
             } else {
                 let msg = Shared.jsonResponse(300, 'Coupon is not valid')
                 res.end(msg);
-
             }
         })
             .catch(error => {
