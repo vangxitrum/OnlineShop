@@ -12,7 +12,9 @@ const Order = new Schema(
         address:{type:Object,required: true},
         paymethod:{type:Object,required: true},
         payment:{type:Object},
-        status:Object        
+        customerID:{type:ObjectId,required: true},
+        status:Object,
+
     }
 )
 module.exports=mongoose.model('order',Order,'order')

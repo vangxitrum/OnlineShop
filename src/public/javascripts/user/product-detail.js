@@ -57,7 +57,7 @@ $('#add-review').on("click",function () {
                 productid: productid,
                 rate: rate
             }
-            alert(JSON.stringify(reviewObject))
+         //   alert(JSON.stringify(reviewObject))
             $.post("/productdetail",
                 reviewObject,
                 function (data, status) {
