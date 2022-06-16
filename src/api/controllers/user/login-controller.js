@@ -77,6 +77,7 @@ class LoginController{
     
     show(req,res,next){
       var type;
+      req.query.currentUrl = req.query.currentUrl ? req.query.currentUrl : "home";
       console.log(req.query.currentUrl)
       if (req.flash("messageFailure").length > 0){
         console.log(req.flash("messageFailure").length);
@@ -104,8 +105,11 @@ class LoginController{
           signed: true,
           secure: true
         });
-        console.log()
+       
+          
         return res.redirect(req.cookies.redirectUrl);
+       
+        
       }
       else{
         res.render('pages/user/AccountPage/login-page.ejs',{auth:false, pageIndex: -1,pageName: "loginPage", type: 3});

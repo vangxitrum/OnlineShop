@@ -26,7 +26,7 @@ class BlogCategoryController{
             { auth: req.auth,
                  pageIndex: 0,
                   moment, 
-                 pageName: "aboutPage",
+                 pageName: "blogPage",
                  cartList:results[0],
                  allProducts:results[1],
                  blogs:results[2],

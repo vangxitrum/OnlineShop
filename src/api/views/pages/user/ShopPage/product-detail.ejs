@@ -76,8 +76,8 @@
                                           <% let j=0 %>
                                           <% while( j < rate){ %>
                                               <% j++ -%>
-                                          <li><a href=""><i class="fa fa-star"></i></a></li>
-                                          <% }  %>
+                                          <li><a class = "star"><i class="fa fa-star"></i></a></li>
+                                          <% }  %>  
                                         <li class="review"><a href="#" > <%= reviews.length %>  </a></li>
                                         <li class="review"><a id="write-review"> Write a review </a></li>
                                     </ul>
@@ -189,15 +189,11 @@
 
                                 
                                 <div class="tab-pane fade" id="reviews" role="tabpanel">
-                                    <%  if(reviews.length==0){ %>
-                                       <div class="empty-review">Nobody Reviewed !!</div>
-                                      
-                                        <% } else{%>
-                                    <div id="reviewscontainer"  class="scrollbar-warning product_review_container" >
+                                   
+                                        <div id="reviewscontainer"  class="scrollbar-warning product_review_container" >
                                         <%- include('review.ejs',{reviews: reviews,moment:moment}); %>
-                                    </div>
-                                           <% } %> 
-                                  
+                                        
+                                        </div>
                                     <div class="product_review_form">
                                         <div >
                                            

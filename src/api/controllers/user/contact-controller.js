@@ -25,7 +25,7 @@ class ContactController{
         }
         Promise.all([ Cart.find(miniCartQuery),ProductDetail.find({})])
         .then(results=>{
-            res.render('pages/user/InfoPage/contact-page.ejs', { auth: req.auth, pageIndex: 0, pageName: "aboutPage",cartList:results[0],allProducts:results[1] });
+            res.render('pages/user/InfoPage/contact-page.ejs', { auth: req.auth, pageIndex: 0, pageName: "contactPage",cartList:results[0],allProducts:results[1] });
 
         })
        

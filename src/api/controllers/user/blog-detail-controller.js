@@ -16,12 +16,12 @@ class BlogDetailController{
             res.render('pages/user/BlogPage/blog-detail.ejs',
              { auth: req.auth, 
                 pageIndex: 0, 
-                pageName:"aboutPage",
+                pageName:"blogPage",
                 cartList:results[0],
                 allProducts:results[1],
                 currentBlog:results[2][0],
                 blogs:results[3],
-                moment
+                moment,
              });
         })
        }

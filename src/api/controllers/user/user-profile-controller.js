@@ -14,6 +14,7 @@ class ShopCategoryController {
         console.log(req.user)
         if (req.user) {
             Promise.all([fetch('https://provinces.open-api.vn/api/?depth=3'),Cart.find({customerID:req.user._id}),Order.find({customerID:req.user._id}),ProductDetail.find({})]).then(async result => {
+                console.log(req.user._id)
                 let provincesRes = await result[0].json()
                 let provincesJSON = JSON.stringify(provincesRes)
                 res.render('pages/user/AccountPage/user-profile-page.ejs', { auth: req.auth, pageIndex: 1, user: req.user, provinces: provincesRes, moment: moment, provincesJSON, cartList:result[1],orderList:result[2],allProducts:result[3] });
