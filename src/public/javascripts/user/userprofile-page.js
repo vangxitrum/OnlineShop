@@ -158,6 +158,9 @@ $('#save_profile').on('click', function () {
     }
     modifyObject['_id'] = "625a7df9f2aa2e293954e727"
     $.post('/userprofile', modifyObject, function (data, status) {
+       
+            $('#user-name').text("")
+       
         let msg = data
         if (!data.includes('div')) {
             alert(msg)

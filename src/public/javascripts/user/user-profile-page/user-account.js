@@ -53,9 +53,10 @@ Validator({
     }
     $.post('/userprofile', modifyObject, function (data, status) {
         let msg = data
-       
+        $('#user-name').html(modifyObject['name'])
         if (!data.includes('div')) {
             let dataObject= JSON.parse(data)
+
             $('.message_container').html(createAlertHtml(3,dataObject.msg))
             alertSettimer()
             
