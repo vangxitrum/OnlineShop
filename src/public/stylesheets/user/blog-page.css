@@ -3126,3 +3126,6 @@
 @media only screen and (max-width: 767px) {
   .single_related_posts.column_3 {
     margin-bottom: 0; } }
+
+.tag-hold-on {
+  background-color: #ff6a28; }

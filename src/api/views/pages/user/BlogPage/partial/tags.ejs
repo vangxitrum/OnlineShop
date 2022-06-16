@@ -1,0 +1,16 @@
+<% let tags_list=[] 
+blogs.forEach(function(blog) { 
+    blog.tags.forEach(function(tag) {
+         if (!tags_list.includes(tag)){
+    tags_list.push(tag) 
+        } 
+    }) 
+    }) %>
+    <h3 class="widget_title">Tag Cloud</h3>
+    <ul>
+        <% tags_list.forEach(function(tag) { %>
+            <li>
+                <a class="blog-tag" ><%= tag %></a>
+            </li>
+            <% }) %>
+    </ul>

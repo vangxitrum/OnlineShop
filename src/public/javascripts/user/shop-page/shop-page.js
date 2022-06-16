@@ -82,7 +82,6 @@ $(".pagination_button").on('click', function () {
     let rhef = `/shopcategory/${pageNumber}/?${getParam()}`
     $.post(rhef, {}, function (view) {
         setUrlForCategoryPage(rhef)
-
         setHtmlForProductCategory(view)
     })
 })

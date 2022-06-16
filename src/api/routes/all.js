@@ -57,9 +57,11 @@ router.delete('/cart',expressLayout,cookieJwtAuth, cartController.delete)
 router.post('/order',expressLayout,cookieJwtAuth,orderController.show)
 router.put('/order',expressLayout,cookieJwtAuth,orderController.add)
 
-router.get('/blogdetail',expressLayout,cookieJwtAuthWithoutRedirect, blogDetail.show)
+router.get('/blogdetail/:blog',expressLayout,cookieJwtAuthWithoutRedirect, blogDetail.show)
 
 router.get('/blogcategory',expressLayout,cookieJwtAuthWithoutRedirect, blogCategory.show)
+router.post('/blogcategory',expressLayout,cookieJwtAuthWithoutRedirect, blogCategory.categoryShow)
+
 
 router.get('/about',expressLayout,cookieJwtAuthWithoutRedirect, aboutController.show)
         

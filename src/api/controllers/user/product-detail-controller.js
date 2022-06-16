@@ -3,7 +3,7 @@ const ProductDetail = require('../../models/user/productDetail')
 const ProductQuantity = require('../../models/user/productQuantity')
 const Review = require('../../models/user/review')
 const Cart = require('../../models/user/cart')
-var moment = require('moment');
+const moment = require('moment');
 const user = require('../../models/user/user')
 class ProductDetailController {
   show(req, res, next) {
