@@ -41,11 +41,8 @@
                         <% tempArray= blogs.sort(function(a,b){return a.date- b.date}) %> 
                         <% for (let i=0; i<4 && i<tempArray.length; i++){ %> 
                             <div class="sidebar_post">
-                                <div class="post_img">
-                                    <a href="/blogdetail/<%= tempArray[i]._id %>"><img src="<%= tempArray[i].image %> " alt=""></a>
-                                </div>
                                 <div class="post_text">
-                                    <h3><a href="/blogdetail/<%= tempArray[i]._id %>"><%= tempArray[i].descript %></a></h3>
+                                    <h3><a href="/blogdetail/<%= tempArray[i]._id %>"><%= tempArray[i].title %></a></h3>
                                     <span><%=  moment(tempArray[i].date).format("MMMM Do YYYY")  %> </span>
                                 </div>
                                 

@@ -7,12 +7,14 @@
             <a href="/blogdetail/<%= blog._id %>"><img src="<%= blog.image %> " alt=""></a>
         </div>
         <div class="blog_content">
-            <div class="post_date">
-                <span class="day"> <%= moment(blog.date).format('DD') %></span>
-                <span class="month">/ <%= moment(blog.date).format('MMM') %> </span>
-            </div>
             <h3 class="post_title"><a href="/blogdetail/<%= blog._id %>"><%= blog.title %> </a></h3>
             <p class="post_desc"><%= blog.descript %> </p>
+            <div class="post_date">
+                <span class="month"> <%= moment(blog.date).format('DD') %></span>
+                <span class="month">/ <%= moment(blog.date).format('MMM') %> </span>
+            </div>
+            
+            
             <a class="read_more" href="/blogdetail/<%= blog._id %>">read more</a>
             <div class="post_meta">
                <span>Posted by </span>

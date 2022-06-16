@@ -12,6 +12,7 @@ const Blog = new Schema(
         type:{type:String, required:true},
         image:{type:String, required:true},
         title:{type:String, required:true},
+        descript:{type:String, required:true},
     }
 )
 module.exports=mongoose.model('Blog',Blog,'blog')
